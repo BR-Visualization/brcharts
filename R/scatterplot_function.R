@@ -104,7 +104,7 @@ scatter_plot <- function(df_diff, outcome, legend_position = c(0, 1.05),
     )
   )
 
-  fig11 <- ggplot(dfdiff, aes(x = diff1, y = diff2)) +
+  scatter <- ggplot(dfdiff, aes(x = diff1, y = diff2)) +
     geom_point(color = fig_colors[1], size = 2, shape = 1) +
     geom_point(
       data = meanbfdiff,
@@ -169,5 +169,5 @@ scatter_plot <- function(df_diff, outcome, legend_position = c(0, 1.05),
       color = fig_colors[3], size = 9 * 0.35, vjust = 0,
       angle = 45
     )
-  fig11
+  scatter
 }
