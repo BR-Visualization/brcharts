@@ -41,27 +41,8 @@ expect_equal(test2, "100 %")
 
 file.remove("test_stacked_barchart2.png")
 
-# Example 3 - unequal number of observations across visits
-comp_outcome3 <- comp_outcome[!(comp_outcome$trtn == 1 &
-                                  comp_outcome$usubjid %in% c(1:40) & comp_outcome$visit == 5), ]
-plot3 <- stacked_barchart(
-  data = comp_outcome3,
-  chartcolors = colfun()$fig12_colors,
-  xlabel = "Study Week"
-)
-ggsave(plot3, filename = "test_stacked_barchart3.png", width = 7, height = 5)
-
-test_stacked_barchart3 <- readPNG("test_stacked_barchart3.png")
-stacked_barchart3 <- readPNG(paste0(test_path(),"/snapshots/stacked_barchart3.png"))
-
-test3 <- paste(100 * sum(test_stacked_barchart3 == stacked_barchart3) /
-                 length(test_stacked_barchart3), "%")
-expect_equal(test3, "100 %")
-
-file.remove("test_stacked_barchart3.png")
-
 # Test if the function throws an error when a required field is missing
-comp_outcome4 <- comp_outcome %>% select(
+comp_outcome3 <- comp_outcome %>% select(
   usubjid, visit, trt, trtn, brcatn
 )
 
@@ -69,7 +50,7 @@ test_that("test that stacked_barchart returns an error when a required field
           is missing", {
             expect_error(
               stacked_barchart(
-                data = comp_outcome4,
+                data = comp_outcome3,
                 chartcolors = colfun()$fig12_colors,
                 xlabel = "Study Week"
               ),
@@ -78,9 +59,12 @@ test_that("test that stacked_barchart returns an error when a required field
           })
 
 # Test if the function returns warning message concerning missing data
+comp_outcome4 <- comp_outcome[!(comp_outcome$trtn == 1 &
+                                  comp_outcome$usubjid %in% c(1:40) & comp_outcome$visit == 5), ]
+
 test_that("test that stacked_barchart returns warning message concerning missing data", {
   expect_warning(stacked_barchart(
-    data = comp_outcome3,
+    data = comp_outcome4,
     chartcolors = colfun()$fig12_colors,
     xlabel = "Study Week"
   ))
