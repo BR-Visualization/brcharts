@@ -21,13 +21,11 @@ a ggplot object
 Stacked Bar Chart
 }
 \examples{
-library(testthat)
 plot1 <- stacked_barchart(
   data = comp_outcome,
   chartcolors = colfun()$fig12_colors,
   xlabel = "Study Week"
  )
-ggsave(plot1, filename = paste0(test_path(),"/snapshots/stacked_barchart1.png"), width = 7, height = 5)
 
 # unequal number of subjects across treatments
 comp_outcome2 <- comp_outcome[
@@ -40,7 +38,6 @@ plot2 <- stacked_barchart(
   chartcolors = colfun()$fig12_colors,
   xlabel = "Study Week"
  )
-ggsave(plot2, filename = paste0(test_path(),"/snapshots/stacked_barchart2.png"), width = 7, height = 5)
 
 # unequal number of observations across visits
 comp_outcome3 <- comp_outcome[!(comp_outcome$trtn == 1 &
@@ -50,5 +47,4 @@ plot3 <- stacked_barchart(
   chartcolors = colfun()$fig12_colors,
   xlabel = "Study Week"
  )
-ggsave(plot3, filename = paste0(test_path(),"/snapshots/stacked_barchart3.png"), width = 7, height = 5)
 }
