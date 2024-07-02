@@ -21,7 +21,7 @@ a ggplot object
 Stacked Bar Chart
 }
 \examples{
-plot1 <- stacked_barchart(
+stacked_barchart(
   data = comp_outcome,
   chartcolors = colfun()$fig12_colors,
   xlabel = "Study Week"
@@ -33,7 +33,7 @@ comp_outcome2 <- comp_outcome[
   | (comp_outcome$trtn == 2 & comp_outcome$usubjid \%in\% c(101:160))
   | (comp_outcome$trtn == 3 & comp_outcome$usubjid \%in\% c(201:250))
 ,]
-plot2 <- stacked_barchart(
+stacked_barchart(
   data = comp_outcome2,
   chartcolors = colfun()$fig12_colors,
   xlabel = "Study Week"
@@ -42,7 +42,7 @@ plot2 <- stacked_barchart(
 # unequal number of observations across visits
 comp_outcome3 <- comp_outcome[!(comp_outcome$trtn == 1 &
   comp_outcome$usubjid \%in\% c(1:40) & comp_outcome$visit == 5), ]
-plot3 <- stacked_barchart(
+stacked_barchart(
   data = comp_outcome3,
   chartcolors = colfun()$fig12_colors,
   xlabel = "Study Week"
