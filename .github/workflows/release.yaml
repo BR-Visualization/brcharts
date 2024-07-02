@@ -5,6 +5,16 @@ on:
   push:
     tags:
       - "v*"
+    branches:
+      - "**"
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+      - ready_for_review
+    branches:
+      - "**"
   workflow_call:
     secrets:
       REPO_GITHUB_TOKEN:
