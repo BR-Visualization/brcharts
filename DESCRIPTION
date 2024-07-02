@@ -28,6 +28,7 @@ Imports:
     htmltools,
     magrittr,
     patchwork,
+    png,
     remotes,
     reshape2,
     rlang,
