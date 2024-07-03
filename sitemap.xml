@@ -64,9 +64,6 @@
     <loc>/reference/comorbidities.html</loc>
   </url>
   <url>
-    <loc>/reference/comp_outcome.html</loc>
-  </url>
-  <url>
     <loc>/reference/control_fonts.html</loc>
   </url>
   <url>
@@ -130,7 +127,10 @@
     <loc>/reference/save_mermaid.html</loc>
   </url>
   <url>
-    <loc>/reference/stacked_barchart.html</loc>
+    <loc>/reference/scatter_plot.html</loc>
+  </url>
+  <url>
+    <loc>/reference/scatterplot.html</loc>
   </url>
   <url>
     <loc>/reference/value_tree.html</loc>
