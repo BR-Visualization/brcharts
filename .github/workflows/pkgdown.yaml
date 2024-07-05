@@ -1,10 +1,18 @@
+---
 # Workflow adjusted from usethis::use_pkgdown_github_pages() to also publish pages from PRs in a subfolder
 run-name: ${{ github.actor }} is deploying the webpage.
 on:
   push:
-    branches: [main, master]
+    branches:
+      - '**'
   pull_request:
-    branches: [main, master]
+    types:
+      - opened
+      - synchronize
+      - reopened
+      - ready_for_review
+    branches:
+      - '**'
   release:
     types: [published]
   workflow_dispatch:
