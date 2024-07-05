@@ -10,12 +10,16 @@ Authors@R:
     person(given = "Chen",
            family = "Chen",
            role = c("aut"),
+           comment = c(ORCID = "")),
+    person(given = "Abigail",
+           family = "Mabe",
+           role = c("aut"),
            comment = c(ORCID = "")))
 Description: The goal of brcharts is to create benefit-risk charts in the publication.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.1
+RoxygenNote: 7.3.2
 Imports: 
     colorBlindness,
     DiagrammeR,
