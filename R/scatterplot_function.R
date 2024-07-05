@@ -1,6 +1,6 @@
 #' Create a scatterplot from a given dataframe.
 #'
-#' @param df_diff A dataframe containing two vectors, each of which display the
+#' @param df_diff A dataframe containing two vectors, each of which displays the
 #' difference between incremental probabilities in active and control effects
 #' for a specified outcome.
 #' @param outcome A vector of two strings that describes the two outcomes
