@@ -4,7 +4,7 @@
 \alias{calculate_diff_rates}
 \title{CI for treatment difference in exposure-adjusted rates}
 \usage{
-calculate_diff_rates(rate1, rate2, py1, py2, cl)
+calculate_diff_rates(rate1, rate2, py1, py2, cl = 0.95)
 }
 \arguments{
 \item{rate1}{(\code{numeric})\cr Event or incidence rate (per 100 PYs) in active treatment}

@@ -404,7 +404,7 @@ prepare_br_supplied_ci <- function(df, colname, metric_name, func) {
 
 
 
-prepare_br_calculated_ci <- function(df, colname1, colname2, cl, func) {
+prepare_br_calculated_ci <- function(df, colname1, colname2, cl = 0.95, func) {
   outcome <- sub(".*_", "", deparse(substitute(df)))
   output <- data.frame(
     df$Type,

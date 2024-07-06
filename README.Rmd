@@ -69,6 +69,13 @@ grouped_barchart(
 knitr::include_graphics("inst/img/value_tree.png", error = FALSE)
 ```
 
+## Figure 6 - Dot-Forest Plot
+
+```{r, message = FALSE, echo = FALSE, fig.width = 5, fig.height = 5.3}
+forest_dot_plot(effects_table)
+```
+
+
 ## Figure 7 - Trade-off Plot
 
 ```{r tradeoff_plot, message = FALSE, echo = FALSE, fig.width = 5, fig.height = 5.3}
