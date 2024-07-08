@@ -21,25 +21,11 @@ or \code{Calculated} (calculated within the program).}
 }
 \value{
 data frame for specified type of analysis
-
-data frame for specified type of analysis
 }
 \description{
 Prepare Forest plot data for relative risk
 }
 \examples{
-forest_plot_src <- subset(effects_table, !is.na(Prop1))
-
-forest_plot_data <- prepare_relative_risk_data(
-  forest_plot_src,
-  "Y",
-  "Calculated"
-)
-head(forest_plot_data)
-Forest plot data for relative risk
-
-Prepare Forest plot data for relative risk
-
 forest_plot_src <- subset(brdata, !is.na(Prop1))
 forest_plot_data <- prepare_relative_risk_data(
   forest_plot_src,

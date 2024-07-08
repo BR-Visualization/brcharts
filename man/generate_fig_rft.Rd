@@ -17,24 +17,24 @@ generate_fig_rft(
 )
 }
 \arguments{
-\item{data}{(\code{character})\cr Data for figure}
+\item{data}{(\code{character}) Data for figure}
 
-\item{xlabel}{(\code{character})\cr Label for x-axis}
+\item{xlabel}{(\code{character}) Label for x-axis}
 
-\item{ylabel}{(\code{character})\cr Label for y-axis}
+\item{ylabel}{(\code{character}) Label for y-axis}
 
-\item{fact_subset}{(\code{character})\cr filter {data}}
+\item{fact_subset}{(\code{character}) filter {data}}
 
-\item{type_subset}{(\code{character})\cr Selected subset "Binary" or "Continuous"}
+\item{type_subset}{(\code{character}) Selected subset "Binary" or "Continuous"}
 
 \item{type_scale}{(\code{character}) selected scale display type}
 
-\item{scale_x}{(\code{character})\cr Type of scale for x-axis "Identity" or
+\item{scale_x}{(\code{character}) Type of scale for x-axis "Identity" or
 "log10"}
 
 \item{x_scale_n1_p1}{(\code{character}) fix x-axis scale between -1 and 1}
 
-\item{select_nnx}{(\code{character})\cr show NNT/NNH}
+\item{select_nnx}{(\code{character}) show NNT/NNH}
 }
 \description{
 Create Forest plot

@@ -76,23 +76,4 @@ fplot_data <- prepare_dot_forest_plot_data(
   space_btwn_out_yn  = "N"
 )
 
-dot_plot_src <- subset(brdata, !is.na(Prop1))
-bdin <- subset(dot_plot_src, Factor == "Benefit")
-rdin <- subset(dot_plot_src, Factor == "Risk")
-
-fplot_data <- prepare_dot_forest_plot_data(
-  data = dot_plot_src,
-  drug = unique(dot_plot_src$Trt1),
-  benefit = unique(bdin$Outcome),
-  risk = unique(rdin$Outcome),
-  filters = "Gender",
-  category = c("Female","Male"),
-  type_graph = "Absolute risk",
-  type_risk = "Crude proportions",
-  ci_method = "Calculated"
-)
-
-head(fplot_data$dot_plot_data)
-
-head(fplot_data$forest_plot_data)
 }

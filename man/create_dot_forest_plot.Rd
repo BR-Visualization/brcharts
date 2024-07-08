@@ -37,9 +37,9 @@ create_dot_forest_plot(
 \item{type_risk}{(\code{character}) selected way to display risk outcomes
 (crude proportions, exposure-adjusted rates (per 100 PYs))}
 
-\item{select_nnx}{(\code{character})\cr show NNT/NNH}
+\item{select_nnx}{(\code{character}) show NNT/NNH}
 
-\item{x_scale_fixed_free}{(\code{character})\cr free or fixed x-axis scale}
+\item{x_scale_fixed_free}{(\code{character}) free or fixed x-axis scale}
 
 \item{ci_method}{(\code{character}) selected method to display}
 

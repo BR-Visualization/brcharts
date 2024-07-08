@@ -71,7 +71,7 @@ knitr::include_graphics("inst/img/value_tree.png", error = FALSE)
 
 ## Figure 6 - Dot-Forest Plot
 
-```{r, message = FALSE, echo = FALSE, fig.width = 5, fig.height = 5.3}
+```{r, message = FALSE, echo = FALSE, fig.width = 6, fig.height = 8}
 forest_dot_plot(effects_table)
 ```
 

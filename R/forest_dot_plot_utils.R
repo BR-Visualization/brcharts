@@ -538,28 +538,7 @@ prepare_absolute_risk_data <-
     )
   }
 
-#' Forest plot data for relative risk
-#'
-#' Prepare Forest plot data for relative risk
-#'
-#' @param data (`data.frame`) Effects table
-#' @param change_ref Change reference group ("Y" or "N)
-#' @param ci_method (`character`) confidence interval method,
-#'  either `Supplied` (taken from the effect table)
-#'  or `Calculated` (calculated within the program).
-#' @return data frame for specified type of analysis
-#'
-#' @export
-#'
-#' @examples
-#' forest_plot_src <- subset(effects_table, !is.na(Prop1))
-#'
-#' forest_plot_data <- prepare_relative_risk_data(
-#'   forest_plot_src,
-#'   "Y",
-#'   "Calculated"
-#' )
-#' head(forest_plot_data)
+
 #' Forest plot data for relative risk
 #'
 #' Prepare Forest plot data for relative risk
@@ -1128,25 +1107,6 @@ pre_proc <- function(data, typeval, cod) {
 #'   space_btwn_out_yn  = "N"
 #' )
 #'
-#' dot_plot_src <- subset(brdata, !is.na(Prop1))
-#' bdin <- subset(dot_plot_src, Factor == "Benefit")
-#' rdin <- subset(dot_plot_src, Factor == "Risk")
-#'
-#' fplot_data <- prepare_dot_forest_plot_data(
-#'   data = dot_plot_src,
-#'   drug = unique(dot_plot_src$Trt1),
-#'   benefit = unique(bdin$Outcome),
-#'   risk = unique(rdin$Outcome),
-#'   filters = "Gender",
-#'   category = c("Female","Male"),
-#'   type_graph = "Absolute risk",
-#'   type_risk = "Crude proportions",
-#'   ci_method = "Calculated"
-#' )
-#'
-#' head(fplot_data$dot_plot_data)
-#'
-#' head(fplot_data$forest_plot_data)
 prepare_dot_forest_plot_data <- function(data,
                                          drug,
                                          benefit,
@@ -1546,14 +1506,14 @@ populated_effects_table <- function(data) {
 #'
 #' Create Dot plot
 #'
-#' @param data  (`character`)\cr Data for figure
-#' @param fact_subset  (`character`)\cr filter {data}
-#' @param type_subset  (`character`)\cr Selected subset "Binary" or "Continuous"
+#' @param data  (`character`) Data for figure
+#' @param fact_subset  (`character`) filter {data}
+#' @param type_subset  (`character`) Selected subset "Binary" or "Continuous"
 #' @param type_scale (`character`) selected scale display type
 #' @param x_scale_n1_p1 (`character`) fix x-axis scale between 0 and 1
-#' @param xlabel  (`character`)\cr Label for x-axis
-#' @param ylabel  (`character`)\cr Label for y-axis
-#' @param select_nnx  (`character`)\cr show NNT/NNH
+#' @param xlabel  (`character`) Label for x-axis
+#' @param ylabel  (`character`) Label for y-axis
+#' @param select_nnx  (`character`) show NNT/NNH
 #'
 #' @import ggplot2
 #'
@@ -1579,32 +1539,10 @@ populated_effects_table <- function(data) {
 #' generate_fig_lft(fplot_data$dot_plot_data,
 #'   fact_subset = "Benefit",
 #'   type_subset = "Binary",
-#'   xlabel = "Treatment Response\n\n ",
+#'   xlabel = "Treatment Response",
 #'   select_nnx = "Yes"
 #' )
 #'
-#' dot_plot_src <- subset(effects_table, !is.na(Prop1))
-#' bdin <- subset(dot_plot_src, Factor == "Benefit")
-#' rdin <- subset(dot_plot_src, Factor == "Risk")
-#'
-#' fplot_data <- prepare_dot_forest_plot_data(
-#'   data = dot_plot_src,
-#'   drug = unique(dot_plot_src$Trt1),
-#'   benefit = unique(bdin$Outcome),
-#'   risk = unique(rdin$Outcome),
-#'   filters = "Gender",
-#'   category = c("Female","Male"),
-#'   type_graph = "Absolute risk",
-#'   type_risk = "Crude proportions",
-#'   ci_method = "Calculated"
-#' )
-#'
-#' generate_fig_lft(fplot_data$dot_plot_data,
-#'   fact_subset = "Benefit",
-#'   type_subset = "Binary",
-#'   xlabel = " Treatment Response\n\n ",
-#'   select_nnx = "Yes"
-#' )
 generate_fig_lft <- function(data,
                              fact_subset = "Benefit",
                              type_subset = "Binary",
@@ -1703,16 +1641,16 @@ generate_fig_lft <- function(data,
 #'
 #' Create Forest plot
 #'
-#' @param data  (`character`)\cr Data for figure
-#' @param fact_subset  (`character`)\cr filter {data}
-#' @param type_subset  (`character`)\cr Selected subset "Binary" or "Continuous"
+#' @param data  (`character`) Data for figure
+#' @param fact_subset  (`character`) filter {data}
+#' @param type_subset  (`character`) Selected subset "Binary" or "Continuous"
 #' @param type_scale (`character`) selected scale display type
 #' @param x_scale_n1_p1 (`character`) fix x-axis scale between -1 and 1
-#' @param xlabel  (`character`)\cr Label for x-axis
-#' @param ylabel  (`character`)\cr Label for y-axis
-#' @param scale_x (`character`)\cr Type of scale for x-axis "Identity" or
+#' @param xlabel  (`character`) Label for x-axis
+#' @param ylabel  (`character`) Label for y-axis
+#' @param scale_x (`character`) Type of scale for x-axis "Identity" or
 #' "log10"
-#' @param select_nnx  (`character`)\cr show NNT/NNH
+#' @param select_nnx  (`character`) show NNT/NNH
 #'
 #' @import magrittr dplyr ggplot2
 #'
@@ -1899,8 +1837,8 @@ generate_fig_rft <- function(data,
 #' @param type_risk (`character`) selected way to display risk outcomes
 #' (crude proportions, exposure-adjusted rates (per 100 PYs))
 #' @param type_graph (`character`) selected way to display binary outcomes
-#' @param select_nnx  (`character`)\cr show NNT/NNH
-#' @param x_scale_fixed_free (`character`)\cr free or fixed x-axis scale
+#' @param select_nnx  (`character`) show NNT/NNH
+#' @param x_scale_fixed_free (`character`) free or fixed x-axis scale
 #' @param ci_method (`character`) selected method to display
 #' @param space_btwn_out_yn  (`character`) control spacing between outcomes
 #' confidence intervals

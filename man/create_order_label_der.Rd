@@ -8,8 +8,8 @@ create_order_label_der(
   indata,
   groupvars,
   groupeff,
-  dataout = NULL,
-  space_btwn_out_yn = "Y"
+  space_btwn_out_yn = "Y",
+  dataout = NULL
 )
 }
 \arguments{
@@ -20,6 +20,8 @@ create_order_label_der(
 \item{groupeff}{effects table outcome order}
 
 \item{space_btwn_out_yn}{control spacing between outcomes}
+
+\item{dataout}{(\code{data.frame}) ordered data frame for dot plot}
 }
 \value{
 data frame for specified type of analysis
@@ -39,5 +41,4 @@ dot_plot_data <- create_order_label_der(
 )
 
 head(dot_plot_data)
-
 }

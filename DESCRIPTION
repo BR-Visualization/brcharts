@@ -40,6 +40,8 @@ Imports:
     shiny,
     simsurv,
     ggthemes
+    gtable,
+    grid
 Depends: 
     R (>= 2.10),
     tidyverse

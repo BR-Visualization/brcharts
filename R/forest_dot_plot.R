@@ -1,3 +1,12 @@
+# Function to extract legend from ggplot object
+#' @noRd
+extract_legend <- function(plot) {
+  g <- ggplotGrob(plot)
+  legends <- g$grobs[which(sapply(g$grobs, function(x) x$name) == "guide-box")]
+  legend <- legends[[1]]
+  return(legend)
+}
+
 #' Create a forest dot plot
 #'
 #' This function creates a composite forest dot plot using provided data and parameters.
@@ -52,8 +61,19 @@ forest_dot_plot <- function(effects_table,
   finplot1 <- create_finplot1(dot_forest_plot1)
   finplot2 <- create_finplot2(dot_forest_plot1)
 
-  # Combine plots
-  finplot1 / finplot0 / finplot2 + plot_layout(heights = c(3, 7, 7))
+  # Extract legend from one of the plots
+  legend <- extract_legend(dot_forest_plot1$myplot_lft1 + theme(legend.position = "top"))
+
+  # Add padding above the legend
+  padded_legend <- plot_grid(NULL, legend, ncol = 1, rel_heights = c(0.2, 1))
+
+  # Combine plots with legend at the top
+  plot_grid(
+    padded_legend,
+    finplot1 / finplot0 / finplot2 + plot_layout(heights = c(3, 7, 7)),
+    ncol = 1,
+    rel_heights = c(1, 12)
+  )
 }
 
 #' Create the first (top) part of the forest dot plot
@@ -105,10 +125,10 @@ create_finplot1 <- function(dot_forest_plot) {
       axis.text.x = element_blank(),
       axis.ticks.x = element_blank(),
       axis_line = element_blank(),
-      plot.title = element_text(margin = margin(0, 0, -20, 0)),
-      plot.margin = unit(c(20, 5.5, 0, 5.5), "pt")
+      plot.title = element_text(margin = margin(0, 0, -5, 0)), # Adjust margin here
+      plot.margin = unit(c(5.5, 5.5, 0, 5.5), "pt"),
+      legend.position = "none" # Remove legend from this plot
     ) +
-    guides(colour = guide_legend(title = "Treatment:")) +
     dot_forest_plot$myplot_rgt1 +
     br_charts_theme(
       axis.ticks = element_blank(),

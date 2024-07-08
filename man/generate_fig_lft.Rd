@@ -16,21 +16,21 @@ generate_fig_lft(
 )
 }
 \arguments{
-\item{data}{(\code{character})\cr Data for figure}
+\item{data}{(\code{character}) Data for figure}
 
-\item{fact_subset}{(\code{character})\cr filter {data}}
+\item{fact_subset}{(\code{character}) filter {data}}
 
-\item{type_subset}{(\code{character})\cr Selected subset "Binary" or "Continuous"}
+\item{type_subset}{(\code{character}) Selected subset "Binary" or "Continuous"}
 
 \item{type_scale}{(\code{character}) selected scale display type}
 
 \item{x_scale_n1_p1}{(\code{character}) fix x-axis scale between 0 and 1}
 
-\item{xlabel}{(\code{character})\cr Label for x-axis}
+\item{xlabel}{(\code{character}) Label for x-axis}
 
-\item{ylabel}{(\code{character})\cr Label for y-axis}
+\item{ylabel}{(\code{character}) Label for y-axis}
 
-\item{select_nnx}{(\code{character})\cr show NNT/NNH}
+\item{select_nnx}{(\code{character}) show NNT/NNH}
 }
 \description{
 Create Dot plot
@@ -55,30 +55,8 @@ fplot_data <- prepare_dot_forest_plot_data(
 generate_fig_lft(fplot_data$dot_plot_data,
   fact_subset = "Benefit",
   type_subset = "Binary",
-  xlabel = "Treatment Response\n\n ",
+  xlabel = "Treatment Response",
   select_nnx = "Yes"
 )
 
-dot_plot_src <- subset(effects_table, !is.na(Prop1))
-bdin <- subset(dot_plot_src, Factor == "Benefit")
-rdin <- subset(dot_plot_src, Factor == "Risk")
-
-fplot_data <- prepare_dot_forest_plot_data(
-  data = dot_plot_src,
-  drug = unique(dot_plot_src$Trt1),
-  benefit = unique(bdin$Outcome),
-  risk = unique(rdin$Outcome),
-  filters = "Gender",
-  category = c("Female","Male"),
-  type_graph = "Absolute risk",
-  type_risk = "Crude proportions",
-  ci_method = "Calculated"
-)
-
-generate_fig_lft(fplot_data$dot_plot_data,
-  fact_subset = "Benefit",
-  type_subset = "Binary",
-  xlabel = " Treatment Response\n\n ",
-  select_nnx = "Yes"
-)
 }
