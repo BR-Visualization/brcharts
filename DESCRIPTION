@@ -39,7 +39,7 @@ Imports:
     scales,
     shiny,
     simsurv,
-    ggthemes
+    ggthemes,
     gtable,
     grid
 Depends: 
