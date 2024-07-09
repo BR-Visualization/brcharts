@@ -18,7 +18,7 @@ generate_fig_lft(
 \arguments{
 \item{data}{(\code{character}) Data for figure}
 
-\item{fact_subset}{(\code{character}) filter {data}}
+\item{fact_subset}{(\code{character}) filter data}
 
 \item{type_subset}{(\code{character}) Selected subset "Binary" or "Continuous"}
 

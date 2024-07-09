@@ -23,7 +23,7 @@ generate_fig_rft(
 
 \item{ylabel}{(\code{character}) Label for y-axis}
 
-\item{fact_subset}{(\code{character}) filter {data}}
+\item{fact_subset}{(\code{character}) filter data}
 
 \item{type_subset}{(\code{character}) Selected subset "Binary" or "Continuous"}
 

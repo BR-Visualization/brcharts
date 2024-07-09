@@ -1507,7 +1507,7 @@ populated_effects_table <- function(data) {
 #' Create Dot plot
 #'
 #' @param data  (`character`) Data for figure
-#' @param fact_subset  (`character`) filter {data}
+#' @param fact_subset  (`character`) filter data
 #' @param type_subset  (`character`) Selected subset "Binary" or "Continuous"
 #' @param type_scale (`character`) selected scale display type
 #' @param x_scale_n1_p1 (`character`) fix x-axis scale between 0 and 1
@@ -1642,7 +1642,7 @@ generate_fig_lft <- function(data,
 #' Create Forest plot
 #'
 #' @param data  (`character`) Data for figure
-#' @param fact_subset  (`character`) filter {data}
+#' @param fact_subset  (`character`) filter data
 #' @param type_subset  (`character`) Selected subset "Binary" or "Continuous"
 #' @param type_scale (`character`) selected scale display type
 #' @param x_scale_n1_p1 (`character`) fix x-axis scale between -1 and 1
