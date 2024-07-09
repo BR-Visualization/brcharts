@@ -1340,11 +1340,11 @@ prepare_dot_forest_plot_data <- function(data,
 
   # Create single label for each outcome ------------------------------------
   dot_plot_data <- create_order_label_der(
-    dot_data,
-    c("type", "factor", "outcome"),
-    c("group"),
-    dot_plot_data,
-    space_btwn_out_yn
+    indata = dot_data,
+    groupvars = c("type", "factor", "outcome"),
+    groupeff = c("group"),
+    dataout = dot_plot_data,
+    space_btwn_out_yn = space_btwn_out_yn
   )
 
   dot_plot_data$treatment <- factor(dot_plot_data$treatment,
