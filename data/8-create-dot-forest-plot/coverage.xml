@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE coverage SYSTEM "https://raw.githubusercontent.com/cobertura/cobertura/master/cobertura/src/site/htdocs/xml/coverage-04.dtd">
-<coverage line-rate="0.393264248704663" branch-rate="0" lines-covered="1518" lines-valid="3860" branches-covered="0" branches-valid="0" complexity="0" version="3.6.4" timestamp="2024-07-09 22:52:28.008229">
+<coverage line-rate="0.392755498059508" branch-rate="0" lines-covered="1518" lines-valid="3865" branches-covered="0" branches-valid="0" complexity="0" version="3.6.4" timestamp="2024-07-09 23:00:46.056509">
   <sources>
     <source>/__w/brcharts/brcharts/brcharts</source>
   </sources>
   <packages>
-    <package name="brcharts" line-rate="0.393264248704663" branch-rate="0" complexity="0">
+    <package name="brcharts" line-rate="0.392755498059508" branch-rate="0" complexity="0">
       <classes>
         <class name="check_feature.R" filename="R/check_feature.R" line-rate="0.130434782608696" branch-rate="0" complexity="0">
           <methods>
@@ -4998,15 +4998,15 @@
                 <line number="61" hits="0" branch="false"/>
                 <line number="62" hits="0" branch="false"/>
                 <line number="63" hits="0" branch="false"/>
+                <line number="64" hits="0" branch="false"/>
+                <line number="65" hits="0" branch="false"/>
                 <line number="66" hits="0" branch="false"/>
                 <line number="67" hits="0" branch="false"/>
-                <line number="68" hits="0" branch="false"/>
-                <line number="69" hits="0" branch="false"/>
                 <line number="70" hits="0" branch="false"/>
+                <line number="71" hits="0" branch="false"/>
                 <line number="72" hits="0" branch="false"/>
                 <line number="73" hits="0" branch="false"/>
                 <line number="74" hits="0" branch="false"/>
-                <line number="75" hits="0" branch="false"/>
                 <line number="76" hits="0" branch="false"/>
                 <line number="77" hits="0" branch="false"/>
                 <line number="78" hits="0" branch="false"/>
@@ -5015,12 +5015,17 @@
                 <line number="81" hits="0" branch="false"/>
                 <line number="82" hits="0" branch="false"/>
                 <line number="83" hits="0" branch="false"/>
+                <line number="84" hits="0" branch="false"/>
+                <line number="85" hits="0" branch="false"/>
                 <line number="86" hits="0" branch="false"/>
                 <line number="87" hits="0" branch="false"/>
                 <line number="88" hits="0" branch="false"/>
-                <line number="89" hits="0" branch="false"/>
-                <line number="90" hits="0" branch="false"/>
+                <line number="91" hits="0" branch="false"/>
                 <line number="92" hits="0" branch="false"/>
+                <line number="93" hits="0" branch="false"/>
+                <line number="94" hits="0" branch="false"/>
+                <line number="95" hits="0" branch="false"/>
+                <line number="97" hits="0" branch="false"/>
               </lines>
             </method>
           </methods>
@@ -5052,15 +5057,15 @@
             <line number="61" hits="0" branch="false"/>
             <line number="62" hits="0" branch="false"/>
             <line number="63" hits="0" branch="false"/>
+            <line number="64" hits="0" branch="false"/>
+            <line number="65" hits="0" branch="false"/>
             <line number="66" hits="0" branch="false"/>
             <line number="67" hits="0" branch="false"/>
-            <line number="68" hits="0" branch="false"/>
-            <line number="69" hits="0" branch="false"/>
             <line number="70" hits="0" branch="false"/>
+            <line number="71" hits="0" branch="false"/>
             <line number="72" hits="0" branch="false"/>
             <line number="73" hits="0" branch="false"/>
             <line number="74" hits="0" branch="false"/>
-            <line number="75" hits="0" branch="false"/>
             <line number="76" hits="0" branch="false"/>
             <line number="77" hits="0" branch="false"/>
             <line number="78" hits="0" branch="false"/>
@@ -5069,12 +5074,17 @@
             <line number="81" hits="0" branch="false"/>
             <line number="82" hits="0" branch="false"/>
             <line number="83" hits="0" branch="false"/>
+            <line number="84" hits="0" branch="false"/>
+            <line number="85" hits="0" branch="false"/>
             <line number="86" hits="0" branch="false"/>
             <line number="87" hits="0" branch="false"/>
             <line number="88" hits="0" branch="false"/>
-            <line number="89" hits="0" branch="false"/>
-            <line number="90" hits="0" branch="false"/>
+            <line number="91" hits="0" branch="false"/>
             <line number="92" hits="0" branch="false"/>
+            <line number="93" hits="0" branch="false"/>
+            <line number="94" hits="0" branch="false"/>
+            <line number="95" hits="0" branch="false"/>
+            <line number="97" hits="0" branch="false"/>
           </lines>
         </class>
         <class name="pyramid_chart.R" filename="R/pyramid_chart.R" line-rate="0.986842105263158" branch-rate="0" complexity="0">
