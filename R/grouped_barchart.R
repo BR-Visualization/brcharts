@@ -1,3 +1,10 @@
+if (requireNamespace("testthat", quietly = TRUE)) {
+  # This import will only occur when the testthat package is available
+  library(testthat)
+  library(png)
+}
+
+
 #' Grouped Bar Chart
 #'
 #' @param data `dataframe` input data
