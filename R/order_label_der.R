@@ -54,12 +54,16 @@ create_order_label_der <- function(indata,
     group_by(across(all_of(c(
       "factor", "outcome"
     )))) %>%
-    mutate(mylab = if_else(neword == min(neword), outcome, ""),
-           neword = allobs - neword) %>%
+    mutate(
+      mylab = if_else(neword == min(neword), outcome, ""),
+      neword = allobs - neword
+    ) %>%
     ungroup() %>%
     group_by(across(all_of(c("type", "factor")))) %>%
-    mutate(fobs = n() / 2,
-           neword = if_else(factor == "Benefit", neword, neword - fobs)) %>%
+    mutate(
+      fobs = n() / 2,
+      neword = if_else(factor == "Benefit", neword, neword - fobs)
+    ) %>%
     ungroup()
 
   # Adjust spacing between groups
@@ -73,10 +77,11 @@ create_order_label_der <- function(indata,
     inner_join(adjust, by = c("type", "factor", "outcome")) %>%
     group_by(factor) %>%
     mutate(
-      neword = neword - if (space_btwn_out_yn == "Y")
+      neword = neword - if (space_btwn_out_yn == "Y") {
         adjust_number
-      else
-        0,
+      } else {
+        0
+      },
       mins_y = if_else(factor == "Benefit", min(neword), max(neword))
     ) %>%
     mutate(neword = if_else(factor == "Benefit", neword - mins_y + 2, neword - mins_y - 2)) %>%
