@@ -51,8 +51,8 @@
 <span>  <span class="va">indata</span>,</span>
 <span>  <span class="va">groupvars</span>,</span>
 <span>  <span class="va">groupeff</span>,</span>
-<span>  dataout <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  space_btwn_out_yn <span class="op">=</span> <span class="st">"Y"</span></span>
+<span>  space_btwn_out_yn <span class="op">=</span> <span class="st">"Y"</span>,</span>
+<span>  dataout <span class="op">=</span> <span class="cn">NULL</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -75,6 +75,10 @@
 <dt id="arg-space-btwn-out-yn">space_btwn_out_yn<a class="anchor" aria-label="anchor" href="#arg-space-btwn-out-yn"></a></dt>
 <dd><p>control spacing between outcomes</p></dd>
 
+
+<dt id="arg-dataout">dataout<a class="anchor" aria-label="anchor" href="#arg-dataout"></a></dt>
+<dd><p>(<code>data.frame</code>) ordered data frame for dot plot</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
@@ -85,7 +89,7 @@
     <h2>Examples</h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">dot_plot_src</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/subset.html" class="external-link">subset</a></span><span class="op">(</span><span class="va">effects_table</span>, <span class="va">Type</span> <span class="op">==</span> <span class="st">"Binary"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">dot_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="prepare_dot_data_b.html">prepare_dot_data_b</a></span><span class="op">(</span><span class="va">dot_plot_src</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> [2024-07-08 10:28:43] &gt; Prepare Dot plot data for binary outcomes</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> [2024-07-09 18:59:15] &gt; Prepare Dot plot data for binary outcomes</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">dot_plot_data</span> <span class="op">&lt;-</span> <span class="fu">create_order_label_der</span><span class="op">(</span></span></span>
 <span class="r-in"><span>  indata <span class="op">=</span> <span class="va">dot_data</span>,</span></span>
@@ -93,7 +97,7 @@
 <span class="r-in"><span>  groupeff <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"group"</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>  space_btwn_out_yn <span class="op">=</span> <span class="st">"N"</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> [2024-07-08 10:28:43] &gt; Dataout object from the create_order_label_der function is created</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> [2024-07-09 18:59:15] &gt; Dataout object from the create_order_label_der function is created</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">dot_plot_data</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 6 × 12</span></span>
@@ -106,7 +110,6 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span>  0.46 Drug C    Binary Benefit Primary Effica…     9      3     16 <span style="color: #949494;">""</span>        4</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span>  0.04 Placebo   Binary Benefit Primary Effica…     9      3     16 <span style="color: #949494;">""</span>        4</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 2 more variables: adjust_number &lt;int&gt;, mins_y &lt;dbl&gt;</span></span>
-<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>

@@ -144,60 +144,22 @@ identifies whether the dataframe is for Benefit or Risk analysis.</p></li>
 <span class="r-in"><span>  ci_method <span class="op">=</span> <span class="st">"Calculated"</span>,</span></span>
 <span class="r-in"><span>  space_btwn_out_yn  <span class="op">=</span> <span class="st">"N"</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> [2024-07-08 10:28:50] &gt; Prepare Dot plot data for binary outcomes</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> [2024-07-08 10:28:50] &gt; trigger analysis based on type</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> [2024-07-08 10:28:50] &gt;</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> [2024-07-09 18:59:21] &gt; Prepare Dot plot data for binary outcomes</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> [2024-07-09 18:59:21] &gt; trigger analysis based on type</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> [2024-07-09 18:59:21] &gt;</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> absolute risk CI for binary outcomes is calculated and saved</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> [2024-07-08 10:28:50] &gt; Prepare Forest plot data for absolute risk</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> [2024-07-08 10:28:50] &gt; Prepare Dot plot data for binary outcomes</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> [2024-07-08 10:28:50] &gt; trigger analysis based on type</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> [2024-07-08 10:28:50] &gt;</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> [2024-07-09 18:59:21] &gt; Prepare Forest plot data for absolute risk</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> [2024-07-09 18:59:21] &gt; Prepare Dot plot data for binary outcomes</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> [2024-07-09 18:59:21] &gt; trigger analysis based on type</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> [2024-07-09 18:59:21] &gt;</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> absolute risk CI for binary outcomes is calculated and saved</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> [2024-07-08 10:28:50] &gt; Prepare Forest plot data for absolute risk</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> [2024-07-08 10:28:50] &gt; Dataout object from the create_order_label_der function is created</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> [2024-07-08 10:28:50] &gt; Prepare data for Dot and Forest plots</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> [2024-07-09 18:59:21] &gt; Prepare Forest plot data for absolute risk</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in mutate(., neword = neword - if (space_btwn_out_yn == "Y") adjust_number else 0,     mins_y = if_else(factor == "Benefit", min(neword), max(neword))):</span> <span style="color: #00BBBB;">ℹ</span> In argument: `neword = neword - if (space_btwn_out_yn == "Y")</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span>   adjust_number else 0`.</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> In group 1: `factor = "Benefit"`.</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="font-weight: bold;">Caused by error in `prepare_dot_forest_plot_data()`:</span></span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> object 'dot_plot_data' not found</span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">dot_plot_src</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/subset.html" class="external-link">subset</a></span><span class="op">(</span><span class="va">brdata</span>, <span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">Prop1</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">bdin</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/subset.html" class="external-link">subset</a></span><span class="op">(</span><span class="va">dot_plot_src</span>, <span class="va">Factor</span> <span class="op">==</span> <span class="st">"Benefit"</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">rdin</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/subset.html" class="external-link">subset</a></span><span class="op">(</span><span class="va">dot_plot_src</span>, <span class="va">Factor</span> <span class="op">==</span> <span class="st">"Risk"</span><span class="op">)</span></span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">fplot_data</span> <span class="op">&lt;-</span> <span class="fu">prepare_dot_forest_plot_data</span><span class="op">(</span></span></span>
-<span class="r-in"><span>  data <span class="op">=</span> <span class="va">dot_plot_src</span>,</span></span>
-<span class="r-in"><span>  drug <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">dot_plot_src</span><span class="op">$</span><span class="va">Trt1</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>  benefit <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">bdin</span><span class="op">$</span><span class="va">Outcome</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>  risk <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">rdin</span><span class="op">$</span><span class="va">Outcome</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>  filters <span class="op">=</span> <span class="st">"Gender"</span>,</span></span>
-<span class="r-in"><span>  category <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Female"</span>,<span class="st">"Male"</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>  type_graph <span class="op">=</span> <span class="st">"Absolute risk"</span>,</span></span>
-<span class="r-in"><span>  type_risk <span class="op">=</span> <span class="st">"Crude proportions"</span>,</span></span>
-<span class="r-in"><span>  ci_method <span class="op">=</span> <span class="st">"Calculated"</span></span></span>
-<span class="r-in"><span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in names(my_colors) &lt;- c(levels(as.factor(data$Trt2)), levels(as.factor(data$Trt1))):</span> 'names' attribute [6] must be the same length as the vector [5]</span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">fplot_data</span><span class="op">$</span><span class="va">dot_plot_data</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 6 × 12</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    rate treatment type   factor  outcome         group neword allobs mylab  fobs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>  0.46 Drug A    Binary Benefit Primary Effica…     1      5     16 <span style="color: #949494;">"</span>   …     4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>  0.05 Placebo   Binary Benefit Primary Effica…     1      5     16 <span style="color: #949494;">"</span>   …     4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span>  0.2  Drug B    Binary Benefit Primary Effica…     2      4     16 <span style="color: #949494;">"</span>   …     4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span>  0.06 Placebo   Binary Benefit Primary Effica…     2      4     16 <span style="color: #949494;">"</span>   …     4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span>  0.46 Drug C    Binary Benefit Primary Effica…     3      3     16 <span style="color: #949494;">"</span>   …     4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span>  0.04 Placebo   Binary Benefit Primary Effica…     3      3     16 <span style="color: #949494;">"</span>   …     4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 2 more variables: adjust_number &lt;int&gt;, mins_y &lt;dbl&gt;</span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">fplot_data</span><span class="op">$</span><span class="va">forest_plot_data</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 6 × 15</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   treatment type   factor  outcome group neword allobs mylab  fobs adjust_number</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> Drug A    Binary Benefit Primar…     1      5     16 <span style="color: #949494;">"</span>   …     4             1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> Drug B    Binary Benefit Primar…     2      4     16 <span style="color: #949494;">"</span>   …     4             1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> Drug C    Binary Benefit Primar…     3      3     16 <span style="color: #949494;">"</span>   …     4             1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> Drug D    Binary Benefit Primar…     4      2     16 <span style="color: #949494;">"</span>   …     4             1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span> Drug A    Binary Risk    Reoccu…     1     -<span style="color: #BB0000;">2</span>     16 <span style="color: #949494;">"</span>   …    12             2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span> Drug B    Binary Risk    Reoccu…     4     -<span style="color: #BB0000;">3</span>     16 <span style="color: #949494;">"</span>   …    12             2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 5 more variables: mins_y &lt;dbl&gt;, diff &lt;dbl&gt;, se &lt;dbl&gt;, lower &lt;dbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   upper &lt;dbl&gt;</span></span>
 </code></pre></div>
     </div>
   </div>
