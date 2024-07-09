@@ -70,7 +70,7 @@ devtools::install_github("BR-Visualization/brcharts")
 
 ## Figure 5 - Value Tree
 
-<img src="inst/img/value_tree.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" />
 
 ## Figure 6 - Dot-Forest Plot
 
