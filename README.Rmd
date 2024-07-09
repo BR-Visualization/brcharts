@@ -101,7 +101,6 @@ diagram <-
   "
 
 value_tree(diagram)
-
 ```
 
 ## Figure 6 - Dot-Forest Plot
