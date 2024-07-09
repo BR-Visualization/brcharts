@@ -73,7 +73,7 @@ fplot_data <- prepare_dot_forest_plot_data(
   type_graph = "Absolute risk",
   type_risk = "Crude proportions",
   ci_method = "Calculated",
-  space_btwn_out_yn  = "N"
+  space_btwn_out_yn = "N"
 )
 
 }

@@ -617,6 +617,7 @@ ggsave_custom <-
 #' @param path `character` path to save file
 #'
 #' @return a saved image
+#' @import remotes
 #' @export
 #'
 #' @examples
