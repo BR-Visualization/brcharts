@@ -4,11 +4,7 @@
 \alias{create_correlogram}
 \title{Create a correlogram from a given dataframe}
 \usage{
-create_correlogram(
-  df,
-  diagonal = FALSE,
-  fig_colors = c("#0571b0", "white", "#ca0020")
-)
+create_correlogram(df, diagonal = FALSE, fig_colors = colfun()$fig10_colors)
 }
 \arguments{
 \item{df}{A dataframe containing desired variables. Can be

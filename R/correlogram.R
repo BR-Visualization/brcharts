@@ -22,7 +22,7 @@
 #' create_correlogram(corr)
 create_correlogram <- function(df,
                                diagonal = FALSE,
-                               fig_colors = c("#0571b0", "white", "#ca0020")) {
+                               fig_colors = colfun()$fig10_colors) {
   classes <- numeric()
   shortcs <- numeric()
 
