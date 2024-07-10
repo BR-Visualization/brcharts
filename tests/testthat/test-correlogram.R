@@ -45,16 +45,14 @@ corr2 <- corr1
 corr2[1, 1] <- NA
 
 test_that("create_correlogram() will return a custom warning message concerning
-missing data",
-          {
-            expect_warning(create_correlogram(corr2))
-          })
+missing data", {
+  expect_warning(create_correlogram(corr2))
+})
 
 test_that("create_correlogram() will return a ggplot object with
-missing data",
-          {
-            expect_true(inherits(create_correlogram(corr2), "ggplot"))
-          })
+missing data", {
+  expect_true(inherits(create_correlogram(corr2), "ggplot"))
+})
 
 # testing create_correlogram must have more than one variable
 

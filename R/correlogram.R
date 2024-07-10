@@ -18,7 +18,6 @@
 #'
 #' @examples
 #' create_correlogram(corr)
-
 create_correlogram <- function(df,
                                fig_colors = c("#0571b0", "white", "#ca0020")) {
   classes <- numeric()
@@ -51,8 +50,10 @@ create_correlogram <- function(df,
       ifelse(
         is.numeric(df[[i]]),
         c(classes[i] <- "continuous", shortcs[i] <- "c"),
-        ifelse(is.character(df[[i]]), c(classes[i] <- "ordinal",
-                                        shortcs[i] <- "o"))
+        ifelse(is.character(df[[i]]), c(
+          classes[i] <- "ordinal",
+          shortcs[i] <- "o"
+        ))
       )
     )
   }
@@ -96,9 +97,10 @@ create_correlogram <- function(df,
                   type == "oc",
                   mat[i, j] <- cor(rank(df[, i]), df[, j]),
                   ifelse(type %in% c("bo", "ob"),
-                         mat[i, j] <- enframe(wilcoxonRG(table(
-                           df[, i], df[, j]
-                         )))[1, 2])
+                    mat[i, j] <- enframe(wilcoxonRG(table(
+                      df[, i], df[, j]
+                    )))[1, 2]
+                  )
                 )
               )
             )
@@ -145,8 +147,10 @@ create_correlogram <- function(df,
       plot.margin = margin(0, 0, 0, 0, unit = "cm"),
       legend.position = "top",
       legend.title = element_blank(),
-      legend.text = element_text(size = rel(1.2),
-                                 margin = margin(t = 7), color = "black"),
+      legend.text = element_text(
+        size = rel(1.2),
+        margin = margin(t = 7), color = "black"
+      ),
       legend.key.width = unit(1, "null"),
       legend.key.height = unit(0.35, "cm"),
       axis.line.x = element_blank(),

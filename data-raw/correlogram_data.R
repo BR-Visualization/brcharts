@@ -37,7 +37,7 @@ corr <- corr %>%
   rename(
     `Primary Efficacy` = `Benefit.1`,
     `Secondary Efficacy` = `Benefit.2`,
-    `Quality of life` = `Benefit.3`,
+    `Quality of Life` = `Benefit.3`,
     `Recurring AE` = `Risk.6`,
     `Rare SAE` = `Risk.7`,
     `Liver Toxicity` = `Risk.8`
@@ -47,17 +47,20 @@ corr <- corr %>% select(-subject_id)
 
 
 corr$`Secondary Efficacy` <- rnorm_pre(corr[, 1],
-                                       mean(corr$`Secondary Efficacy`),
-                                       sd(corr$`Secondary Efficacy`),
-                                       r = .6)
+  mean(corr$`Secondary Efficacy`),
+  sd(corr$`Secondary Efficacy`),
+  r = .6
+)
 corr$`Recurring AE` <- rnorm_pre(corr[, 1:3],
-                                 mean(corr$`Recurring AE`),
-                                 sd(corr$`Recurring AE`),
-                                 r = c(.3, .2, -.5))
+  mean(corr$`Recurring AE`),
+  sd(corr$`Recurring AE`),
+  r = c(.3, .2, -.5)
+)
 corr$`Rare SAE` <- rnorm_pre(corr[, 1:4],
-                             mean(corr$`Rare SAE`),
-                             sd(corr$`Rare SAE`),
-                             r = c(.13, .3, -.09, -.1))
+  mean(corr$`Rare SAE`),
+  sd(corr$`Rare SAE`),
+  r = c(.13, .3, -.09, -.1)
+)
 corr$`Liver Toxicity` <- rnorm_pre(
   corr[, 1:5],
   mean(corr$`Liver Toxicity`),
