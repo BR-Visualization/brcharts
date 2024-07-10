@@ -5,6 +5,8 @@
 #' @param fig_colors Allows the user to change the colors of the figure
 #' (defaults are provided). Must be vector of length 3, with color corresponding
 #' to strength of correlation.
+#' @param diagonal Allows user to choose to view the correlogram with diagonal
+#' entries (default is FALSE).
 #'
 #' @return A correlogram.
 #' @export
@@ -19,6 +21,7 @@
 #' @examples
 #' create_correlogram(corr)
 create_correlogram <- function(df,
+                               diagonal = FALSE,
                                fig_colors = c("#0571b0", "white", "#ca0020")) {
   classes <- numeric()
   shortcs <- numeric()
@@ -115,7 +118,7 @@ create_correlogram <- function(df,
       mat,
       type = "lower",
       outline.color = "grey",
-      show.diag = FALSE,
+      show.diag = diagonal,
       colors = fig_colors,
       ggtheme = br_charts_theme(),
       tl.cex = 9

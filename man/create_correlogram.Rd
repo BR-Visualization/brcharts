@@ -4,11 +4,18 @@
 \alias{create_correlogram}
 \title{Create a correlogram from a given dataframe}
 \usage{
-create_correlogram(df, fig_colors = c("#0571b0", "white", "#ca0020"))
+create_correlogram(
+  df,
+  diagonal = FALSE,
+  fig_colors = c("#0571b0", "white", "#ca0020")
+)
 }
 \arguments{
 \item{df}{A dataframe containing desired variables. Can be
 inputted as continuous, binary, or ordinal variables.}
+
+\item{diagonal}{Allows user to choose to view the correlogram with diagonal
+entries (default is FALSE).}
 
 \item{fig_colors}{Allows the user to change the colors of the figure
 (defaults are provided). Must be vector of length 3, with color corresponding
