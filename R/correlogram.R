@@ -14,15 +14,35 @@
 #' @import cowplot
 #' @import ggcorrplot
 #' @import stringr
+#' @import faux
 #'
 #' @examples
 #' create_correlogram(corr)
 
 create_correlogram <- function(df,
                                fig_colors = c("#0571b0", "white", "#ca0020")) {
-  df<-corr
   classes <- numeric()
   shortcs <- numeric()
+
+  df <- as.data.frame(df)
+
+  if (ncol(df) <= 1) {
+    error_message <- "You must have more than one variable in your
+                              dataframe."
+    stop(error_message)
+  }
+
+  if (any(is.na(df))) {
+    miss_vars <- colnames(df)[colSums(is.na(df) > 0)]
+    warning(paste(
+      "you have a missing value in row(s)",
+      which(rowSums(is.na(df)) > 0), "and column(s)",
+      which(colSums(is.na(df)) > 0)
+    ))
+    df[miss_vars] <- lapply(df[miss_vars], function(x) {
+      ifelse(is.na(x), "NA", x)
+    })
+  }
 
   for (i in seq_along(df)) {
     ifelse(
@@ -87,12 +107,6 @@ create_correlogram <- function(df,
       )
     }
   }
-    mat <- mat %>% mutate(`Primary Efficacy` = ifelse(row_number() == 2, 0.6,
-                                       ifelse(row_number() == 4, 0.3, `Primary Efficacy`)),
-           `Secondary Efficacy` = ifelse(row_number() == 4, 0.1, `Secondary Efficacy`),
-           `Quality of life` = ifelse(row_number() == 4, -0.5,
-                                      ifelse(row_number() == 5, -0.1, `Quality of life`))
-    )
 
   fig <-
     ggcorrplot(
@@ -119,17 +133,20 @@ create_correlogram <- function(df,
       axis.text.x = element_text(
         angle = 0,
         hjust = 0.5,
-        size = rel(1)
+        size = rel(1.2),
+        color = "black"
       ),
       axis.text.y = element_text(
         angle = 0,
         hjust = 0.5,
-        size = rel(1)
+        size = rel(1.2),
+        color = "black"
       ),
       plot.margin = margin(0, 0, 0, 0, unit = "cm"),
       legend.position = "top",
       legend.title = element_blank(),
-      legend.text = element_text(size = rel(.87)),
+      legend.text = element_text(size = rel(1.2),
+                                 margin = margin(t = 7), color = "black"),
       legend.key.width = unit(1, "null"),
       legend.key.height = unit(0.35, "cm"),
       axis.line.x = element_blank(),

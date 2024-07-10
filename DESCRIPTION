@@ -38,7 +38,13 @@ Imports:
     rlang,
     scales,
     shiny,
-    simsurv
+    simsurv,
+    ggcorrplot,
+    ltm,
+    rcompanion,
+    stringr,
+    tibble,
+    faux
 Depends: 
     R (>= 2.10),
     tidyverse
