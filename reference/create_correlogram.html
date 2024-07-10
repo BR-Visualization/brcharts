@@ -47,7 +47,11 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">create_correlogram</span><span class="op">(</span><span class="va">df</span>, fig_colors <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"#0571b0"</span>, <span class="st">"white"</span>, <span class="st">"#ca0020"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">create_correlogram</span><span class="op">(</span></span>
+<span>  <span class="va">df</span>,</span>
+<span>  diagonal <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  fig_colors <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"#0571b0"</span>, <span class="st">"white"</span>, <span class="st">"#ca0020"</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -57,6 +61,11 @@
 <dl><dt id="arg-df">df<a class="anchor" aria-label="anchor" href="#arg-df"></a></dt>
 <dd><p>A dataframe containing desired variables. Can be
 inputted as continuous, binary, or ordinal variables.</p></dd>
+
+
+<dt id="arg-diagonal">diagonal<a class="anchor" aria-label="anchor" href="#arg-diagonal"></a></dt>
+<dd><p>Allows user to choose to view the correlogram with diagonal
+entries (default is FALSE).</p></dd>
 
 
 <dt id="arg-fig-colors">fig_colors<a class="anchor" aria-label="anchor" href="#arg-fig-colors"></a></dt>
