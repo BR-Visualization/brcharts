@@ -22,13 +22,11 @@
 <url><loc>/reference/comorbidities.html</loc></url>
 <url><loc>/reference/comp_outcome.html</loc></url>
 <url><loc>/reference/control_fonts.html</loc></url>
-<url><loc>/reference/create_dot_forest_plot.html</loc></url>
-<url><loc>/reference/create_order_label_der.html</loc></url>
+<url><loc>/reference/corr.html</loc></url>
+<url><loc>/reference/create_correlogram.html</loc></url>
 <url><loc>/reference/cumexcess.html</loc></url>
 <url><loc>/reference/demography.html</loc></url>
 <url><loc>/reference/effects_table.html</loc></url>
-<url><loc>/reference/generate_fig_lft.html</loc></url>
-<url><loc>/reference/generate_fig_rft.html</loc></url>
 <url><loc>/reference/generate_tradeoff_plot.html</loc></url>
 <url><loc>/reference/gensurv.html</loc></url>
 <url><loc>/reference/gensurv_combined.html</loc></url>
@@ -38,17 +36,8 @@
 <url><loc>/reference/grouped_barchart.html</loc></url>
 <url><loc>/reference/index.html</loc></url>
 <url><loc>/reference/labs_bold.html</loc></url>
-<url><loc>/reference/populated_effects_table.html</loc></url>
-<url><loc>/reference/prepare_absolute_risk_data.html</loc></url>
-<url><loc>/reference/prepare_absolute_risk_exp_adj.html</loc></url>
 <url><loc>/reference/prepare_br_calculated_ci.html</loc></url>
 <url><loc>/reference/prepare_br_supplied_ci.html</loc></url>
-<url><loc>/reference/prepare_cont_benefits_data.html</loc></url>
-<url><loc>/reference/prepare_dot_data_b.html</loc></url>
-<url><loc>/reference/prepare_dot_data_exp_adj.html</loc></url>
-<url><loc>/reference/prepare_dot_forest_plot_data.html</loc></url>
-<url><loc>/reference/prepare_odds_ratio_data.html</loc></url>
-<url><loc>/reference/prepare_relative_risk_data.html</loc></url>
 <url><loc>/reference/prepare_tradeoff_data.html</loc></url>
 <url><loc>/reference/prepare_tradeoff_plot.html</loc></url>
 <url><loc>/reference/pyramid_chart.html</loc></url>
@@ -58,7 +47,6 @@
 <url><loc>/reference/scatter_plot.html</loc></url>
 <url><loc>/reference/scatterplot.html</loc></url>
 <url><loc>/reference/stacked_barchart.html</loc></url>
-<url><loc>/reference/supplied_br_forest.html</loc></url>
 <url><loc>/reference/value_tree.html</loc></url>
 </urlset>
 
