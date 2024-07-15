@@ -8,7 +8,9 @@ create_correlogram(df, diagonal = FALSE, fig_colors = colfun()$fig10_colors)
 }
 \arguments{
 \item{df}{A dataframe containing desired variables. Can be
-inputted as continuous, binary, or ordinal variables.}
+inputted as continuous, binary, or ordinal variables.
+Note: Binary variables must have a value of 0 or 1.
+Note: Ordinal variables must be formatted as factors.}
 
 \item{diagonal}{Allows user to choose to view the correlogram with diagonal
 entries (default is FALSE).}

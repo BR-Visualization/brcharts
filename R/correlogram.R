@@ -2,6 +2,8 @@
 #'
 #' @param df A dataframe containing desired variables. Can be
 #' inputted as continuous, binary, or ordinal variables.
+#' Note: Binary variables must have a value of 0 or 1.
+#' Note: Ordinal variables must be formatted as factors.
 #' @param fig_colors Allows the user to change the colors of the figure
 #' (defaults are provided). Must be vector of length 3, with color corresponding
 #' to strength of correlation.
@@ -42,25 +44,28 @@ create_correlogram <- function(df,
       which(colSums(is.na(df)) > 0)
     ))
     df[miss_vars] <- lapply(df[miss_vars], function(x) {
-      ifelse(is.na(x), "NA", x)
+      ifelse(is.na(x), NA, x)
     })
   }
 
   for (i in seq_along(df)) {
+    column_dat <- df[[i]][!is.na(df[[i]])]
     ifelse(
-      all(df[[i]] %in% c(0, 1)),
+      all(column_dat %in% c(0, 1)),
       c(classes[i] <- "binary", shortcs[i] <- "b"),
       ifelse(
-        is.numeric(df[[i]]),
+        all(is.numeric(column_dat)),
         c(classes[i] <- "continuous", shortcs[i] <- "c"),
-        ifelse(is.character(df[[i]]), c(
+        ifelse(all(is.factor(column_dat)), c(
           classes[i] <- "ordinal",
           shortcs[i] <- "o"
-        ))
+        ),
+        stop("Please review your dataframe inputs to ensure correct
+                formatting.")
+        )
       )
     )
   }
-
 
   df_attribs <- data.frame(
     names = c(colnames(df)),
@@ -79,30 +84,56 @@ create_correlogram <- function(df,
         df_attribs[df_attribs$names %in% names(df)[j], ][["shortc"]]
 
       type <- paste0(xattr, yattr)
-
+      # correlation calculations
       ifelse(
         type == "cc",
+        # calculates Pearson correlation with two continuous variables
         mat[i, j] <- cor(df[, i], df[, j]),
         ifelse(
           type %in% c("bb", "cb"),
+          # calculates point biserial correlation with either two binary or a
+          # continuous variable as the x attribute followed by a binary variable
+          # as the y attribute.
           mat[i, j] <- biserial.cor(df[, i], df[, j]),
           ifelse(
             type %in% c("bc"),
+            # calculates point biserial correlation with a binary variable as
+            # the x attribute followed by a continuous variable as the y
+            # attribute.
             mat[i, j] <-
               biserial.cor(df[, j], df[, i]),
             ifelse(
               type == "oo",
+              # calculates Spearman rank correlation with two ordinal variables.
               mat[i, j] <- cor(rank(df[, i]), rank(df[, j])),
               ifelse(
                 type == "co",
+                # calculates modified Pearson correlation with nonparametric
+                # Spearman rank correlation, considering a continuous variable
+                # as the x attribute and ordinal variable as the y attribute.
                 mat[i, j] <- cor(df[, i], rank(df[, j])),
                 ifelse(
                   type == "oc",
+                  # calculates modified Pearson correlation with nonparametric
+                  # Spearman rank correlation, considering an ordinal variable
+                  # as the x attribute and continuous variable as the y
+                  # attribute.
                   mat[i, j] <- cor(rank(df[, i]), df[, j]),
-                  ifelse(type %in% c("bo", "ob"),
+                  ifelse(type == "ob",
+                    # calculates glass rank biserial correlation with an ordinal
+                    # variable as the x attribute and binary variable as the y
+                    # attribute.
                     mat[i, j] <- enframe(wilcoxonRG(table(
-                      df[, i], df[, j]
-                    )))[1, 2]
+                      df[, j], df[, i]
+                    )))[1, 2],
+                    ifelse(type == "bo",
+                      # calculates glass rank biserial correlation with a binary
+                      # variable as the x attribute and an ordinal variable as
+                      # the y attribute.
+                      mat[i, j] <- enframe(wilcoxonRG(table(
+                        df[, i], df[, j]
+                      )))[1, 2]
+                    )
                   )
                 )
               )
