@@ -38,12 +38,12 @@ Imports:
     simsurv,
     ggthemes,
     remotes,
-    purrr,
-    png
+    purrr
 Depends: 
     R (>= 2.10),
     tidyverse
 LazyData: true
 Suggests: 
+    png,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3

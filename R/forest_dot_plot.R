@@ -21,6 +21,19 @@ extract_legend <- function(plot) {
 #' @param ci_method Character string specifying the CI method. Default is "Calculated"
 #' @param exclude_outcome Character string specifying an outcome to exclude. Default is "Liver"
 #'
+#' @examples
+#'
+#' forest_dot_plot(effects_table,
+#'   filters = "None",
+#'   category = "All",
+#'   type_graph = "Absolute risk",
+#'   type_risk = "Crude proportions",
+#'   select_nnx = "Y",
+#'   x_scale_fixed_free = "Fixed",
+#'   ci_method = "Calculated",
+#'   exclude_outcome = "Liver"
+#' )
+#'
 #' @return A ggplot object representing the composite forest dot plot
 #' @noRd
 forest_dot_plot <- function(effects_table,
@@ -31,7 +44,7 @@ forest_dot_plot <- function(effects_table,
                             select_nnx = "Y",
                             x_scale_fixed_free = "Fixed",
                             ci_method = "Calculated",
-                            exclude_outcome = "Liver") {
+                            exclude_outcome) {
   # Data preparation
   dot_plot_src <- effects_table
   bdin <- subset(dot_plot_src, Factor == "Benefit")
@@ -53,16 +66,15 @@ forest_dot_plot <- function(effects_table,
   )
 
   # Create dot forest plots
-  dot_forest_plot1 <- do.call(create_dot_forest_plot, common_params)
-  dot_forest_plot2 <- do.call(create_dot_forest_plot, c(common_params, space_btwn_out_yn = "N"))
+  dot_forest_plot <- do.call(create_dot_forest_plot, c(common_params, space_btwn_out_yn = "N"))
 
   # Create individual plots
-  finplot0 <- create_finplot0(dot_forest_plot2)
-  finplot1 <- create_finplot1(dot_forest_plot1)
-  finplot2 <- create_finplot2(dot_forest_plot1)
+  finplot0 <- create_finplot0(dot_forest_plot)
+  finplot1 <- create_finplot1(dot_forest_plot)
+  finplot2 <- create_finplot2(dot_forest_plot)
 
   # Extract legend from one of the plots
-  legend <- extract_legend(dot_forest_plot1$myplot_lft1 + theme(legend.position = "top"))
+  legend <- extract_legend(dot_forest_plot$myplot_lft1 + theme(legend.position = "top"))
 
   # Add padding above the legend
   padded_legend <- plot_grid(NULL, legend, ncol = 1, rel_heights = c(0.2, 1))
@@ -79,7 +91,87 @@ forest_dot_plot <- function(effects_table,
 #' Create the first (top) part of the forest dot plot
 #'
 #' @param dot_forest_plot A list containing the left and right parts of the forest plot
+#' @return A ggplot object representing the middle part of the forest dot plot
+#'
+#' @examples
+#'
+#' dot_plot_src <- subset(effects_table, !is.na(Prop1))
+#' bdin <- subset(dot_plot_src, Factor == "Benefit")
+#' rdin <- subset(dot_plot_src, Factor == "Risk")
+#'
+#' dot_forest_plot <- create_dot_forest_plot(
+#'   data = dot_plot_src,
+#'   drug = unique(dot_plot_src$Trt1),
+#'   benefit = unique(bdin$Outcome),
+#'   risk = unique(rdin$Outcome),
+#'   filters = "None",
+#'   category = "All",
+#'   type_graph = "Absolute risk",
+#'   type_risk = "Crude proportions",
+#'   select_nnx = "Y",
+#'   x_scale_fixed_free = "Fixed",
+#'   ci_method = "Calculated",
+#'   space_btwn_out_yn = "N"
+#' )
+#'
+#' create_finplot1(dot_forest_plot)
+#' @noRd
+create_finplot1 <- function(dot_forest_plot) {
+  dot_forest_plot$myplot_lft1 +
+    br_charts_theme(
+      axis.ticks = element_blank(),
+      base_font_size = 9,
+      axis.title.x = element_blank(),
+      axis.text.x = element_blank(),
+      axis.ticks.x = element_blank(),
+      axis_line = element_blank(),
+      plot.title = element_text(margin = margin(0, 0, -5, 0)), # Adjust margin here
+      plot.margin = unit(c(5.5, 5.5, 0, 5.5), "pt"),
+      legend.position = "none" # Remove legend from this plot
+    ) +
+    dot_forest_plot$myplot_rgt1 +
+    br_charts_theme(
+      axis.ticks = element_blank(),
+      axis_text_y_left = element_blank(),
+      axis.ticks.y = element_blank(),
+      axis.title.y = element_blank(),
+      axis.title.x = element_blank(),
+      axis.text.x = element_blank(),
+      axis.ticks.x = element_blank(),
+      base_font_size = 9,
+      plot.margin = unit(c(5.5, 5.5, 0, 5.5), "pt"),
+      axis_line = element_blank(),
+      legend_position = "none"
+    )
+}
+
+#' Create the second (middle) part of the forest dot plot
+#'
+#' @param dot_forest_plot A list containing the left and right parts of the forest plot
 #' @return A ggplot object representing the top part of the forest dot plot
+#'
+#' @examples
+#'
+#' dot_plot_src <- effects_table
+#' bdin <- subset(dot_plot_src, Factor == "Benefit")
+#' rdin <- subset(dot_plot_src, Factor == "Risk")
+#'
+#' dot_forest_plot <- create_dot_forest_plot(
+#'   data = dot_plot_src,
+#'   drug = unique(dot_plot_src$Trt1),
+#'   benefit = unique(bdin$Outcome),
+#'   risk = unique(rdin$Outcome),
+#'   filters = "None",
+#'   category = "All",
+#'   type_graph = "Absolute risk",
+#'   type_risk = "Crude proportions",
+#'   select_nnx = "Y",
+#'   x_scale_fixed_free = "Fixed",
+#'   ci_method = "Calculated",
+#'   space_btwn_out_yn = "N"
+#' )
+#'
+#' create_finplot0(dot_forest_plot)
 #' @noRd
 create_finplot0 <- function(dot_forest_plot) {
   dot_forest_plot$myplot_lft0 +
@@ -111,44 +203,34 @@ create_finplot0 <- function(dot_forest_plot) {
     )
 }
 
-#' Create the second (middle) part of the forest dot plot
-#'
-#' @param dot_forest_plot A list containing the left and right parts of the forest plot
-#' @return A ggplot object representing the middle part of the forest dot plot
-#' @noRd
-create_finplot1 <- function(dot_forest_plot) {
-  dot_forest_plot$myplot_lft1 +
-    br_charts_theme(
-      axis.ticks = element_blank(),
-      base_font_size = 9,
-      axis.title.x = element_blank(),
-      axis.text.x = element_blank(),
-      axis.ticks.x = element_blank(),
-      axis_line = element_blank(),
-      plot.title = element_text(margin = margin(0, 0, -5, 0)), # Adjust margin here
-      plot.margin = unit(c(5.5, 5.5, 0, 5.5), "pt"),
-      legend.position = "none" # Remove legend from this plot
-    ) +
-    dot_forest_plot$myplot_rgt1 +
-    br_charts_theme(
-      axis.ticks = element_blank(),
-      axis_text_y_left = element_blank(),
-      axis.ticks.y = element_blank(),
-      axis.title.y = element_blank(),
-      axis.title.x = element_blank(),
-      axis.text.x = element_blank(),
-      axis.ticks.x = element_blank(),
-      base_font_size = 9,
-      plot.margin = unit(c(5.5, 5.5, 0, 5.5), "pt"),
-      axis_line = element_blank(),
-      legend_position = "none"
-    )
-}
 
 #' Create the third (bottom) part of the forest dot plot
 #'
 #' @param dot_forest_plot A list containing the left and right parts of the forest plot
 #' @return A ggplot object representing the bottom part of the forest dot plot
+#'
+#' @examples
+#'
+#' dot_plot_src <- subset(effects_table, !is.na(Prop1))
+#' bdin <- subset(dot_plot_src, Factor == "Benefit")
+#' rdin <- subset(dot_plot_src, Factor == "Risk")
+#'
+#' dot_forest_plot <- create_dot_forest_plot(
+#'   data = dot_plot_src,
+#'   drug = unique(dot_plot_src$Trt1),
+#'   benefit = unique(bdin$Outcome),
+#'   risk = unique(rdin$Outcome),
+#'   filters = "None",
+#'   category = "All",
+#'   type_graph = "Absolute risk",
+#'   type_risk = "Crude proportions",
+#'   select_nnx = "Y",
+#'   x_scale_fixed_free = "Fixed",
+#'   ci_method = "Calculated",
+#'   space_btwn_out_yn = "N"
+#' )
+#'
+#' create_finplot2(dot_forest_plot)
 #' @noRd
 create_finplot2 <- function(dot_forest_plot) {
   dot_forest_plot$myplot_lft2 +
