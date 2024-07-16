@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE coverage SYSTEM "https://raw.githubusercontent.com/cobertura/cobertura/master/cobertura/src/site/htdocs/xml/coverage-04.dtd">
-<coverage line-rate="0.392857142857143" branch-rate="0" lines-covered="1518" lines-valid="3864" branches-covered="0" branches-valid="0" complexity="0" version="3.6.4" timestamp="2024-07-16 15:42:08.438528">
+<coverage line-rate="0.392857142857143" branch-rate="0" lines-covered="1518" lines-valid="3864" branches-covered="0" branches-valid="0" complexity="0" version="3.6.4" timestamp="2024-07-16 15:49:03.064213">
   <sources>
     <source>/__w/brcharts/brcharts/brcharts</source>
   </sources>
@@ -4709,10 +4709,9 @@
             </method>
             <method name="forest_dot_plot" signature="" line-rate="0" branch-rate="0" complexity="0">
               <lines>
-                <line number="48" hits="0" branch="false"/>
                 <line number="49" hits="0" branch="false"/>
                 <line number="50" hits="0" branch="false"/>
-                <line number="53" hits="0" branch="false"/>
+                <line number="51" hits="0" branch="false"/>
                 <line number="54" hits="0" branch="false"/>
                 <line number="55" hits="0" branch="false"/>
                 <line number="56" hits="0" branch="false"/>
@@ -4725,23 +4724,23 @@
                 <line number="63" hits="0" branch="false"/>
                 <line number="64" hits="0" branch="false"/>
                 <line number="65" hits="0" branch="false"/>
-                <line number="68" hits="0" branch="false"/>
-                <line number="71" hits="0" branch="false"/>
+                <line number="66" hits="0" branch="false"/>
+                <line number="69" hits="0" branch="false"/>
                 <line number="72" hits="0" branch="false"/>
                 <line number="73" hits="0" branch="false"/>
-                <line number="76" hits="0" branch="false"/>
-                <line number="79" hits="0" branch="false"/>
-                <line number="82" hits="0" branch="false"/>
+                <line number="74" hits="0" branch="false"/>
+                <line number="77" hits="0" branch="false"/>
+                <line number="80" hits="0" branch="false"/>
                 <line number="83" hits="0" branch="false"/>
                 <line number="84" hits="0" branch="false"/>
                 <line number="85" hits="0" branch="false"/>
                 <line number="86" hits="0" branch="false"/>
                 <line number="87" hits="0" branch="false"/>
+                <line number="88" hits="0" branch="false"/>
               </lines>
             </method>
             <method name="create_finplot1" signature="" line-rate="0" branch-rate="0" complexity="0">
               <lines>
-                <line number="119" hits="0" branch="false"/>
                 <line number="120" hits="0" branch="false"/>
                 <line number="121" hits="0" branch="false"/>
                 <line number="122" hits="0" branch="false"/>
@@ -4767,11 +4766,11 @@
                 <line number="142" hits="0" branch="false"/>
                 <line number="143" hits="0" branch="false"/>
                 <line number="144" hits="0" branch="false"/>
+                <line number="145" hits="0" branch="false"/>
               </lines>
             </method>
             <method name="create_finplot0" signature="" line-rate="0" branch-rate="0" complexity="0">
               <lines>
-                <line number="176" hits="0" branch="false"/>
                 <line number="177" hits="0" branch="false"/>
                 <line number="178" hits="0" branch="false"/>
                 <line number="179" hits="0" branch="false"/>
@@ -4798,11 +4797,11 @@
                 <line number="200" hits="0" branch="false"/>
                 <line number="201" hits="0" branch="false"/>
                 <line number="202" hits="0" branch="false"/>
+                <line number="203" hits="0" branch="false"/>
               </lines>
             </method>
             <method name="create_finplot2" signature="" line-rate="0" branch-rate="0" complexity="0">
               <lines>
-                <line number="235" hits="0" branch="false"/>
                 <line number="236" hits="0" branch="false"/>
                 <line number="237" hits="0" branch="false"/>
                 <line number="238" hits="0" branch="false"/>
@@ -4821,6 +4820,7 @@
                 <line number="251" hits="0" branch="false"/>
                 <line number="252" hits="0" branch="false"/>
                 <line number="253" hits="0" branch="false"/>
+                <line number="254" hits="0" branch="false"/>
               </lines>
             </method>
           </methods>
@@ -4829,10 +4829,9 @@
             <line number="5" hits="0" branch="false"/>
             <line number="6" hits="0" branch="false"/>
             <line number="7" hits="0" branch="false"/>
-            <line number="48" hits="0" branch="false"/>
             <line number="49" hits="0" branch="false"/>
             <line number="50" hits="0" branch="false"/>
-            <line number="53" hits="0" branch="false"/>
+            <line number="51" hits="0" branch="false"/>
             <line number="54" hits="0" branch="false"/>
             <line number="55" hits="0" branch="false"/>
             <line number="56" hits="0" branch="false"/>
@@ -4845,19 +4844,19 @@
             <line number="63" hits="0" branch="false"/>
             <line number="64" hits="0" branch="false"/>
             <line number="65" hits="0" branch="false"/>
-            <line number="68" hits="0" branch="false"/>
-            <line number="71" hits="0" branch="false"/>
+            <line number="66" hits="0" branch="false"/>
+            <line number="69" hits="0" branch="false"/>
             <line number="72" hits="0" branch="false"/>
             <line number="73" hits="0" branch="false"/>
-            <line number="76" hits="0" branch="false"/>
-            <line number="79" hits="0" branch="false"/>
-            <line number="82" hits="0" branch="false"/>
+            <line number="74" hits="0" branch="false"/>
+            <line number="77" hits="0" branch="false"/>
+            <line number="80" hits="0" branch="false"/>
             <line number="83" hits="0" branch="false"/>
             <line number="84" hits="0" branch="false"/>
             <line number="85" hits="0" branch="false"/>
             <line number="86" hits="0" branch="false"/>
             <line number="87" hits="0" branch="false"/>
-            <line number="119" hits="0" branch="false"/>
+            <line number="88" hits="0" branch="false"/>
             <line number="120" hits="0" branch="false"/>
             <line number="121" hits="0" branch="false"/>
             <line number="122" hits="0" branch="false"/>
@@ -4883,7 +4882,7 @@
             <line number="142" hits="0" branch="false"/>
             <line number="143" hits="0" branch="false"/>
             <line number="144" hits="0" branch="false"/>
-            <line number="176" hits="0" branch="false"/>
+            <line number="145" hits="0" branch="false"/>
             <line number="177" hits="0" branch="false"/>
             <line number="178" hits="0" branch="false"/>
             <line number="179" hits="0" branch="false"/>
@@ -4910,7 +4909,7 @@
             <line number="200" hits="0" branch="false"/>
             <line number="201" hits="0" branch="false"/>
             <line number="202" hits="0" branch="false"/>
-            <line number="235" hits="0" branch="false"/>
+            <line number="203" hits="0" branch="false"/>
             <line number="236" hits="0" branch="false"/>
             <line number="237" hits="0" branch="false"/>
             <line number="238" hits="0" branch="false"/>
@@ -4929,6 +4928,7 @@
             <line number="251" hits="0" branch="false"/>
             <line number="252" hits="0" branch="false"/>
             <line number="253" hits="0" branch="false"/>
+            <line number="254" hits="0" branch="false"/>
           </lines>
         </class>
         <class name="grouped_barchart.R" filename="R/grouped_barchart.R" line-rate="0" branch-rate="0" complexity="0">
