@@ -107,52 +107,52 @@ create_correlogram <- function(df,
           type == "bb",
           # calculates phi correlation coefficient between two binary
           # variables.
-          mat[i,j] <- phi(df[, i], df[, j]),
-        ifelse(
-          type == "cb",
-          # calculates point biserial correlation with a
-          # continuous variable as the x attribute followed by a binary variable
-          # as the y attribute.
-          mat[i, j] <- biserial.cor(df[, i], df[, j]),
+          mat[i, j] <- phi(df[, i], df[, j]),
           ifelse(
-            type %in% c("bc"),
-            # calculates point biserial correlation with a binary variable as
-            # the x attribute followed by a continuous variable as the y
-            # attribute.
-            mat[i, j] <-
-              biserial.cor(df[, j], df[, i]),
+            type == "cb",
+            # calculates point biserial correlation with a
+            # continuous variable as the x attribute followed by a binary variable
+            # as the y attribute.
+            mat[i, j] <- biserial.cor(df[, i], df[, j]),
             ifelse(
-              type == "oo",
-              # calculates Spearman rank correlation with two ordinal variables.
-              mat[i, j] <- cor(rank(df[, i]), rank(df[, j])),
+              type %in% c("bc"),
+              # calculates point biserial correlation with a binary variable as
+              # the x attribute followed by a continuous variable as the y
+              # attribute.
+              mat[i, j] <-
+                biserial.cor(df[, j], df[, i]),
               ifelse(
-                type == "co",
-                # calculates modified Pearson correlation with nonparametric
-                # Spearman rank correlation, considering a continuous variable
-                # as the x attribute and ordinal variable as the y attribute.
-                mat[i, j] <- cor(df[, i], rank(df[, j])),
+                type == "oo",
+                # calculates Spearman rank correlation with two ordinal variables.
+                mat[i, j] <- cor(rank(df[, i]), rank(df[, j])),
                 ifelse(
-                  type == "oc",
+                  type == "co",
                   # calculates modified Pearson correlation with nonparametric
-                  # Spearman rank correlation, considering an ordinal variable
-                  # as the x attribute and continuous variable as the y
-                  # attribute.
-                  mat[i, j] <- cor(rank(df[, i]), df[, j]),
-                  ifelse(type == "ob",
-                    # calculates glass rank biserial correlation with an ordinal
-                    # variable as the x attribute and binary variable as the y
+                  # Spearman rank correlation, considering a continuous variable
+                  # as the x attribute and ordinal variable as the y attribute.
+                  mat[i, j] <- cor(df[, i], rank(df[, j])),
+                  ifelse(
+                    type == "oc",
+                    # calculates modified Pearson correlation with nonparametric
+                    # Spearman rank correlation, considering an ordinal variable
+                    # as the x attribute and continuous variable as the y
                     # attribute.
-                    mat[i, j] <- enframe(wilcoxonRG(table(
-                      df[, j], df[, i]
-                    )))[1, 2],
-                    ifelse(type == "bo",
-                      # calculates glass rank biserial correlation with a binary
-                      # variable as the x attribute and an ordinal variable as
-                      # the y attribute.
+                    mat[i, j] <- cor(rank(df[, i]), df[, j]),
+                    ifelse(type == "ob",
+                      # calculates glass rank biserial correlation with an ordinal
+                      # variable as the x attribute and binary variable as the y
+                      # attribute.
                       mat[i, j] <- enframe(wilcoxonRG(table(
-                        df[, i], df[, j]
-                      )))[1, 2]
-                    )
+                        df[, j], df[, i]
+                      )))[1, 2],
+                      ifelse(type == "bo",
+                        # calculates glass rank biserial correlation with a binary
+                        # variable as the x attribute and an ordinal variable as
+                        # the y attribute.
+                        mat[i, j] <- enframe(wilcoxonRG(table(
+                          df[, i], df[, j]
+                        )))[1, 2]
+                      )
                     )
                   )
                 )

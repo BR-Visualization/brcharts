@@ -169,17 +169,19 @@ for (i in seq(1, ncol(corr5))) {
     n01 <- contingency_table[1, 2]
     n00 <- contingency_table[1, 1]
 
-    phir <- signif((n11 * n00 - n10 * n01) /
-                   sqrt((n11 + n10) * (n01 + n00) * (n11 + n01) * (n10 + n00)),
-                   3)
+    phir <- signif(
+      (n11 * n00 - n10 * n01) /
+        sqrt((n11 + n10) * (n01 + n00) * (n11 + n01) * (n10 + n00)),
+      3
+    )
     mat1[i, j] <- phir
   }
 }
 
 test_that("create_correlogram() correctly calculates correlations for binary
   variables", {
-    expect_equal(mat, mat1)
-  })
+  expect_equal(mat, mat1)
+})
 
 # testing the accuracy of binary/continuous correlations
 
