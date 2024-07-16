@@ -157,7 +157,7 @@ for (i in seq(1, ncol(corr5))) {
     yattr <-
       df_attribs[df_attribs$names %in% names(corr5)[j], ][["shortc"]]
 
-    mat[i, j] <- phi(corr5[, i], corr5[, j])
+    mat[i, j] <- signif(cramerV(corr5[, i], corr5[, j]),3)
 
     x <- corr5[, i]
     y <- corr5[, j]
@@ -169,11 +169,11 @@ for (i in seq(1, ncol(corr5))) {
     n01 <- contingency_table[1, 2]
     n00 <- contingency_table[1, 1]
 
-    phir <- signif(
+    phir <- abs(signif(
       (n11 * n00 - n10 * n01) /
         sqrt((n11 + n10) * (n01 + n00) * (n11 + n01) * (n10 + n00)),
       3
-    )
+    ))
     mat1[i, j] <- phir
   }
 }

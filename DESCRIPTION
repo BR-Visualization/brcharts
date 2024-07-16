@@ -44,7 +44,6 @@ Imports:
     rcompanion,
     stringr,
     tibble,
-    psych,
     faux
 Depends: 
     R (>= 2.10),
