@@ -18,7 +18,21 @@
 #' @import cowplot
 #' @import ggcorrplot
 #' @import stringr
+#' @importFrom psych phi
 #' @import faux
+#'
+#' @details
+#' Different correlation coefficients are calculated based on the nature of the
+#' variables:
+#' For two continuous variables, the Pearson correlation coefficient is used.
+#' For two binary variables, the Phi coefficient is implemented.
+#' For one binary and one continuous variable, point biserial correlation is
+#' utilized.
+#' For two ordinal variables, Spearman rank correlation is utilized.
+#' For one continuous and one ordinal variable, a modified Pearson correlation
+#' combined with the nonparametric Spearman rank correlation is used.
+#' For one binary and one ordinal variable, Glass rank biserial correlation
+#' is implemented.
 #'
 #' @examples
 #' create_correlogram(corr)
@@ -90,8 +104,13 @@ create_correlogram <- function(df,
         # calculates Pearson correlation with two continuous variables
         mat[i, j] <- cor(df[, i], df[, j]),
         ifelse(
-          type %in% c("bb", "cb"),
-          # calculates point biserial correlation with either two binary or a
+          type == "bb",
+          # calculates phi correlation coefficient between two binary
+          # variables.
+          mat[i,j] <- phi(df[, i], df[, j]),
+        ifelse(
+          type == "cb",
+          # calculates point biserial correlation with a
           # continuous variable as the x attribute followed by a binary variable
           # as the y attribute.
           mat[i, j] <- biserial.cor(df[, i], df[, j]),
@@ -133,6 +152,7 @@ create_correlogram <- function(df,
                       mat[i, j] <- enframe(wilcoxonRG(table(
                         df[, i], df[, j]
                       )))[1, 2]
+                    )
                     )
                   )
                 )

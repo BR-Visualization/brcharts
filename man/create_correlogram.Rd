@@ -25,6 +25,19 @@ A correlogram.
 \description{
 Create a correlogram from a given dataframe
 }
+\details{
+Different correlation coefficients are calculated based on the nature of the
+variables:
+For two continuous variables, the Pearson correlation coefficient is used.
+For two binary variables, the Phi coefficient is implemented.
+For one binary and one continuous variable, point biserial correlation is
+utilized.
+For two ordinal variables, Spearman rank correlation is utilized.
+For one continuous and one ordinal variable, a modified Pearson correlation
+combined with the nonparametric Spearman rank correlation is used.
+For one binary and one ordinal variable, Glass rank biserial correlation
+is implemented.
+}
 \examples{
 create_correlogram(corr)
 }

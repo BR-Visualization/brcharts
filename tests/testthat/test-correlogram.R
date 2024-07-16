@@ -138,6 +138,49 @@ test_that("create_correlogram() correctly calculates correlations for continuous
   expect_equal(mat, mat1)
 })
 
+# testing the accuracy of binary correlations
+
+df_attribs1 <- df_attribs %>% filter(shortc == "b")
+name1 <- c(df_attribs1$names)
+corr5 <- corr1 %>% select(which(names(corr1) %in% name1))
+
+mat <- data.frame(matrix(NA, nrow = ncol(corr5), ncol = ncol(corr5)))
+dimnames(mat) <- list(names(corr5), names(corr5))
+
+mat1 <- data.frame(matrix(NA, nrow = ncol(corr5), ncol = ncol(corr5)))
+dimnames(mat1) <- list(names(corr5), names(corr5))
+
+for (i in seq(1, ncol(corr5))) {
+  for (j in seq(1, ncol(corr5))) {
+    xattr <-
+      df_attribs[df_attribs$names %in% names(corr5)[i], ][["shortc"]]
+    yattr <-
+      df_attribs[df_attribs$names %in% names(corr5)[j], ][["shortc"]]
+
+    mat[i, j] <- phi(corr5[, i], corr5[, j])
+
+    x <- corr5[, i]
+    y <- corr5[, j]
+
+    contingency_table <- table(x, y)
+
+    n11 <- contingency_table[2, 2]
+    n10 <- contingency_table[2, 1]
+    n01 <- contingency_table[1, 2]
+    n00 <- contingency_table[1, 1]
+
+    phir <- signif((n11 * n00 - n10 * n01) /
+                   sqrt((n11 + n10) * (n01 + n00) * (n11 + n01) * (n10 + n00)),
+                   3)
+    mat1[i, j] <- phir
+  }
+}
+
+test_that("create_correlogram() correctly calculates correlations for binary
+  variables", {
+    expect_equal(mat, mat1)
+  })
+
 # testing the accuracy of binary/continuous correlations
 
 df_attribs1 <- df_attribs %>% filter(shortc == "c" | shortc == "b")
@@ -159,7 +202,7 @@ for (i in seq(1, ncol(corr5))) {
 
     type <- paste0(xattr, yattr)
     ifelse(
-      type %in% c("bb", "cb"),
+      type == "cb",
       # calculates point biserial correlation with either two binary or a
       # continuous variable as the x attribute followed by a binary variable
       # as the y attribute.
@@ -185,7 +228,7 @@ for (i in seq(1, ncol(corr5))) {
       df_attribs[df_attribs$names %in% names(corr5)[j], ][["shortc"]]
 
     type <- paste0(xattr, yattr)
-    if (type %in% c("bb", "cb")) {
+    if (type == "cb") {
       # perform manual calculation of point biserial correlation
       x <- as.numeric(corr5[, i])
       y <- corr5[, j]
