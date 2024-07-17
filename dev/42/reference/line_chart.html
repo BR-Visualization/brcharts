@@ -157,18 +157,19 @@ at the start of the arrows (Y, N)</p></dd>
     <h2>Examples</h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">func</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fl">47.982</span> <span class="op">-</span> <span class="fl">0.0305</span> <span class="op">*</span> <span class="va">x</span> <span class="op">-</span> <span class="fl">0.57525</span> <span class="op">*</span> <span class="va">x</span><span class="op">^</span><span class="fl">2</span> <span class="op">+</span> <span class="fl">0.0245</span> <span class="op">*</span> <span class="va">x</span><span class="op">^</span><span class="fl">3</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu">line_chart</span><span class="op">(</span>func <span class="op">=</span> <span class="va">func</span>,</span></span>
-<span class="r-in"><span>           data_bands <span class="op">=</span> <span class="va">data_bands</span>,</span></span>
-<span class="r-in"><span>           data_lines <span class="op">=</span> <span class="va">data_lines</span>,</span></span>
-<span class="r-in"><span>           xmin <span class="op">=</span> <span class="fl">0</span>,</span></span>
-<span class="r-in"><span>           xmax <span class="op">=</span> <span class="fl">14.2</span>,</span></span>
-<span class="r-in"><span>           ymin <span class="op">=</span> <span class="fl">0</span>,</span></span>
-<span class="r-in"><span>           ymax <span class="op">=</span> <span class="fl">50</span>,</span></span>
-<span class="r-in"><span>           xbreaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">14</span>, <span class="fl">2</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>           ybreaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">50</span>, <span class="fl">5</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>           xlab <span class="op">=</span> <span class="st">"Years Since Onset"</span>,</span></span>
-<span class="r-in"><span>           ylab <span class="op">=</span> <span class="st">"Functional Score"</span>,</span></span>
-<span class="r-in"><span>           legend_title <span class="op">=</span> <span class="st">"Severity: "</span></span></span>
+<span class="r-in"><span><span class="fu">line_chart</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  func <span class="op">=</span> <span class="va">func</span>,</span></span>
+<span class="r-in"><span>  data_bands <span class="op">=</span> <span class="va">data_bands</span>,</span></span>
+<span class="r-in"><span>  data_lines <span class="op">=</span> <span class="va">data_lines</span>,</span></span>
+<span class="r-in"><span>  xmin <span class="op">=</span> <span class="fl">0</span>,</span></span>
+<span class="r-in"><span>  xmax <span class="op">=</span> <span class="fl">14.2</span>,</span></span>
+<span class="r-in"><span>  ymin <span class="op">=</span> <span class="fl">0</span>,</span></span>
+<span class="r-in"><span>  ymax <span class="op">=</span> <span class="fl">50</span>,</span></span>
+<span class="r-in"><span>  xbreaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">14</span>, <span class="fl">2</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  ybreaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">50</span>, <span class="fl">5</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  xlab <span class="op">=</span> <span class="st">"Years Since Onset"</span>,</span></span>
+<span class="r-in"><span>  ylab <span class="op">=</span> <span class="st">"Functional Score"</span>,</span></span>
+<span class="r-in"><span>  legend_title <span class="op">=</span> <span class="st">"Severity: "</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Scale for <span style="color: #00BB00;">x</span> is already present.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Adding another scale for <span style="color: #00BB00;">x</span>, which will replace the existing scale.</span>
