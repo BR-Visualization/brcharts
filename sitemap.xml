@@ -22,8 +22,6 @@
 <url><loc>/reference/comorbidities.html</loc></url>
 <url><loc>/reference/comp_outcome.html</loc></url>
 <url><loc>/reference/control_fonts.html</loc></url>
-<url><loc>/reference/corr.html</loc></url>
-<url><loc>/reference/create_correlogram.html</loc></url>
 <url><loc>/reference/cumexcess.html</loc></url>
 <url><loc>/reference/demography.html</loc></url>
 <url><loc>/reference/effects_table.html</loc></url>
@@ -36,6 +34,7 @@
 <url><loc>/reference/grouped_barchart.html</loc></url>
 <url><loc>/reference/index.html</loc></url>
 <url><loc>/reference/labs_bold.html</loc></url>
+<url><loc>/reference/line_chart.html</loc></url>
 <url><loc>/reference/prepare_br_calculated_ci.html</loc></url>
 <url><loc>/reference/prepare_br_supplied_ci.html</loc></url>
 <url><loc>/reference/prepare_tradeoff_data.html</loc></url>
