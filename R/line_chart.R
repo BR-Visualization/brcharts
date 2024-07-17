@@ -47,7 +47,7 @@
 #'            ymax = 50,
 #'            xbreaks = seq(0, 14, 2),
 #'            ybreaks = seq(0, 50, 5),
-#'            xlab = "Years",
+#'            xlab = "Years Since Onset",
 #'            ylab = "Functional Score",
 #'            legend_title = "Severity: "
 #' )
