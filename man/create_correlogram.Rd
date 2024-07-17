@@ -40,7 +40,7 @@ Create a correlogram from a given dataframe
 Different correlation coefficients are calculated based on the nature of the
 variables:
 For two continuous variables, the Pearson correlation coefficient is used.
-For two binary variables, Cramer's phi association is implemented.
+For two binary variables, the Phi correlation coefficient is implemented.
 For one binary and one continuous variable, point biserial correlation is
 utilized.
 For two ordinal variables, Spearman rank correlation is utilized.

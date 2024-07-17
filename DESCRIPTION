@@ -44,7 +44,8 @@ Imports:
     faux,
     ggthemes,
     remotes,
-    purrr
+    purrr,
+    psych
 Depends: 
     R (>= 2.10),
     tidyverse

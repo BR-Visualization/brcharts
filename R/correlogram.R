@@ -21,13 +21,14 @@
 #' @import cowplot
 #' @import ggcorrplot
 #' @import stringr
+#' @import psych
 #' @import faux
 #'
 #' @details
 #' Different correlation coefficients are calculated based on the nature of the
 #' variables:
 #' For two continuous variables, the Pearson correlation coefficient is used.
-#' For two binary variables, Cramer's phi association is implemented.
+#' For two binary variables, the Phi correlation coefficient is implemented.
 #' For one binary and one continuous variable, point biserial correlation is
 #' utilized.
 #' For two ordinal variables, Spearman rank correlation is utilized.
@@ -109,8 +110,8 @@ create_correlogram <- function(df,
         mat[i, j] <- cor(df[, i], df[, j]),
         ifelse(
           type == "bb",
-          # calculates Cramér's phi association between two binary variables.
-          mat[i, j] <- cramerV(df[, i], df[, j]),
+          # calculates Phi correlation coeffieicnt between two binary variables.
+          mat[i, j] <- phi(df[, i], df[, j]),
           ifelse(
             type == "cb",
             # calculates point biserial correlation with a
