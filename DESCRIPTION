@@ -36,6 +36,12 @@ Imports:
     scales,
     shiny,
     simsurv,
+    ggcorrplot,
+    ltm,
+    rcompanion,
+    stringr,
+    tibble,
+    faux,
     ggthemes,
     remotes,
     purrr

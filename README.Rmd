@@ -106,7 +106,16 @@ value_tree(diagram)
 ## Figure 6 - Dot-Forest Plot
 
 ```{r, message = FALSE, echo = FALSE, fig.width = 6, fig.height = 8}
-forest_dot_plot(effects_table)
+forest_dot_plot(effects_table,
+  filters = "None",
+  category = "All",
+  type_graph = "Absolute risk",
+  type_risk = "Crude proportions",
+  select_nnx = "Y",
+  x_scale_fixed_free = "Fixed",
+  ci_method = "Calculated",
+  exclude_outcome = "Liver"
+)
 ```
 
 
@@ -152,6 +161,18 @@ generate_tradeoff_plot(
 )
 ```
 
+## Figure 10 - Correlogram
+
+```{r correlogram, echo = FALSE}
+create_correlogram(corr)
+```
+  
+## Figure 11 - Scatterplot
+
+```{r scatterplot, echo = FALSE}
+scatter_plot(scatterplot, outcome = c("Benefit", "Risk"))
+```
+
 ## Figure 12 - Composite Outcome (Stacked Bar Chart)
 
 ```{r stacked_barchart, echo = FALSE}
@@ -160,12 +181,6 @@ stacked_barchart(
   chartcolors = colfun()$fig12_colors,
   xlabel = "Study Week"
 )
-```
-  
-## Figure 11 - Scatterplot
-
-```{r scatterplot, echo = FALSE}
-scatter_plot(scatterplot, outcome = c("Benefit", "Risk"))
 ```
 
 ## Figure 13 - Cumulative Excess Plot

@@ -36,6 +36,27 @@
 #' @format A data frame with 105 rows and 51 variables
 "brdata"
 
+#' Example correlogram data used for Figure 10
+#'
+#' @name corr
+#' @format A data frame with 100 rows and 6 columns:
+#'   \describe{
+#'   \item{Primary Efficacy}{Simulated change from primary efficacy baseline in
+#'   respective subject}
+#'   \item{Secondary Efficacy}{Simulated change from secondary efficacy baseline
+#'   in respective subject}
+#'   \item{Quality of Life}{Simulated change from quality of life baseline
+#'   in respective subject}
+#'   \item{Recurring AE}{Simulated change from recurring AE baseline
+#'   in respective subject}
+#'   \item{Rare SAE}{Simulated change from rare SAE baseline
+#'   in respective subject}
+#'   \item{Liver Toxicity}{Simulated change from liver toxicity baseline
+#'   in respective subject}
+#'
+#'   }
+"corr"
+
 #' Example composite outcome data used for Figure 12
 #'
 #' @name comp_outcome
