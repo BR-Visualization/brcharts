@@ -38,18 +38,19 @@
 #' @examples
 #' func <- function(x) 47.982 - 0.0305 * x - 0.57525 * x^2 + 0.0245 * x^3
 #'
-#' line_chart(func = func,
-#'            data_bands = data_bands,
-#'            data_lines = data_lines,
-#'            xmin = 0,
-#'            xmax = 14.2,
-#'            ymin = 0,
-#'            ymax = 50,
-#'            xbreaks = seq(0, 14, 2),
-#'            ybreaks = seq(0, 50, 5),
-#'            xlab = "Years Since Onset",
-#'            ylab = "Functional Score",
-#'            legend_title = "Severity: "
+#' line_chart(
+#'   func = func,
+#'   data_bands = data_bands,
+#'   data_lines = data_lines,
+#'   xmin = 0,
+#'   xmax = 14.2,
+#'   ymin = 0,
+#'   ymax = 50,
+#'   xbreaks = seq(0, 14, 2),
+#'   ybreaks = seq(0, 50, 5),
+#'   xlab = "Years Since Onset",
+#'   ylab = "Functional Score",
+#'   legend_title = "Severity: "
 #' )
 line_chart <- function(func,
                        data_bands,
@@ -66,8 +67,7 @@ line_chart <- function(func,
                        ybreaks,
                        xlab,
                        ylab,
-                       legend_title
-) {
+                       legend_title) {
   # check if data_bands has all required columns
   data_bands_columns <- c(
     "level", "ystart", "yend", "col"
@@ -80,7 +80,7 @@ line_chart <- function(func,
   }
 
   # check if variables in data_bands are of the required data type
-  if (!is.numeric(data_bands$ystart) | !is.numeric(data_bands$yend)){
+  if (!is.numeric(data_bands$ystart) | !is.numeric(data_bands$yend)) {
     error_message <- paste0("The columns ystart and yend in your data_bands dataframe must be of type numeric")
     stop(error_message)
   }
@@ -111,11 +111,11 @@ line_chart <- function(func,
 
   # check if variables in data_bands are of the required data type
   if (!is.numeric(data_lines$xstart) |
-      !is.numeric(data_lines$xend) |
-      !is.numeric(data_lines$y) |
-      !is.numeric(data_lines$xpos) |
-      !is.numeric(data_lines$ypos)
-  ){
+    !is.numeric(data_lines$xend) |
+    !is.numeric(data_lines$y) |
+    !is.numeric(data_lines$xpos) |
+    !is.numeric(data_lines$ypos)
+  ) {
     error_message <- paste0("The columns xstart, xend, y, xpos, and ypos in your data_lines dataframe must be of type numeric")
     stop(error_message)
   }
@@ -133,13 +133,15 @@ line_chart <- function(func,
     data_lines <- na.omit(data_lines)
   }
 
-  data_lines2 <- data_lines %>% pivot_longer(cols = c(xstart, xend),
-                                             values_to  = "xvar")
+  data_lines2 <- data_lines %>% pivot_longer(
+    cols = c(xstart, xend),
+    values_to = "xvar"
+  )
   fig <- ggplot() +
     geom_function(fun = func) +
     xlim(c(xmin, xmax)) +
     {
-      if (show_bands == "Y")
+      if (show_bands == "Y") {
         geom_rect(
           data = data_bands,
           inherit.aes = FALSE,
@@ -153,10 +155,12 @@ line_chart <- function(func,
           ),
           alpha = 0.3
         )
+      }
     } +
     scale_fill_manual(legend_title,
-                      values = data_bands$col,
-                      guide = guide_legend(override.aes = list(alpha = 1))) +
+      values = data_bands$col,
+      guide = guide_legend(override.aes = list(alpha = 1))
+    ) +
     geom_line(
       data = data_lines2,
       size = line_size,
@@ -173,10 +177,12 @@ line_chart <- function(func,
       ),
       show.legend = FALSE
     ) +
-    scale_colour_manual(guide = "none",
-                        values = rev(colfun()$fig3_colors)) +
+    scale_colour_manual(
+      guide = "none",
+      values = rev(colfun()$fig3_colors)
+    ) +
     {
-      if (show_bands != "Y")
+      if (show_bands != "Y") {
         annotate(
           geom = "text",
           x = data_lines$xstart + data_lines$xpos,
@@ -184,29 +190,34 @@ line_chart <- function(func,
           label = data_lines$stage,
           color = rev(data_lines$col)
         )
+      }
     } +
     {
-      if (show_bands == "Y")
+      if (show_bands == "Y") {
         annotate(
           geom = "text",
           x = data_lines$xstart + data_lines$xpos,
           y = data_lines$y + data_lines$ypos,
           label = data_lines$stage,
           color = "black",
-          size = control_fonts()$p*0.35,
+          size = control_fonts()$p * 0.35,
         )
+      }
     } +
     {
-      if (show_points == "Y")
+      if (show_points == "Y") {
         geom_point(
           data = filter(data_lines, name == "xstart"),
           aes(x = xvar, y = y, colour = stage),
           size = 2
         )
+      }
     } +
-    coord_cartesian(xlim = c(xmin, xmax),
-                    ylim = c(ymin, ymax),
-                    expand = FALSE) +
+    coord_cartesian(
+      xlim = c(xmin, xmax),
+      ylim = c(ymin, ymax),
+      expand = FALSE
+    ) +
     scale_x_continuous(breaks = xbreaks) +
     scale_y_continuous(breaks = ybreaks) +
     labs(x = xlab, y = ylab) +

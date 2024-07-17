@@ -82,17 +82,18 @@ Line Chart
 \examples{
 func <- function(x) 47.982 - 0.0305 * x - 0.57525 * x^2 + 0.0245 * x^3
 
-line_chart(func = func,
-           data_bands = data_bands,
-           data_lines = data_lines,
-           xmin = 0,
-           xmax = 14.2,
-           ymin = 0,
-           ymax = 50,
-           xbreaks = seq(0, 14, 2),
-           ybreaks = seq(0, 50, 5),
-           xlab = "Years Since Onset",
-           ylab = "Functional Score",
-           legend_title = "Severity: "
+line_chart(
+  func = func,
+  data_bands = data_bands,
+  data_lines = data_lines,
+  xmin = 0,
+  xmax = 14.2,
+  ymin = 0,
+  ymax = 50,
+  xbreaks = seq(0, 14, 2),
+  ybreaks = seq(0, 50, 5),
+  xlab = "Years Since Onset",
+  ylab = "Functional Score",
+  legend_title = "Severity: "
 )
 }
