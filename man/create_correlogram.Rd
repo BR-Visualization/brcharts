@@ -4,7 +4,13 @@
 \alias{create_correlogram}
 \title{Create a correlogram from a given dataframe}
 \usage{
-create_correlogram(df, diagonal = FALSE, fig_colors = colfun()$fig10_colors)
+create_correlogram(
+  df,
+  diagonal = FALSE,
+  method = "square",
+  type_c = "lower",
+  fig_colors = colfun()$fig10_colors
+)
 }
 \arguments{
 \item{df}{A dataframe containing desired variables. Can be
@@ -13,7 +19,12 @@ Note: Binary variables must have a value of 0 or 1.
 Note: Ordinal variables must be formatted as factors.}
 
 \item{diagonal}{Allows user to choose to view the correlogram with diagonal
-entries (default is FALSE).}
+entries. Default is FALSE.}
+
+\item{method}{Allows user to modify the visualization method of the
+correlogram. Default is "square".}
+
+\item{type_c}{Allows user to revise the display. Default is "lower".}
 
 \item{fig_colors}{Allows the user to change the colors of the figure
 (defaults are provided). Must be vector of length 3, with color corresponding
@@ -29,7 +40,7 @@ Create a correlogram from a given dataframe
 Different correlation coefficients are calculated based on the nature of the
 variables:
 For two continuous variables, the Pearson correlation coefficient is used.
-For two binary variables, Cramér's phi association is implemented.
+For two binary variables, Cramer's phi association is implemented.
 For one binary and one continuous variable, point biserial correlation is
 utilized.
 For two ordinal variables, Spearman rank correlation is utilized.
