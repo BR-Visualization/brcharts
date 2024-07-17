@@ -47,7 +47,13 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">create_correlogram</span><span class="op">(</span><span class="va">df</span>, diagonal <span class="op">=</span> <span class="cn">FALSE</span>, fig_colors <span class="op">=</span> <span class="fu"><a href="colfun.html">colfun</a></span><span class="op">(</span><span class="op">)</span><span class="op">$</span><span class="va">fig10_colors</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">create_correlogram</span><span class="op">(</span></span>
+<span>  <span class="va">df</span>,</span>
+<span>  diagonal <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  method <span class="op">=</span> <span class="st">"square"</span>,</span>
+<span>  type_c <span class="op">=</span> <span class="st">"lower"</span>,</span>
+<span>  fig_colors <span class="op">=</span> <span class="fu"><a href="colfun.html">colfun</a></span><span class="op">(</span><span class="op">)</span><span class="op">$</span><span class="va">fig10_colors</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -63,7 +69,16 @@ Note: Ordinal variables must be formatted as factors.</p></dd>
 
 <dt id="arg-diagonal">diagonal<a class="anchor" aria-label="anchor" href="#arg-diagonal"></a></dt>
 <dd><p>Allows user to choose to view the correlogram with diagonal
-entries (default is FALSE).</p></dd>
+entries. Default is FALSE.</p></dd>
+
+
+<dt id="arg-method">method<a class="anchor" aria-label="anchor" href="#arg-method"></a></dt>
+<dd><p>Allows user to modify the visualization method of the
+correlogram. Default is "square".</p></dd>
+
+
+<dt id="arg-type-c">type_c<a class="anchor" aria-label="anchor" href="#arg-type-c"></a></dt>
+<dd><p>Allows user to revise the display. Default is "lower".</p></dd>
 
 
 <dt id="arg-fig-colors">fig_colors<a class="anchor" aria-label="anchor" href="#arg-fig-colors"></a></dt>
@@ -81,7 +96,7 @@ to strength of correlation.</p></dd>
     <p>Different correlation coefficients are calculated based on the nature of the
 variables:
 For two continuous variables, the Pearson correlation coefficient is used.
-For two binary variables, Cramér's phi association is implemented.
+For two binary variables, Cramer's phi association is implemented.
 For one binary and one continuous variable, point biserial correlation is
 utilized.
 For two ordinal variables, Spearman rank correlation is utilized.
