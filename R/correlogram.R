@@ -21,7 +21,6 @@
 #' @import cowplot
 #' @import ggcorrplot
 #' @import stringr
-#' @import psych
 #' @import faux
 #'
 #' @details
