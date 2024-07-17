@@ -4,7 +4,7 @@ CMD
 Colopy
 Comorbidities
 Correlogram
-Cramér's
+Cramer's
 Diabetis
 DiagrameR
 Epub
@@ -21,6 +21,8 @@ Repo
 SAE
 SuperLinter
 Ther
+abb
+bc
 biserial
 br
 brcat
@@ -29,6 +31,8 @@ comparator
 correlogram
 df
 doi
+eb
+ee
 eventtime
 ggplot
 ggsave

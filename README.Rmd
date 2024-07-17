@@ -107,15 +107,15 @@ value_tree(diagram)
 
 ```{r, message = FALSE, echo = FALSE, fig.width = 6, fig.height = 8}
 forest_dot_plot(effects_table,
-                filters = "None",
-                category = "All",
-                type_graph = "Absolute risk",
-                type_risk = "Crude proportions",
-                select_nnx = "Y",
-                x_scale_fixed_free = "Fixed",
-                ci_method = "Calculated",
-                exclude_outcome = "Liver"
-                )
+  filters = "None",
+  category = "All",
+  type_graph = "Absolute risk",
+  type_risk = "Crude proportions",
+  select_nnx = "Y",
+  x_scale_fixed_free = "Fixed",
+  ci_method = "Calculated",
+  exclude_outcome = "Liver"
+)
 ```
 
 

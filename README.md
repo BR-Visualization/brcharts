@@ -80,7 +80,6 @@ devtools::install_github("BR-Visualization/brcharts")
 
 <img src="man/figures/README-tradeoff_plot-1.png" width="100%" />
 
-<<<<<<< HEAD
 ## Figure 10 - Correlogram
 
 <img src="man/figures/README-correlogram-1.png" width="100%" />
@@ -89,19 +88,14 @@ devtools::install_github("BR-Visualization/brcharts")
 
 <img src="man/figures/README-scatterplot-1.png" width="100%" />
 
-=======
->>>>>>> a7ca4f377914b82630ee7bc751f6914abb1b56eb
 ## Figure 12 - Composite Outcome (Stacked Bar Chart)
 
 <img src="man/figures/README-stacked_barchart-1.png" width="100%" />
 
-<<<<<<< HEAD
-=======
 ## Figure 11 - Scatterplot
 
 <img src="man/figures/README-scatterplot-1.png" width="100%" />
 
->>>>>>> a7ca4f377914b82630ee7bc751f6914abb1b56eb
 ## Figure 13 - Cumulative Excess Plot
 
 <img src="man/figures/README-cumulative_excess_plot-1.png" width="100%" />
