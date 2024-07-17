@@ -64,6 +64,13 @@ devtools::install_github("BR-Visualization/brcharts")
 
 <img src="man/figures/README-pyramid_plot-1.png" width="100%" />
 
+## Figure 3 - Disease History (Line Chart)
+
+    #> Scale for x is already present.
+    #> Adding another scale for x, which will replace the existing scale.
+
+<img src="man/figures/README-line_chart-1.png" width="100%" />
+
 ## Figure 4 - Comorbidities (Grouped Bar Chart)
 
 <img src="man/figures/README-grouped_barchart-1.png" width="100%" />
@@ -76,14 +83,13 @@ devtools::install_github("BR-Visualization/brcharts")
 
 <img src="man/figures/README-tradeoff_plot-1.png" width="100%" />
 
-## Figure 11 - Scatterplot
-
-<img src="man/figures/README-scatterplot-1.png" width="100%" />
-
 ## Figure 12 - Composite Outcome (Stacked Bar Chart)
 
 <img src="man/figures/README-stacked_barchart-1.png" width="100%" />
 
+## Figure 11 - Scatterplot
+
+<img src="man/figures/README-scatterplot-1.png" width="100%" />
 
 ## Figure 13 - Cumulative Excess Plot
 

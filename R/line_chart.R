@@ -38,24 +38,6 @@
 #' @examples
 #' func <- function(x) 47.982 - 0.0305 * x - 0.57525 * x^2 + 0.0245 * x^3
 #'
-#' data_bands <- tribble(
-#'   ~level, ~ystart, ~yend, ~col,
-#'   "Mild [35-48)", 35, 48.5, "#ECEDED",
-#'   "Moderate [15-35)", 15, 35, "#BCBCBC",
-#'   "Severe [0-15)", 0, 15, "#888888"
-#' )
-#'
-#' data_lines <- tribble(
-#'   ~stage, ~xstart, ~xend, ~y, ~col, ~xpos, ~ypos,
-#'   "Symptoms", 0, 6, 45, colfun()$fig3_colors[1], 0.44444, -1.4,
-#'   "Diagnosis", 1.99998, 8, 40, colfun()$fig3_colors[2], 0.36, -1.4,
-#'   "Loss of physical function", 3.66664, 9, 33, colfun()$fig3_colors[3], 1, -1.4,
-#'   "Loss of social function", 4.49998, 10, 27, colfun()$fig3_colors[4], 0.92, -1.4,
-#'   "Loss of mental function", 5.3333, 11, 20, colfun()$fig3_colors[5], 0.92, -1.4,
-#'   "Assisted care", 6.16664, 12, 12, colfun()$fig3_colors[6], 0.52, -1.4,
-#'   "Death", 7.8333, 14.2, 2.5, colfun()$fig3_colors[7], 0.27778, -1.4
-#' )
-#'
 #' line_chart(func = func,
 #'            data_bands = data_bands,
 #'            data_lines = data_lines,
