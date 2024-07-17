@@ -157,7 +157,7 @@ for (i in seq(1, ncol(corr5))) {
     yattr <-
       df_attribs[df_attribs$names %in% names(corr5)[j], ][["shortc"]]
 
-    mat[i, j] <- signif(phi(corr5[, i], corr5[, j]), 3)
+    mat[i, j] <- signif(rcompanion::phi(corr5[, i], corr5[, j]), 3)
 
     x <- corr5[, i]
     y <- corr5[, j]
