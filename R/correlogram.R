@@ -8,7 +8,10 @@
 #' (defaults are provided). Must be vector of length 3, with color corresponding
 #' to strength of correlation.
 #' @param diagonal Allows user to choose to view the correlogram with diagonal
-#' entries (default is FALSE).
+#' entries. Default is FALSE.
+#' @param type_c Allows user to revise the display. Default is "lower".
+#' @param method Allows user to modify the visualization method of the
+#' correlogram. Default is "square".
 #'
 #' @return A correlogram.
 #' @export
@@ -24,7 +27,7 @@
 #' Different correlation coefficients are calculated based on the nature of the
 #' variables:
 #' For two continuous variables, the Pearson correlation coefficient is used.
-#' For two binary variables, Cramér's phi association is implemented.
+#' For two binary variables, Cramer's phi association is implemented.
 #' For one binary and one continuous variable, point biserial correlation is
 #' utilized.
 #' For two ordinal variables, Spearman rank correlation is utilized.
@@ -37,6 +40,8 @@
 #' create_correlogram(corr)
 create_correlogram <- function(df,
                                diagonal = FALSE,
+                               method = "square",
+                               type_c = "lower",
                                fig_colors = colfun()$fig10_colors) {
   classes <- numeric()
   shortcs <- numeric()
@@ -165,9 +170,10 @@ create_correlogram <- function(df,
   fig <-
     ggcorrplot(
       mat,
-      type = "lower",
+      type = type_c,
       outline.color = "grey",
       show.diag = diagonal,
+      method = method,
       colors = fig_colors,
       ggtheme = br_charts_theme(),
       tl.cex = 9

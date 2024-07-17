@@ -6,7 +6,7 @@
 interval confidence
 identifies whether the dataframe is for Benefit or Risk analysis}
 \usage{
-prepare_br_calculated_ci(df, colname1, colname2, cl, func)
+prepare_br_calculated_ci(df, colname1, colname2, cl = 0.95, func)
 }
 \arguments{
 \item{df}{(\code{data.frame}) dataset
