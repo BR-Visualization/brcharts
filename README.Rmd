@@ -55,7 +55,7 @@ demography |>
 
 ## Figure 3 - Disease History (Line Chart)
 
-```{r line_chart, echo = FALSE}
+```{r line_chart, message = FALSE, echo = FALSE}
 func <- function(x) 47.982 - 0.0305 * x - 0.57525 * x^2 + 0.0245 * x^3
 line_chart(func = func,
            data_bands = data_bands,
@@ -73,7 +73,7 @@ line_chart(func = func,
 
 ## Figure 4 - Comorbidities (Grouped Bar Chart)
 
-```{r grouped_barchart, echo = FALSE}
+```{r grouped_barchart, cho = FALSE}
 grouped_barchart(
   data = comorbidities, xvar = "Comorbidities",
   yvar = "Prevalence", groupvar = "Severity",
