@@ -4,7 +4,7 @@
 \alias{calculate_rel_risk_bin}
 \title{CI for relative risk for binary outcomes}
 \usage{
-calculate_rel_risk_bin(prop1, prop2, N1, N2, cl)
+calculate_rel_risk_bin(prop1, prop2, N1, N2, cl = 0.95)
 }
 \arguments{
 \item{prop1}{(\code{numeric})\cr Proportion of cases in active treatment}

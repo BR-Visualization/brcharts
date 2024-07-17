@@ -4,7 +4,7 @@
 \alias{calculate_diff_con}
 \title{CI for treatment difference in continuous outcomes}
 \usage{
-calculate_diff_con(mean1, mean2, sd1, sd2, N1, N2, cl)
+calculate_diff_con(mean1, mean2, sd1, sd2, N1, N2, cl = 0.95)
 }
 \arguments{
 \item{mean1}{(\code{numeric})\cr Mean of measure in active treatment}

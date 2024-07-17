@@ -4,7 +4,7 @@
 \alias{calculate_diff_bin}
 \title{CI for absolute risk for binary outcomes}
 \usage{
-calculate_diff_bin(prop1, prop2, N1, N2, cl)
+calculate_diff_bin(prop1, prop2, N1, N2, cl = 0.95)
 }
 \arguments{
 \item{prop1}{(\code{numeric})\cr Proportion of cases in active treatment}

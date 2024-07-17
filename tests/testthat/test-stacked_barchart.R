@@ -1,6 +1,3 @@
-library(testthat)
-library(png)
-
 # Test if the new plot is identical to the saved plot
 # Example 1 - manuscript example
 plot1 <- stacked_barchart(
@@ -10,8 +7,8 @@ plot1 <- stacked_barchart(
 )
 ggsave(plot1, filename = "test_stacked_barchart1.png", width = 7, height = 5)
 
-test_stacked_barchart1 <- readPNG("test_stacked_barchart1.png")
-stacked_barchart1 <- readPNG(paste0(test_path(), "/snapshots/stacked_barchart1.png"))
+test_stacked_barchart1 <- png::readPNG("test_stacked_barchart1.png")
+stacked_barchart1 <- png::readPNG(paste0(test_path(), "/snapshots/stacked_barchart1.png"))
 
 test1 <- paste(100 * sum(test_stacked_barchart1 == stacked_barchart1) /
   length(test_stacked_barchart1), "%")
@@ -32,8 +29,8 @@ plot2 <- stacked_barchart(
 )
 ggsave(plot2, filename = "test_stacked_barchart2.png", width = 7, height = 5)
 
-test_stacked_barchart2 <- readPNG("test_stacked_barchart2.png")
-stacked_barchart2 <- readPNG(paste0(test_path(), "/snapshots/stacked_barchart2.png"))
+test_stacked_barchart2 <- png::readPNG("test_stacked_barchart2.png")
+stacked_barchart2 <- png::readPNG(paste0(test_path(), "/snapshots/stacked_barchart2.png"))
 
 test2 <- paste(100 * sum(test_stacked_barchart2 == stacked_barchart2) /
   length(test_stacked_barchart2), "%")
