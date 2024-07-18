@@ -12,6 +12,43 @@
 #' }
 "demography"
 
+#' Example bands data used for Figure 3
+#'
+#' @format ## `data_bands`
+#' A data frame with 3 rows and 4 columns:
+#' \describe{
+#'   \item{level}{level each band represents}
+#'   \item{ystart}{starting point of each band}
+#'   \item{yend}{ending point of each band}
+#'   \item{col}{color of each band}
+#'
+#' }
+"data_bands"
+
+#' 1) stage: stage each line represents
+#' 2) xstart: x-axis starting point of each line
+#' 3) xend: x-axis ending point of each line
+#' 4) y: y-axis position of each line
+#' 5) col: color of each line
+#' 6) xpos: x-axis position of each annotation (relative to xstart)
+#' 7) ypos: y-axis position of each annotation (relative to y)
+#'
+#' Example lines data used for Figure 3
+#'
+#' @format ## `data_lines`
+#' A data frame with 7 rows and 7 columns:
+#' \describe{
+#'   \item{stage}{stage each line represents}
+#'   \item{xstart}{x-axis starting point of each line}
+#'   \item{xend}{x-axis ending point of each line}
+#'   \item{y}{y-axis position of each line}
+#'   \item{col}{color of each band}
+#'   \item{xpos}{x-axis position of each annotation (relative to xstart)}
+#'   \item{ypos}{y-axis position of each annotation (relative to y)}
+#'
+#' }
+"data_lines"
+
 #' Example comorbidities data used for Figure 4
 #'
 #' @name comorbidities

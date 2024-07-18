@@ -64,7 +64,19 @@ devtools::install_github("BR-Visualization/brcharts")
 
 <img src="man/figures/README-pyramid_plot-1.png" width="100%" />
 
+## Figure 3 - Disease History (Line Chart)
+
+<img src="man/figures/README-line_chart-1.png" width="100%" />
+
 ## Figure 4 - Comorbidities (Grouped Bar Chart)
+
+``` r
+grouped_barchart(
+  data = comorbidities, xvar = "Comorbidities",
+  yvar = "Prevalence", groupvar = "Severity",
+  chartcolors = colfun()$fig4_colors
+)
+```
 
 <img src="man/figures/README-grouped_barchart-1.png" width="100%" />
 
