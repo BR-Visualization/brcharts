@@ -109,7 +109,7 @@ create_correlogram <- function(df,
         mat[i, j] <- cor(df[, i], df[, j]),
         ifelse(
           type == "bb",
-          # calculates Phi correlation coeffieicnt between two binary variables.
+          # calculates Phi correlation coefficient between two binary variables.
           mat[i, j] <- rcompanion::phi(df[, i], df[, j]),
           ifelse(
             type == "cb",
