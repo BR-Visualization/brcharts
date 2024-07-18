@@ -27,6 +27,8 @@
 <url><loc>/reference/create_dot_forest_plot.html</loc></url>
 <url><loc>/reference/create_order_label_der.html</loc></url>
 <url><loc>/reference/cumexcess.html</loc></url>
+<url><loc>/reference/data_bands.html</loc></url>
+<url><loc>/reference/data_lines.html</loc></url>
 <url><loc>/reference/demography.html</loc></url>
 <url><loc>/reference/effects_table.html</loc></url>
 <url><loc>/reference/generate_fig_lft.html</loc></url>
@@ -40,6 +42,7 @@
 <url><loc>/reference/grouped_barchart.html</loc></url>
 <url><loc>/reference/index.html</loc></url>
 <url><loc>/reference/labs_bold.html</loc></url>
+<url><loc>/reference/line_chart.html</loc></url>
 <url><loc>/reference/populated_effects_table.html</loc></url>
 <url><loc>/reference/prepare_absolute_risk_data.html</loc></url>
 <url><loc>/reference/prepare_absolute_risk_exp_adj.html</loc></url>
