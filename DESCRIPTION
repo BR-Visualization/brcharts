@@ -29,20 +29,27 @@ Imports:
     ggplot2,
     ggrepel,
     glue,
-    htmltools,
     magrittr,
     patchwork,
-    png,
-    remotes,
     reshape2,
     rlang,
     scales,
     shiny,
-    simsurv
+    simsurv,
+    ggcorrplot,
+    ltm,
+    rcompanion,
+    stringr,
+    tibble,
+    faux,
+    ggthemes,
+    remotes,
+    purrr
 Depends: 
     R (>= 2.10),
     tidyverse
 LazyData: true
 Suggests: 
+    png,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3

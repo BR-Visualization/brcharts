@@ -42,5 +42,5 @@
 #'   "
 #' )
 value_tree <- function(diagram, ...) {
-  DiagrammeR::mermaid(diagram = diagram, ...)
+  DiagrammeR::mermaid(diagram, ...)
 }

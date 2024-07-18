@@ -1,11 +1,15 @@
+AE
 BRAP
 CMD
 Colopy
 Comorbidities
+Correlogram
 Diabetis
 DiagrameR
 Epub
 Innov
+NNH
+NNT
 PEY
 PMID
 PYAR
@@ -13,12 +17,15 @@ PYs
 Pkgdown
 Regul
 Repo
+SAE
 SuperLinter
 Ther
+biserial
 br
 brcat
 comorbidities
 comparator
+correlogram
 df
 doi
 eventtime
@@ -32,3 +39,4 @@ xstart
 yend
 ypos
 ystart
+tble
