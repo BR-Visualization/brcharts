@@ -50,6 +50,25 @@ Assessments Using Visualizations. Ther Innov Regul Sci. 2023
 Nov;57(6):1123-1135. doi: 10.1007/s43441-023-00563-9. Epub 2023 Sep 8.
 PMID: 37682462.
 
+# Table of Contents
+
+- [Installation](#installation)
+- [Figure 2 - Demographics (Pyramid
+  Chart)](#figure-2---demographics-pyramid-chart)
+- [Figure 3 - Disease History (Line
+  Chart)](#figure-3---disease-history-line-chart)
+- [Figure 4 - Comorbidities (Grouped Bar
+  Chart)](#figure-4---comorbidities-grouped-bar-chart)
+- [Figure 5 - Value Tree](#figure-5---value-tree)
+- [Figure 6 - Dot-Forest Plot](#figure-6---dot-forest-plot)
+- [Figure 7 - Trade-off Plot](#figure-7---trade-off-plot)
+- [Figure 10 - Correlogram](#figure-10---correlogram)
+- [Figure 11 - Scatterplot](#figure-11---scatterplot)
+- [Figure 12 - Composite Outcome (Stacked Bar
+  Chart)](#figure-12---composite-outcome-stacked-bar-chart)
+- [Figure 13 - Cumulative Excess
+  Plot](#figure-13---cumulative-excess-plot)
+
 ## Installation
 
 You can install the development version of brcharts from
@@ -64,7 +83,7 @@ devtools::install_github("BR-Visualization/brcharts")
 
 <details>
 <summary>
-Click to learn more
+Click to learn more about Figure 2 - Demographics (Pyramid Chart)
 </summary>
 
 **Pyramid bar chart: how to read**
@@ -91,6 +110,28 @@ Stratifying the randomization on disease type might be necessary if
 clinical evidence is needed for disease type B, particularly for younger
 age groups.
 </details>
+<details>
+<summary>
+Click to view sample code for Figure 2 - Demographics (Pyramid Chart)
+</summary>
+
+``` r
+demography |>
+  dplyr::mutate(
+    Type = as.factor(paste0("Type ", Type)),
+    figprev = ifelse(
+      Gender == "Females", -1 * Prevalence / 100000, Prevalence / 100000
+    ),
+    Sex = Gender
+  ) |>
+  pyramid_chart(
+    levelvar = "Type", xvar = "figprev", yvar = "Age",
+    groupvar = "Sex", alpha_set = 0.7, chartcolors = colfun()$fig2_colors,
+    xlab = "Prevalence (x 100 000)"
+  )
+```
+
+</details>
 
 <img src="man/figures/README-pyramid_plot-1.png" width="100%" />
 
@@ -98,7 +139,7 @@ age groups.
 
 <details>
 <summary>
-Click to learn more
+Click to learn more about Figure 3 - Disease History (Line Chart)
 </summary>
 
 **Natural History plot: how to read**
@@ -129,6 +170,30 @@ History of disease progression also impacts patient engagement, since
 newly diagnosed patients might have no experience with more serious
 manifestations, such as mental function.
 </details>
+<details>
+<summary>
+Click to view sample code for Figure 3 - Disease History (Line Chart)
+</summary>
+
+``` r
+func <- function(x) 47.982 - 0.0305 * x - 0.57525 * x^2 + 0.0245 * x^3
+line_chart(
+  func = func,
+  data_bands = data_bands,
+  data_lines = data_lines,
+  xmin = 0,
+  xmax = 14.2,
+  ymin = 0,
+  ymax = 50,
+  xbreaks = seq(0, 14, 2),
+  ybreaks = seq(0, 50, 5),
+  xlab = "Years Since Onset",
+  ylab = "Functional Score",
+  legend_title = "Severity: "
+)
+```
+
+</details>
 
 <img src="man/figures/README-line_chart-1.png" width="100%" />
 
@@ -136,7 +201,7 @@ manifestations, such as mental function.
 
 <details>
 <summary>
-Click to learn more
+Click to learn more about Figure 4 - Comorbidities (Grouped Bar Chart)
 </summary>
 
 **Grouped bar chart: how to read**
@@ -156,6 +221,11 @@ might place high importance in a drug that reduces severe hypertension.
 A display of background rates is also useful in determining whether a
 comorbidity is likely due to the drug or the disease.
 </details>
+<details>
+<summary>
+Click to view sample code for Figure 4 - Comorbidities (Grouped Bar
+Chart)
+</summary>
 
 ``` r
 grouped_barchart(
@@ -165,13 +235,15 @@ grouped_barchart(
 )
 ```
 
+</details>
+
 <img src="man/figures/README-grouped_barchart-1.png" width="100%" />
 
 ## Figure 5 - Value Tree
 
 <details>
 <summary>
-Click to learn more
+Click to learn more about Figure 5 - Value Tree
 </summary>
 
 **Value Tree: how to read**
@@ -214,12 +286,57 @@ Both primary and secondary efficacy clinical endpoints were included
 because they were not correlated. Quality of Life was included to
 capture what was important to the subjects.
 </details>
+<details>
+<summary>
+Click to view sample code for Figure 5 - Value Tree
+</summary>
+
+``` r
+ value_tree(
+   diagram =
+     "graph LR;
+   A(<B>Benefit-Risk Balance</B>)-->B(<B>Benefits</B>)
+   B-->C(<B>Primary Efficacy</B>)
+   B-->D(<B>Secondary Efficacy</B>)
+   B-->E(<B>Quality of life</B>)
+   C-->F(<B>% Success</B>)
+   D-->G(<B>Mean change</B>)
+   E-->H(<B>Mean change</B>)
+   A-->I(<B>Risks</B>)
+   I-->J(<B>Recurring AE</B>)
+   I-->K(<B>Rare SAE</B>)
+   I-->L(<B>Liver Toxicity</B>)
+   J-->M(<B>Event rate</B>)
+   K-->N(<B>% Event</B>)
+   L-->O(<B>% Event</B>)
+   style A fill:#7ABD7E
+   style B fill:#7ABD7E
+   style I fill:#7ABD7E
+   style C fill:#FFE733
+   style D fill:#FFE733
+   style E fill:#FFE733
+   style J fill:#FFE733
+   style K fill:#FFE733
+   style L fill:#C6C6C6
+   style F fill: #FFAA1C
+   style G fill: #FFAA1C
+   style H fill: #FFAA1C
+   style M fill: #FFAA1C
+   style N fill: #FFAA1C
+   style O fill: #C6C6C6
+   "
+   )
+```
+
+</details>
+
+<img src="inst/img/value_tree.png" width="100%" />
 
 ## Figure 6 - Dot-Forest Plot
 
 <details>
 <summary>
-Click to learn more
+Click to learn more about Figure 6 - Dot-Forest Plot
 </summary>
 
 **Dot-Forest plot: how to read**
@@ -264,14 +381,33 @@ It is important to not confuse the forest plot with the similar looking
 meta-analysis plot, which has multiple rows for different studies but
 for the same endpoint.
 </details>
+<details>
+<summary>
+Click to view sample code for Figure 6 - Dot-Forest Plot
+</summary>
 
-<img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" />
+``` r
+forest_dot_plot(effects_table,
+  filters = "None",
+  category = "All",
+  type_graph = "Absolute risk",
+  type_risk = "Crude proportions",
+  select_nnx = "Y",
+  x_scale_fixed_free = "Fixed",
+  ci_method = "Calculated",
+  exclude_outcome = "Liver"
+)
+```
+
+</details>
+
+<img src="man/figures/README-forest_dot_plot-1.png" width="100%" />
 
 ## Figure 7 - Trade-off Plot
 
 <details>
 <summary>
-Click to learn more
+Click to learn more about Figure 7 - Trade-off Plot
 </summary>
 
 **Trade-Off plot: how to read**
@@ -325,6 +461,52 @@ support of the generalizability of the investigational drug.
 Ideally, the investigational drug will appear in an area of unmet need
 in the acceptance region.
 </details>
+<details>
+<summary>
+Click to view sample code for Figure 7 - Trade-off Plot
+</summary>
+
+``` r
+generate_tradeoff_plot(
+  data = effects_table, filter = "None", category = "All",
+  benefit = "Primary Efficacy", risk = "Reoccurring AE",
+  type_risk = "Crude proportions", type_graph = "Absolute risk",
+  ci = "Yes", ci_method = "Calculated", cl = 0.95,
+  mab = 0.05,
+  mar = 0.45,
+  threshold = "Segmented line",
+  ratio = 4,
+  b1 = 0.05,
+  b2 = 0.1,
+  b3 = 0.15,
+  b4 = 0.2,
+  b5 = 0.25,
+  b6 = 0.3,
+  b7 = 0.35,
+  b8 = 0.4,
+  b9 = 0.45,
+  b10 = 0.5,
+  r1 = 0.09,
+  r2 = 0.17,
+  r3 = 0.24,
+  r4 = 0.3,
+  r5 = 0.35,
+  r6 = 0.39,
+  r7 = 0.42,
+  r8 = 0.44,
+  r9 = 0.45,
+  r10 = 0.45,
+  testdrug = "Yes",
+  type_scale = "Free",
+  lower_x = 0,
+  upper_x = 0.5,
+  lower_y = 0,
+  upper_y = 0.5,
+  chartcolors <- colfun()$fig7_colors
+)
+```
+
+</details>
 
 <img src="man/figures/README-tradeoff_plot-1.png" width="100%" />
 
@@ -332,7 +514,7 @@ in the acceptance region.
 
 <details>
 <summary>
-Click to learn more
+Click to learn more about Figure 10 - Correlogram
 </summary>
 
 **Correlogram: how to read**
@@ -364,6 +546,16 @@ There is also an explainable negative correlation between outcomes for
 quality-of-life and recurring AE. The medium positive correlation
 between recurring AE and primary efficacy is difficult to explain.
 </details>
+<details>
+<summary>
+Click to view sample code for Figure 10 - Correlogram
+</summary>
+
+``` r
+create_correlogram(corr)
+```
+
+</details>
 
 <img src="man/figures/README-correlogram-1.png" width="100%" />
 
@@ -371,7 +563,7 @@ between recurring AE and primary efficacy is difficult to explain.
 
 <details>
 <summary>
-Click to learn more
+Click to learn more about Figure 11 - Scatterplot
 </summary>
 
 **Scatter plot of Continuous Outcomes: how to read**
@@ -401,6 +593,16 @@ region below the diagonal threshold. Besides displaying subject
 variability, it indicates which subjects are most likely to benefit from
 the investigational drug.
 </details>
+<details>
+<summary>
+Click to view sample code for Figure 11 - Scatterplot
+</summary>
+
+``` r
+scatter_plot(scatterplot, outcome = c("Benefit", "Risk"))
+```
+
+</details>
 
 <img src="man/figures/README-scatterplot-1.png" width="100%" />
 
@@ -408,7 +610,8 @@ the investigational drug.
 
 <details>
 <summary>
-Click to learn more
+Click to learn more about Figure 12 - Composite Outcome (Stacked Bar
+Chart)
 </summary>
 
 **Stacked Bar chart of Ordinal Composite Outcomes: how to read**
@@ -441,6 +644,21 @@ It is expected that the percentage of subjects withdrawing increase over
 time, due to placebo subjects receiving no benefit and other subjects
 experiencing adverse events.
 </details>
+<details>
+<summary>
+Click to view sample code for Figure 12 - Composite Outcome (Stacked Bar
+Chart)
+</summary>
+
+``` r
+stacked_barchart(
+  data = comp_outcome,
+  chartcolors = colfun()$fig12_colors,
+  xlabel = "Study Week"
+)
+```
+
+</details>
 
 <img src="man/figures/README-stacked_barchart-1.png" width="100%" />
 
@@ -448,7 +666,7 @@ experiencing adverse events.
 
 <details>
 <summary>
-Click to learn more
+Click to learn more about Figure 13 - Cumulative Excess Plot
 </summary>
 
 **Cumulative excess plot: how to read**
@@ -492,6 +710,23 @@ sustainable. The two positive trends indicate that both benefit and risk
 are higher for the active drug than placebo, but not at the same rate.
 This is an ideal scenario where the benefit increased with drug exposure
 while the risk plateaued.
+</details>
+<details>
+<summary>
+Click to view sample code for Figure 13 - Cumulative Excess Plot
+</summary>
+
+``` r
+gensurv_combined(
+  df_plot = cumexcess, subjects_pt = 500, visits_pt = 6,
+  df_table = cumexcess, fig_colors_pt = colfun()$fig13_colors,
+  rel_heights_table = c(1, 0.4),
+  legend_position_p = c(-0.2, 1.45),
+  titlename =
+    "Cumulative Excess # of Subjects w/ Events(per 100 Subjects)"
+)
+```
+
 </details>
 
 <img src="man/figures/README-cumulative_excess_plot-1.png" width="100%" />
