@@ -49,7 +49,65 @@ generate_tradeoff_plot(
 )
 }
 \arguments{
-\item{data}{(\code{data.frame}) input dataset}
+\item{data}{(\code{data.frame}) input dataset
+The following variables are required columns:
+\enumerate{
+\item Factor: A character vector containing whether an outcome is a "Benefit" or a "Risk"
+\item Grouped_Outcome: A character vector containing the name of grouped outcomes, e.g., Infections
+\item Outcome: A character vector containing the name of outcomes, e.g., Herpes viral infections, upper respiratory tract infections
+\item Statistics: A character vector containing the summary statistics of outcomes, e.g., \%, mean change from baseline
+\item Type: A character vector containing whether an outcome is a "Binary" or a "Continuous" variable
+\item Outcome_Status: A character vector containing whether an outcome is an "Identified" or a "Potential" outcome
+\item Filter: A character vector containing the filter for subgroup data, should be "None" if no filtre is applicable. Example: None; Sex.
+\item Category: A character vector containing  the category for filtering subgroup data, should be "All" if no filter is applicable. Example: All; Male, Female.
+\item Trt1: A character vector containing the name of active treatments
+\item Trt2: A character vector containing controlled term "Placebo"
+\item Drug_Status: A character vector containing whether a treatment is an "Approved" or a "Test" drug
+The following variables are situational columns - Filled in only for the specific summary statistic related to the row outcome (ex. proportion):
+\item Rate_Type: A numeric vector containing whether an AE rate is "EventRate" or "IncRate". Required for risk outcomes displayed in exposure-adjusted event rate or incidence rate.
+\item Prop1: A numeric vector containing the proportion in active treatment. Required for binary outcomes displayed in proportions; can be populated by nSub1/N1 if both nSub1 and N1 are provided.
+\item IncRate1: A numeric vector containing the exposure-adjusted incidence rate per 100 PYs in active treatment. Required for risk outcomes displayed in exposure-adjusted incidence rates; can be populated by nSub1/PYAR1*100 if both nSub1 and PYAR1 are provided.
+\item EventRate1: A numeric vector containing the exposure-adjusted event rate per 100 PYs in active treatment. Required for risk outcomes displayed in exposure-adjusted event rates; can be populated by nEvent1/PEY1*100 if both nEvent1 and PEY1 are provided.
+\item Mean1: A numeric vector containing the mean in active treatment. Required for continuous outcomes.
+\item Prop2: A numeric vector containing the proportion in comparator treatment. Required for binary outcomes displayed in proportions; can be populated by nSub2/N2 if both nSub1 and N1 are provided.
+\item IncRate2: A numeric vector containing the exposure-adjusted incidence rate per 100 PYs in comparator treatment. Required for risk outcomes displayed in exposure-adjusted incidence rates; can be populated by nSub2/PYAR2*100 if both nSub1 and PYAR1 are provided.
+\item EventRate2: A numeric vector containing the exposure-adjusted event rate per 100 PYs in comparator treatment. Required for risk outcomes displayed in exposure-adjusted event rates; can be populated by nEvent2/PEY2*100 if both nEvent1 and PEY1 are provided.
+\item Mean2: A numeric vector containing the mean in comparator treatment. Required for continuous outcomes.
+The following variables are optional columns - Can be either hand entered or calculated by the package (ex. confidence intervals):
+\item N1: An integer vector containing the total number of subjects in active treatment. Required when needing to calculate confidence intervals within the package for proportions.
+\item 100PYAR1: A numeric vector containing 100 patient-years at risk in active treatment. Required when needing to calculate confidence intervals within the app for exposure-adjusted incidence rates.
+\item 100PEY1: A vector containing 100 patient-years of exposure in active treatment. Required when needing to calculate confidence intervals within the app for exposure-adjusted event rates.
+\item Sd1: A numeric vector containing the standard deviation in active treatment. Required when needing to calculate confidence intervals within the app for continuous outcomes; can be populated by Se1/SQRT(N1) if Se1 and N1 are provided.
+\item N2: An integer vector containing the total number of subjects in comparator treatment. Required when needing to calculate confidence intervals within the package for proportions.
+\item 100PYAR2: A numeric vector containing 100 patient-years at risk in comparator treatment. Required when needing to calculate confidence intervals within the app for exposure-adjusted incidence rates.
+\item 100PEY2: A numeric vector containing 100 patient-years of exposure in comparator treatment. Required when needing to calculate confidence intervals within the app for exposure-adjusted event rates.
+\item Sd2: A numeric vector containing the standard deviation in comparator treatment. Required when needing to calculate confidence intervals within the app for continuous outcomes; can be populated by Se2/SQRT(N2) if Se2 and N2 are provided.
+\item Diff_LowerCI: A numeric vector containing the lower confidence interval for difference in proportions and continuous outcomes. Required when using supplied confidence intervals for difference in proportions and continuous outcomes.
+\item Diff_UpperCI: A numeric vector containing the upper confidence interval for difference in proportions and continuous outcomes. Required when using supplied confidence intervals for difference in proportions and continuous outcomes.
+\item Diff_IncRate_LowerCI: A numeric vector containing the lower confidence interval for difference in exposure-adjusted incidence rates. Required when using supplied confidence intervals for difference in exposure-adjusted incidence rates.
+\item Diff_IncRate_UpperCI: A numeric vector containing the upper confidence interval for difference in exposure-adjusted incidence rates. Required when using supplied confidence intervals for difference in exposure-adjusted incidence rates.
+\item Diff_EventRate_LowerCI: A numeric vector containing the lower confidence interval for difference in exposure-adjusted event rates. Required when using supplied confidence intervals for difference in exposure-adjusted event rates.
+\item Diff_EventRate_UpperCI: A numeric vector containing the upper confidence interval for difference in exposure-adjusted event rates. Required when using supplied confidence intervals for difference in exposure-adjusted event rates.
+\item RelRisk_LowerCI: A numeric vector containing the lower confidence interval for relative risk of binary outcomes. Required when using supplied confidence intervals for relative risk of binary outcomes.
+\item RelRisk_UpperCI: A numeric vector containing the upper confidence interval for relative risk of binary outcomes. Required when using supplied confidence intervals for relative risk of binary outcomes.
+\item OddsRatio_LowerCI: A numeric vector containing the lower confidence interval for odds ratio of binary outcomes. Required when using supplied confidence intervals for odds ratio of binary outcomes.
+\item OddsRatio_UpperCI: A numeric vector containing the upper confidence interval for odds ratio of binary outcomes. Required when using supplied confidence intervals for odds ratio of binary outcomes.
+The following variables are supplementary columns - Used to calculate other columns are not required by the package(ex. number of subjects with events):
+\item nSub1: An integer vector containing the number of subjects with events in active treatment. Not required; can be used to calculate Prop1 by nSub1/N1.
+\item Dur1: A numeric vector containing the duration of treatment in active treatment. Not required; can be used to estimate 100PYAR1 and 100PEY1.
+\item nEvent1: An integer vector containing the number of events in active treatment. Not required; can be used to calculate EventRate1 by nEvent1/100PEY1.
+\item Se1: A numeric vector containing the standard error in active treatment. Not required; can be used to calculate Sd1 by Se1*SQRT(N1).
+\item nSub2: An integer vector containing the number of subjects with events in comparator treatment. Not required; can be used to calculate Prop2 by nSub2/N2.
+\item Dur2: A numeric vector containing the duration of treatment in comparator treatment. Not required; can be used to estimate 100PYAR2 and 100PEY2.
+\item nEvent2: An integer vector containing the number of events in comparator treatment. Not required; can be used to calculate EventRate2 by nEvent2/100PEY2.
+\item Se2: A numeric vector containing the standard error in comparator treatment. Not required; can be used to calculate Sd2 by Se2*SQRT(N2).
+The following variables are documentation columns - Record the data source (ex. Study xyz, Table 1.2.3, date):
+\item MCDA_Weight: A numeric vector containing the MCDA weight
+\item Population: A character vector containing the population for the analysis (e.g., ITT, Safety Set)
+\item Data_Source: A character vector containing the source of data (e.g., Reference CSR Table xxx)
+\item Quality: A character vector containing the quality of data
+\item Notes: A character vector containing notes
+}}
 
 \item{filter}{(\code{character}) selected filter}
 
