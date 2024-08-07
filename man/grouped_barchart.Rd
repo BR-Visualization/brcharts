@@ -7,13 +7,18 @@
 grouped_barchart(data, xvar, yvar, groupvar, chartcolors)
 }
 \arguments{
-\item{data}{\code{dataframe} input data}
+\item{data}{\code{dataframe} a data frame with a minimum of 3 variables:
+\enumerate{
+\item a variable that contains the x coordinates of points (xvar)
+\item a variable that contains the y coordinates of points (yvar)
+\item a grouping variable (groupvar)
+}}
 
 \item{xvar}{\code{value} x-axis variable}
 
 \item{yvar}{\code{value} y-axis variable}
 
-\item{groupvar}{\code{Factor} group variable}
+\item{groupvar}{\code{Factor} grouping variable}
 
 \item{chartcolors}{\code{vector} a vector of colors, the same number of levels as
 the group variable}

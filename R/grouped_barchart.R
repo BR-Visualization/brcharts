@@ -1,9 +1,12 @@
 #' Grouped Bar Chart
 #'
-#' @param data `dataframe` input data
+#' @param data `dataframe` a data frame with a minimum of 3 variables:
+#' 1) a variable that contains the x coordinates of points (xvar)
+#' 2) a variable that contains the y coordinates of points (yvar)
+#' 3) a grouping variable (groupvar)
 #' @param xvar `value` x-axis variable
 #' @param yvar `value` y-axis variable
-#' @param groupvar `Factor` group variable
+#' @param groupvar `Factor` grouping variable
 #' @param chartcolors `vector` a vector of colors, the same number of levels as
 #' the group variable
 #'
