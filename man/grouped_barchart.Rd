@@ -2,33 +2,43 @@
 % Please edit documentation in R/grouped_barchart.R
 \name{grouped_barchart}
 \alias{grouped_barchart}
-\title{Grouped Bar Chart}
+\title{Create a Grouped Bar Chart}
 \usage{
 grouped_barchart(data, xvar, yvar, groupvar, chartcolors)
 }
 \arguments{
-\item{data}{\code{dataframe} input data}
+\item{data}{A data frame containing at least 3 variables: x-axis variable, y-axis variable, and a grouping variable.}
 
-\item{xvar}{\code{value} x-axis variable}
+\item{xvar}{A string specifying the name of the variable to be plotted on the x-axis.}
 
-\item{yvar}{\code{value} y-axis variable}
+\item{yvar}{A string specifying the name of the variable to be plotted on the y-axis.}
 
-\item{groupvar}{\code{Factor} group variable}
+\item{groupvar}{A string specifying the name of the grouping variable.}
 
-\item{chartcolors}{\code{vector} a vector of colors, the same number of levels as
-the group variable}
+\item{chartcolors}{A vector of colors with the same length as the number of levels in the grouping variable.}
 }
 \value{
-a ggplot object
+A ggplot object representing the grouped bar chart.
 }
 \description{
-Grouped Bar Chart
+This function generates a grouped bar chart using ggplot2, where bars are grouped by a specified variable.
+}
+\details{
+The function creates a bar chart where bars are grouped based on the specified grouping variable.
+It uses position = "dodge" to place bars side by side within each group.
+The y-axis line, minor grid lines, and y-axis ticks are removed for a cleaner appearance.
+}
+\note{
+This function requires the ggplot2 package and assumes the existence of a custom theme function br_charts_theme().
 }
 \examples{
-
+# Assuming 'comorbidities' is a data frame with appropriate columns
+# and 'colfun()$fig4_colors' returns a vector of colors
 grouped_barchart(
-  data = comorbidities, xvar = "Comorbidities",
-  yvar = "Prevalence", groupvar = "Severity",
+  data = comorbidities,
+  xvar = "Comorbidities",
+  yvar = "Prevalence",
+  groupvar = "Severity",
   chartcolors = colfun()$fig4_colors
 )
 
