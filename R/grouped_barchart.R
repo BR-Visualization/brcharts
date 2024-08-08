@@ -1,27 +1,39 @@
-#' Grouped Bar Chart
+#' Create a Grouped Bar Chart
 #'
-#' @param data `dataframe` a data frame with a minimum of 3 variables:
-#' 1) a variable that contains the x coordinates of points (xvar)
-#' 2) a variable that contains the y coordinates of points (yvar)
-#' 3) a grouping variable (groupvar)
-#' @param xvar `value` x-axis variable
-#' @param yvar `value` y-axis variable
-#' @param groupvar `Factor` grouping variable
-#' @param chartcolors `vector` a vector of colors, the same number of levels as
-#' the group variable
+#' This function generates a grouped bar chart using ggplot2, where bars are grouped by a specified variable.
 #'
-#' @return a ggplot object
+#' @param data A data frame containing at least 3 variables: x-axis variable, y-axis variable, and a grouping variable.
+#' @param xvar A string specifying the name of the variable to be plotted on the x-axis.
+#' @param yvar A string specifying the name of the variable to be plotted on the y-axis.
+#' @param groupvar A string specifying the name of the grouping variable.
+#' @param chartcolors A vector of colors with the same length as the number of levels in the grouping variable.
+#'
+#' @return A ggplot object representing the grouped bar chart.
+#'
+#' @details
+#' The function creates a bar chart where bars are grouped based on the specified grouping variable.
+#' It uses position = "dodge" to place bars side by side within each group.
+#' The y-axis line, minor grid lines, and y-axis ticks are removed for a cleaner appearance.
+#'
+#' @note
+#' This function requires the ggplot2 package and assumes the existence of a custom theme function br_charts_theme().
+#'
 #' @import ggplot2
 #' @export
 #'
 #' @examples
-#'
+#' # Assuming 'comorbidities' is a data frame with appropriate columns
+#' # and 'colfun()$fig4_colors' returns a vector of colors
 #' grouped_barchart(
-#'   data = comorbidities, xvar = "Comorbidities",
-#'   yvar = "Prevalence", groupvar = "Severity",
-#'   chartcolors = colfun()$fig4_colors
+#' data = comorbidities,
+#' xvar = "Comorbidities",
+#' yvar = "Prevalence",
+#' groupvar = "Severity",
+#' chartcolors = colfun()$fig4_colors
 #' )
 #'
+
+
 grouped_barchart <- function(data, xvar, yvar, groupvar, chartcolors) {
   fig <- ggplot(data, aes(
     x = .data[[xvar]], y = .data[[yvar]], fill = .data[[groupvar]]

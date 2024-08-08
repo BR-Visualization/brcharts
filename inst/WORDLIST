@@ -31,15 +31,12 @@ doi
 eventtime
 ggplot
 ggsave
-groupvar
 lbl
 obsv
 tble
 xend
 xpos
 xstart
-xvar
 yend
 ypos
 ystart
-yvar
