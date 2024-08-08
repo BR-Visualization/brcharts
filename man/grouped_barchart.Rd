@@ -35,11 +35,11 @@ This function requires the ggplot2 package and assumes the existence of a custom
 # Assuming 'comorbidities' is a data frame with appropriate columns
 # and 'colfun()$fig4_colors' returns a vector of colors
 grouped_barchart(
-data = comorbidities,
-xvar = "Comorbidities",
-yvar = "Prevalence",
-groupvar = "Severity",
-chartcolors = colfun()$fig4_colors
+  data = comorbidities,
+  xvar = "Comorbidities",
+  yvar = "Prevalence",
+  groupvar = "Severity",
+  chartcolors = colfun()$fig4_colors
 )
 
 }

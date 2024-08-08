@@ -25,15 +25,13 @@
 #' # Assuming 'comorbidities' is a data frame with appropriate columns
 #' # and 'colfun()$fig4_colors' returns a vector of colors
 #' grouped_barchart(
-#' data = comorbidities,
-#' xvar = "Comorbidities",
-#' yvar = "Prevalence",
-#' groupvar = "Severity",
-#' chartcolors = colfun()$fig4_colors
+#'   data = comorbidities,
+#'   xvar = "Comorbidities",
+#'   yvar = "Prevalence",
+#'   groupvar = "Severity",
+#'   chartcolors = colfun()$fig4_colors
 #' )
 #'
-
-
 grouped_barchart <- function(data, xvar, yvar, groupvar, chartcolors) {
   fig <- ggplot(data, aes(
     x = .data[[xvar]], y = .data[[yvar]], fill = .data[[groupvar]]
