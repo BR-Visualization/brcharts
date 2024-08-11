@@ -51,8 +51,24 @@ devtools::install_github("BR-Visualization/brcharts")
 
 ## Figure 2 - Demographics (Pyramid Chart)
 
+```{r pyramid_plot, echo = FALSE}
+demography |>
+  dplyr::mutate(
+    Type = as.factor(paste0("Type ", Type)),
+    figprev = ifelse(
+      Gender == "Females", -1 * Prevalence / 100000, Prevalence / 100000
+    ),
+    Sex = Gender
+  ) |>
+  pyramid_chart(
+    levelvar = "Type", xvar = "figprev", yvar = "Age",
+    groupvar = "Sex", alpha_set = 0.7, chartcolors = colfun()$fig2_colors,
+    xlab = "Prevalence (x 100 000)"
+  )
+```
+
 <details>
-<summary>Click to learn more about Figure 2 - Demographics (Pyramid Chart)</summary>
+<summary>Click to learn more</summary>
 **Pyramid bar chart: how to read**
   
 - The horizontal bars represent the prevalence of each disease type (A or B) in the patient population ranging from 0 to 30 (x 100,000) on the X-axis.
@@ -71,7 +87,7 @@ Stratifying the randomization on disease type might be necessary if clinical evi
 </details>
 
 <details>
-<summary>Click to view sample code for Figure 2 - Demographics (Pyramid Chart)</summary>
+<summary>Click to view sample code</summary>
 ```{r, echo = TRUE, eval = FALSE}
 demography |>
   dplyr::mutate(
@@ -89,63 +105,7 @@ demography |>
 ```
 </details>
 
-```{r pyramid_plot, echo = FALSE}
-demography |>
-  dplyr::mutate(
-    Type = as.factor(paste0("Type ", Type)),
-    figprev = ifelse(
-      Gender == "Females", -1 * Prevalence / 100000, Prevalence / 100000
-    ),
-    Sex = Gender
-  ) |>
-  pyramid_chart(
-    levelvar = "Type", xvar = "figprev", yvar = "Age",
-    groupvar = "Sex", alpha_set = 0.7, chartcolors = colfun()$fig2_colors,
-    xlab = "Prevalence (x 100 000)"
-  )
-```
-
 ## Figure 3 - Disease History (Line Chart)
-
-<details>
-<summary>Click to learn more about Figure 3 - Disease History (Line Chart)</summary>
-**Natural History plot: how to read**
-  
-- The Y-axis displays the functional score, ranging from 0-50 points on a fictional Quality of Life scale.
-- The X-axis displays the years since onset of disease, ranging from 0-14 years.
-- The horizontal bars represent seven disease manifestations (e.g. first symptom, …, death) in the patent population.
-- The bars span the number of years that a manifestation might appear. For example, death typically occurs between 8 and 14 years since onset of disease.
-- The bars are color coded according to the three horizonal gray bands of functional scores (mild, moderate or severe) and the legend at the top.
-
-**Key Conclusions:**
-
-The dark gray curve displays the downward trend in functional score or quality of life over time.
-
-The graph show that the disease manifestations are sequential, hence do not necessarily occur at the same time. Patient follow-up will need to be several years to capture several of the functional domains.
-
-History of disease progression also impacts patient engagement, since newly diagnosed patients might have no experience with more serious manifestations, such as mental function.
-</details>
-
-<details>
-<summary>Click to view sample code for Figure 3 - Disease History (Line Chart)</summary>
-```{r, echo = TRUE, eval=FALSE}
-func <- function(x) 47.982 - 0.0305 * x - 0.57525 * x^2 + 0.0245 * x^3
-line_chart(
-  func = func,
-  data_bands = data_bands,
-  data_lines = data_lines,
-  xmin = 0,
-  xmax = 14.2,
-  ymin = 0,
-  ymax = 50,
-  xbreaks = seq(0, 14, 2),
-  ybreaks = seq(0, 50, 5),
-  xlab = "Years Since Onset",
-  ylab = "Functional Score",
-  legend_title = "Severity: "
-)
-```
-</details>
 
 ```{r line_chart, message = FALSE, echo = FALSE}
 func <- function(x) 47.982 - 0.0305 * x - 0.57525 * x^2 + 0.0245 * x^3
@@ -165,10 +125,58 @@ line_chart(
 )
 ```
 
-## Figure 4 - Comorbidities (Grouped Bar Chart)
+<details>
+<summary>Click to learn more</summary>
+**Natural History plot: how to read**
+  
+- The Y-axis displays the functional score, ranging from 0-50 points on a fictional Quality of Life scale.
+- The X-axis displays the years since onset of disease, ranging from 0-14 years.
+- The horizontal bars represent seven disease manifestations (e.g. first symptom, …, death) in the patent population.
+- The bars span the number of years that a manifestation might appear. For example, death typically occurs between 8 and 14 years since onset of disease.
+- The bars are color coded according to the three horizonal gray bands of functional scores (mild, moderate or severe) and the legend at the top.
+
+**Key Conclusions:**
+
+The dark gray curve displays the downward trend in functional score or quality of life over time.
+
+The graph show that the disease manifestations are sequential, hence do not necessarily occur at the same time. Patient follow-up will need to be several years to capture several of the functional domains.
+
+History of disease progression also impacts patient engagement, since newly diagnosed patients might have no experience with more serious manifestations, such as mental function.
+</details>
 
 <details>
-<summary>Click to learn more about Figure 4 - Comorbidities (Grouped Bar Chart)</summary>
+<summary>Click to view sample code</summary>
+```{r, echo = TRUE, eval=FALSE}
+func <- function(x) 47.982 - 0.0305 * x - 0.57525 * x^2 + 0.0245 * x^3
+line_chart(
+  func = func,
+  data_bands = data_bands,
+  data_lines = data_lines,
+  xmin = 0,
+  xmax = 14.2,
+  ymin = 0,
+  ymax = 50,
+  xbreaks = seq(0, 14, 2),
+  ybreaks = seq(0, 50, 5),
+  xlab = "Years Since Onset",
+  ylab = "Functional Score",
+  legend_title = "Severity: "
+)
+```
+</details>
+
+## Figure 4 - Comorbidities (Grouped Bar Chart)
+
+```{r grouped_barchart, echo = FALSE}
+grouped_barchart(
+  data = comorbidities, xvar = "Comorbidities",
+  yvar = "Prevalence", groupvar = "Severity",
+  chartcolors = colfun()$fig4_colors
+)
+```
+
+<details>
+<summary>Click to learn more</summary>
 **Grouped bar chart: how to read**
   
 - The Y-axis displays the prevalence (%) of disease comorbidities in the patient population, ranging from 0 to 40%.
@@ -182,7 +190,7 @@ A display of background rates is also useful in determining whether a comorbidit
 </details>
 
 <details>
-<summary>Click to view sample code for Figure 4 - Comorbidities (Grouped Bar Chart)</summary>
+<summary>Click to view sample code</summary>
 ```{r, echo = TRUE, eval=FALSE}
 grouped_barchart(
   data = comorbidities, xvar = "Comorbidities",
@@ -192,18 +200,47 @@ grouped_barchart(
 ```
 </details>
 
-```{r grouped_barchart, echo = FALSE}
-grouped_barchart(
-  data = comorbidities, xvar = "Comorbidities",
-  yvar = "Prevalence", groupvar = "Severity",
-  chartcolors = colfun()$fig4_colors
-)
-```
-
 ## Figure 5 - Value Tree
 
+```{r value_tree, message = FALSE, echo = FALSE, fig.width = 5, fig.height = 5.3}
+ value_tree(
+   diagram =
+     "graph LR;
+   A(<B>Benefit-Risk Balance</B>)-->B(<B>Benefits</B>)
+   B-->C(<B>Primary Efficacy</B>)
+   B-->D(<B>Secondary Efficacy</B>)
+   B-->E(<B>Quality of life</B>)
+   C-->F(<B>% Success</B>)
+   D-->G(<B>Mean change</B>)
+   E-->H(<B>Mean change</B>)
+   A-->I(<B>Risks</B>)
+   I-->J(<B>Recurring AE</B>)
+   I-->K(<B>Rare SAE</B>)
+   I-->L(<B>Liver Toxicity</B>)
+   J-->M(<B>Event rate</B>)
+   K-->N(<B>% Event</B>)
+   L-->O(<B>% Event</B>)
+   style A fill:#7ABD7E
+   style B fill:#7ABD7E
+   style I fill:#7ABD7E
+   style C fill:#FFE733
+   style D fill:#FFE733
+   style E fill:#FFE733
+   style J fill:#FFE733
+   style K fill:#FFE733
+   style L fill:#C6C6C6
+   style F fill: #FFAA1C
+   style G fill: #FFAA1C
+   style H fill: #FFAA1C
+   style M fill: #FFAA1C
+   style N fill: #FFAA1C
+   style O fill: #C6C6C6
+   "
+   )
+```
+
 <details>
-<summary>Click to learn more about Figure 5 - Value Tree</summary>
+<summary>Click to learn more</summary>
 **Value Tree: how to read**
   
 - A value tree is a diagram that includes all key benefits and risks identified by the stakeholder or decision-makers to be important to the decision, particular to the patient population considered.
@@ -226,7 +263,7 @@ Both primary and secondary efficacy clinical endpoints were included because the
 </details>
 
 <details>
-<summary>Click to view sample code for Figure 5 - Value Tree</summary>
+<summary>Click to view sample code</summary>
 ```{r, echo = TRUE, eval = FALSE}
  value_tree(
    diagram =
@@ -265,14 +302,23 @@ Both primary and secondary efficacy clinical endpoints were included because the
 ```
 </details>
 
-```{r value_tree, message = FALSE, echo = FALSE, fig.width = 5, fig.height = 5.3}
-knitr::include_graphics("inst/img/value_tree.png", error = FALSE)
-```
-
 ## Figure 6 - Dot-Forest Plot
 
+```{r forest_dot_plot, message = FALSE, echo = FALSE, fig.width = 6, fig.height = 8}
+forest_dot_plot(effects_table,
+  filters = "None",
+  category = "All",
+  type_graph = "Absolute risk",
+  type_risk = "Crude proportions",
+  select_nnx = "Y",
+  x_scale_fixed_free = "Fixed",
+  ci_method = "Calculated",
+  exclude_outcome = "Liver"
+)
+```
+
 <details>
-<summary>Click to learn more about Figure 6 - Dot-Forest Plot</summary>
+<summary>Click to learn more</summary>
 **Dot-Forest plot: how to read**
 
 - The two-panel forest plot displays point estimates for each treatment effect on the left side and point estimates (and 95% confidence intervals) for each treatment difference on the right side.
@@ -298,7 +344,7 @@ It is important to not confuse the forest plot with the similar looking meta-ana
 </details>
 
 <details>
-<summary>Click to view sample code for Figure 6 - Dot-Forest Plot</summary>
+<summary>Click to view sample code</summary>
 ```{r, echo = TRUE, eval=FALSE}
 forest_dot_plot(effects_table,
   filters = "None",
@@ -312,96 +358,8 @@ forest_dot_plot(effects_table,
 )
 ```
 </details>
-
-```{r forest_dot_plot, message = FALSE, echo = FALSE, fig.width = 6, fig.height = 8}
-forest_dot_plot(effects_table,
-  filters = "None",
-  category = "All",
-  type_graph = "Absolute risk",
-  type_risk = "Crude proportions",
-  select_nnx = "Y",
-  x_scale_fixed_free = "Fixed",
-  ci_method = "Calculated",
-  exclude_outcome = "Liver"
-)
-```
 
 ## Figure 7 - Trade-off Plot
-
-<details>
-<summary>Click to learn more about Figure 7 - Trade-off Plot</summary>
-**Trade-Off plot: how to read**
-  
-- A scatter plot displays the clinical data for one benefit (X-axis) and one risk (Y-axis).
-- Both benefit and risk can be on different measures, such as proportion, rate, or mean.
-- For each treatment, the point estimates for benefit and risk are displayed as a single dot at its X-Y coordinate.
-- The 95% confidence interval for the benefit is horizonal and the 95% confidence interval for the risk is vertical.
-- Medical judgement is added by assigning thresholds for minimal acceptable benefit (MAB- vertical orange line) and maximum acceptable risk (MAR- orange horizonal line).
-- The dark gray areas to the right of MAB and above the MAR are designated as unacceptance regions.
-- A tradeoff threshold curve is created by assigning a risk tolerance to different levels of benefit. These black dots are connected by a solid purple segmented or curved line.
-- The white area below the threshold or tradeoff curve is the acceptance region.
-
-**Key Conclusions:**
-  
-For this hypothetical tradeoff plot, both the benefit and risk are the difference in proportions between four rival drug and the standard of care.
-
-Since the four drugs were approved by regulators, the tradeoff curve was drawn such that drugs appear in the acceptance region.
-
-The tradeoff curve shows that subjects are willing to accept a higher risk for a higher benefit.
-
-The MAB and MAR could be obtained from the company strategy TPVP document.
-
-Ideally, a drug closest to the lower right corner would be the most favorable option, and drug closest to the upper left corner would be least favorable.
-
-Drug A is more favorable than drugs B and C. There is a tradeoff between Drugs A and D. Severe subjects may prefer Drug A for its higher benefit, and mild subjects may choose drug D for its lower risk.
-
-The plot can display other combinations of one benefit and one risk, as well as for different patient subgroups, dose levels, and studies, in support of the generalizability of the investigational drug.
-
-Ideally, the investigational drug will appear in an area of unmet need in the acceptance region.
-</details>
-
-<details>
-<summary>Click to view sample code for Figure 7 - Trade-off Plot</summary>
-```{r, echo = TRUE, eval=FALSE}
-generate_tradeoff_plot(
-  data = effects_table, filter = "None", category = "All",
-  benefit = "Primary Efficacy", risk = "Reoccurring AE",
-  type_risk = "Crude proportions", type_graph = "Absolute risk",
-  ci = "Yes", ci_method = "Calculated", cl = 0.95,
-  mab = 0.05,
-  mar = 0.45,
-  threshold = "Segmented line",
-  ratio = 4,
-  b1 = 0.05,
-  b2 = 0.1,
-  b3 = 0.15,
-  b4 = 0.2,
-  b5 = 0.25,
-  b6 = 0.3,
-  b7 = 0.35,
-  b8 = 0.4,
-  b9 = 0.45,
-  b10 = 0.5,
-  r1 = 0.09,
-  r2 = 0.17,
-  r3 = 0.24,
-  r4 = 0.3,
-  r5 = 0.35,
-  r6 = 0.39,
-  r7 = 0.42,
-  r8 = 0.44,
-  r9 = 0.45,
-  r10 = 0.45,
-  testdrug = "Yes",
-  type_scale = "Free",
-  lower_x = 0,
-  upper_x = 0.5,
-  lower_y = 0,
-  upper_y = 0.5,
-  chartcolors <- colfun()$fig7_colors
-)
-```
-</details>
 
 ```{r tradeoff_plot, message = FALSE, echo = FALSE, fig.width = 5, fig.height = 5.3}
 generate_tradeoff_plot(
@@ -443,10 +401,89 @@ generate_tradeoff_plot(
 )
 ```
 
-## Figure 10 - Correlogram
+<details>
+<summary>Click to learn more</summary>
+**Trade-Off plot: how to read**
+  
+- A scatter plot displays the clinical data for one benefit (X-axis) and one risk (Y-axis).
+- Both benefit and risk can be on different measures, such as proportion, rate, or mean.
+- For each treatment, the point estimates for benefit and risk are displayed as a single dot at its X-Y coordinate.
+- The 95% confidence interval for the benefit is horizonal and the 95% confidence interval for the risk is vertical.
+- Medical judgement is added by assigning thresholds for minimal acceptable benefit (MAB- vertical orange line) and maximum acceptable risk (MAR- orange horizonal line).
+- The dark gray areas to the right of MAB and above the MAR are designated as unacceptance regions.
+- A tradeoff threshold curve is created by assigning a risk tolerance to different levels of benefit. These black dots are connected by a solid purple segmented or curved line.
+- The white area below the threshold or tradeoff curve is the acceptance region.
+
+**Key Conclusions:**
+  
+For this hypothetical tradeoff plot, both the benefit and risk are the difference in proportions between four rival drug and the standard of care.
+
+Since the four drugs were approved by regulators, the tradeoff curve was drawn such that drugs appear in the acceptance region.
+
+The tradeoff curve shows that subjects are willing to accept a higher risk for a higher benefit.
+
+The MAB and MAR could be obtained from the company strategy TPVP document.
+
+Ideally, a drug closest to the lower right corner would be the most favorable option, and drug closest to the upper left corner would be least favorable.
+
+Drug A is more favorable than drugs B and C. There is a tradeoff between Drugs A and D. Severe subjects may prefer Drug A for its higher benefit, and mild subjects may choose drug D for its lower risk.
+
+The plot can display other combinations of one benefit and one risk, as well as for different patient subgroups, dose levels, and studies, in support of the generalizability of the investigational drug.
+
+Ideally, the investigational drug will appear in an area of unmet need in the acceptance region.
+</details>
 
 <details>
-<summary>Click to learn more about Figure 10 - Correlogram</summary>
+<summary>Click to view sample code</summary>
+```{r, echo = TRUE, eval=FALSE}
+generate_tradeoff_plot(
+  data = effects_table, filter = "None", category = "All",
+  benefit = "Primary Efficacy", risk = "Reoccurring AE",
+  type_risk = "Crude proportions", type_graph = "Absolute risk",
+  ci = "Yes", ci_method = "Calculated", cl = 0.95,
+  mab = 0.05,
+  mar = 0.45,
+  threshold = "Segmented line",
+  ratio = 4,
+  b1 = 0.05,
+  b2 = 0.1,
+  b3 = 0.15,
+  b4 = 0.2,
+  b5 = 0.25,
+  b6 = 0.3,
+  b7 = 0.35,
+  b8 = 0.4,
+  b9 = 0.45,
+  b10 = 0.5,
+  r1 = 0.09,
+  r2 = 0.17,
+  r3 = 0.24,
+  r4 = 0.3,
+  r5 = 0.35,
+  r6 = 0.39,
+  r7 = 0.42,
+  r8 = 0.44,
+  r9 = 0.45,
+  r10 = 0.45,
+  testdrug = "Yes",
+  type_scale = "Free",
+  lower_x = 0,
+  upper_x = 0.5,
+  lower_y = 0,
+  upper_y = 0.5,
+  chartcolors <- colfun()$fig7_colors
+)
+```
+</details>
+
+## Figure 10 - Correlogram
+
+```{r correlogram, echo = FALSE}
+create_correlogram(corr)
+```
+
+<details>
+<summary>Click to learn more</summary>
 **Correlogram: how to read**
   
 - Both the benefit and risk outcomes appear on the X-axis and Y-axis.
@@ -466,20 +503,20 @@ There is also an explainable negative correlation between outcomes for quality-o
 </details>
 
 <details>
-<summary>Click to view sample code for Figure 10 - Correlogram</summary>
+<summary>Click to view sample code</summary>
 ```{r, echo = TRUE, eval=FALSE}
 create_correlogram(corr)
 ```
 </details>
-
-```{r correlogram, echo = FALSE}
-create_correlogram(corr)
-```
   
 ## Figure 11 - Scatterplot
 
+```{r scatterplot, echo = FALSE}
+scatter_plot(scatterplot, outcome = c("Benefit", "Risk"))
+```
+
 <details>
-<summary>Click to learn more about Figure 11 - Scatterplot</summary>
+<summary>Click to learn more</summary>
 **Scatter plot of Continuous Outcomes: how to read**
   
 - Each point indicates the predictive incremental probabilities associated with experiencing a benefit and a risk. The probabilities are estimated using logistic regression models with demographic and baseline covariates, but separately for one benefit and one risk.
@@ -497,20 +534,24 @@ The scatter plot of predictive incremental probabilities illustrates that 98.6% 
 </details>
 
 <details>
-<summary>Click to view sample code for Figure 11 - Scatterplot</summary>
+<summary>Click to view sample code</summary>
 ```{r, echo = TRUE, eval=FALSE}
 scatter_plot(scatterplot, outcome = c("Benefit", "Risk"))
 ```
 </details>
 
-```{r scatterplot, echo = FALSE}
-scatter_plot(scatterplot, outcome = c("Benefit", "Risk"))
-```
-
 ## Figure 12 - Composite Outcome (Stacked Bar Chart)
 
+```{r stacked_barchart, echo = FALSE}
+stacked_barchart(
+  data = comp_outcome,
+  chartcolors = colfun()$fig12_colors,
+  xlabel = "Study Week"
+)
+```
+
 <details>
-<summary>Click to learn more about Figure 12 - Composite Outcome (Stacked Bar Chart)</summary>
+<summary>Click to learn more</summary>
 **Stacked Bar chart of Ordinal Composite Outcomes: how to read**
   
 - This visualization is comprised of a separate chart for each dose level placebo, low dose and high dose.
@@ -531,7 +572,7 @@ It is expected that the percentage of subjects withdrawing increase over time, d
 </details>
 
 <details>
-<summary>Click to view sample code for Figure 12 - Composite Outcome (Stacked Bar Chart)</summary>
+<summary>Click to view sample code</summary>
 ```{r, echo = TRUE, eval=FALSE}
 stacked_barchart(
   data = comp_outcome,
@@ -541,18 +582,21 @@ stacked_barchart(
 ```
 </details>
 
-```{r stacked_barchart, echo = FALSE}
-stacked_barchart(
-  data = comp_outcome,
-  chartcolors = colfun()$fig12_colors,
-  xlabel = "Study Week"
+## Figure 13 - Cumulative Excess Plot
+
+```{r cumulative_excess_plot, echo = FALSE, fig.width = 7, fig.height = 5.3}
+gensurv_combined(
+  df_plot = cumexcess, subjects_pt = 500, visits_pt = 6,
+  df_table = cumexcess, fig_colors_pt = colfun()$fig13_colors,
+  rel_heights_table = c(1, 0.4),
+  legend_position_p = c(-0.2, 1.45),
+  titlename =
+    "Cumulative Excess # of Subjects w/ Events(per 100 Subjects)"
 )
 ```
 
-## Figure 13 - Cumulative Excess Plot
-
 <details>
-<summary>Click to learn more about Figure 13 - Cumulative Excess Plot</summary>
+<summary>Click to learn more</summary>
 **Cumulative excess plot: how to read**
   
 - The Y-axis displays the cumulative excess incidence per 100 subjects, ranging from 0 to maximum observed value.
@@ -576,7 +620,7 @@ The Cumulative Excess plot assessed whether the binary events for a benefit and 
 </details>
 
 <details>
-<summary>Click to view sample code for Figure 13 - Cumulative Excess Plot</summary>
+<summary>Click to view sample code</summary>
 ```{r, echo = TRUE, eval=FALSE}
 gensurv_combined(
   df_plot = cumexcess, subjects_pt = 500, visits_pt = 6,
@@ -588,14 +632,3 @@ gensurv_combined(
 )
 ```
 </details>
-
-```{r cumulative_excess_plot, echo = FALSE, fig.width = 7, fig.height = 5.3}
-gensurv_combined(
-  df_plot = cumexcess, subjects_pt = 500, visits_pt = 6,
-  df_table = cumexcess, fig_colors_pt = colfun()$fig13_colors,
-  rel_heights_table = c(1, 0.4),
-  legend_position_p = c(-0.2, 1.45),
-  titlename =
-    "Cumulative Excess # of Subjects w/ Events(per 100 Subjects)"
-)
-```
