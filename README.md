@@ -240,7 +240,7 @@ grouped_barchart(
 
 ## Figure 5 - Value Tree
 
-<img src="man/figures/README-value_tree-1.png" width="100%" /><img src="../../AppData/Local/Temp/RtmpqmZypi/file3d341b6e2bf0.png" width="100%" />
+<img src="man/figures/README-value_tree-1.png" width="100%" />
 
 <details>
 <summary>
@@ -332,25 +332,6 @@ value_tree(
 </details>
 
 ## Figure 6 - Dot-Forest Plot
-
-    #> Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
-    #> conversion failure on '← Favours Placebo Favours Active → ' in 'mbcsToSbcs':
-    #> dot substituted for <e2>
-    #> Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
-    #> conversion failure on '← Favours Placebo Favours Active → ' in 'mbcsToSbcs':
-    #> dot substituted for <86>
-    #> Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
-    #> conversion failure on '← Favours Placebo Favours Active → ' in 'mbcsToSbcs':
-    #> dot substituted for <90>
-    #> Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
-    #> conversion failure on '← Favours Placebo Favours Active → ' in 'mbcsToSbcs':
-    #> dot substituted for <e2>
-    #> Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
-    #> conversion failure on '← Favours Placebo Favours Active → ' in 'mbcsToSbcs':
-    #> dot substituted for <86>
-    #> Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
-    #> conversion failure on '← Favours Placebo Favours Active → ' in 'mbcsToSbcs':
-    #> dot substituted for <92>
 
 <img src="man/figures/README-forest_dot_plot-1.png" width="100%" />
 
