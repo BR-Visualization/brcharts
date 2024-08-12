@@ -95,8 +95,9 @@
 <div class="section level2">
 <h2 id="figure-2---demographics-pyramid-chart">Figure 2 - Demographics (Pyramid Chart)<a class="anchor" aria-label="anchor" href="#figure-2---demographics-pyramid-chart"></a>
 </h2>
+<p><img src="reference/figures/README-pyramid_plot-1.png" width="100%"></p>
 <details><summary>
-Click to learn more about Figure 2 - Demographics (Pyramid Chart)
+Click to learn more
 </summary><p><strong>Pyramid bar chart: how to read</strong></p>
 <ul>
 <li>The horizontal bars represent the prevalence of each disease type (A or B) in the patient population ranging from 0 to 30 (x 100,000) on the X-axis.</li>
@@ -109,7 +110,7 @@ Click to learn more about Figure 2 - Demographics (Pyramid Chart)
 <p>The difference in distributions between disease types A and B can impact patient engagement, patient enrollment, and generalization of results.</p>
 Stratifying the randomization on disease type might be necessary if clinical evidence is needed for disease type B, particularly for younger age groups.
 </details><details><summary>
-Click to view sample code for Figure 2 - Demographics (Pyramid Chart)
+Click to view sample code
 </summary><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">demography</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span></span>
@@ -124,13 +125,14 @@ Click to view sample code for Figure 2 - Demographics (Pyramid Chart)
 <span>    groupvar <span class="op">=</span> <span class="st">"Sex"</span>, alpha_set <span class="op">=</span> <span class="fl">0.7</span>, chartcolors <span class="op">=</span> <span class="fu"><a href="reference/colfun.html">colfun</a></span><span class="op">(</span><span class="op">)</span><span class="op">$</span><span class="va">fig2_colors</span>,</span>
 <span>    xlab <span class="op">=</span> <span class="st">"Prevalence (x 100 000)"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-</details><p><img src="reference/figures/README-pyramid_plot-1.png" width="100%"></p>
+</details>
 </div>
 <div class="section level2">
 <h2 id="figure-3---disease-history-line-chart">Figure 3 - Disease History (Line Chart)<a class="anchor" aria-label="anchor" href="#figure-3---disease-history-line-chart"></a>
 </h2>
+<p><img src="reference/figures/README-line_chart-1.png" width="100%"></p>
 <details><summary>
-Click to learn more about Figure 3 - Disease History (Line Chart)
+Click to learn more
 </summary><p><strong>Natural History plot: how to read</strong></p>
 <ul>
 <li>The Y-axis displays the functional score, ranging from 0-50 points on a fictional Quality of Life scale.</li>
@@ -144,7 +146,7 @@ Click to learn more about Figure 3 - Disease History (Line Chart)
 <p>The graph show that the disease manifestations are sequential, hence do not necessarily occur at the same time. Patient follow-up will need to be several years to capture several of the functional domains.</p>
 History of disease progression also impacts patient engagement, since newly diagnosed patients might have no experience with more serious manifestations, such as mental function.
 </details><details><summary>
-Click to view sample code for Figure 3 - Disease History (Line Chart)
+Click to view sample code
 </summary><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">func</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fl">47.982</span> <span class="op">-</span> <span class="fl">0.0305</span> <span class="op">*</span> <span class="va">x</span> <span class="op">-</span> <span class="fl">0.57525</span> <span class="op">*</span> <span class="va">x</span><span class="op">^</span><span class="fl">2</span> <span class="op">+</span> <span class="fl">0.0245</span> <span class="op">*</span> <span class="va">x</span><span class="op">^</span><span class="fl">3</span></span>
 <span><span class="fu"><a href="reference/line_chart.html">line_chart</a></span><span class="op">(</span></span>
@@ -161,13 +163,14 @@ Click to view sample code for Figure 3 - Disease History (Line Chart)
 <span>  ylab <span class="op">=</span> <span class="st">"Functional Score"</span>,</span>
 <span>  legend_title <span class="op">=</span> <span class="st">"Severity: "</span></span>
 <span><span class="op">)</span></span></code></pre></div>
-</details><p><img src="reference/figures/README-line_chart-1.png" width="100%"></p>
+</details>
 </div>
 <div class="section level2">
 <h2 id="figure-4---comorbidities-grouped-bar-chart">Figure 4 - Comorbidities (Grouped Bar Chart)<a class="anchor" aria-label="anchor" href="#figure-4---comorbidities-grouped-bar-chart"></a>
 </h2>
+<p><img src="reference/figures/README-grouped_barchart-1.png" width="100%"></p>
 <details><summary>
-Click to learn more about Figure 4 - Comorbidities (Grouped Bar Chart)
+Click to learn more
 </summary><p><strong>Grouped bar chart: how to read</strong></p>
 <ul>
 <li>The Y-axis displays the prevalence (%) of disease comorbidities in the patient population, ranging from 0 to 40%.</li>
@@ -177,20 +180,21 @@ Click to learn more about Figure 4 - Comorbidities (Grouped Bar Chart)
 <p>The graph displays the background rates of comorbidities, which is useful in designing patient preference studies. For example, patients might place high importance in a drug that reduces severe hypertension.</p>
 A display of background rates is also useful in determining whether a comorbidity is likely due to the drug or the disease.
 </details><details><summary>
-Click to view sample code for Figure 4 - Comorbidities (Grouped Bar Chart)
+Click to view sample code
 </summary><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/grouped_barchart.html">grouped_barchart</a></span><span class="op">(</span></span>
 <span>  data <span class="op">=</span> <span class="va">comorbidities</span>, xvar <span class="op">=</span> <span class="st">"Comorbidities"</span>,</span>
 <span>  yvar <span class="op">=</span> <span class="st">"Prevalence"</span>, groupvar <span class="op">=</span> <span class="st">"Severity"</span>,</span>
 <span>  chartcolors <span class="op">=</span> <span class="fu"><a href="reference/colfun.html">colfun</a></span><span class="op">(</span><span class="op">)</span><span class="op">$</span><span class="va">fig4_colors</span></span>
 <span><span class="op">)</span></span></code></pre></div>
-</details><p><img src="reference/figures/README-grouped_barchart-1.png" width="100%"></p>
+</details>
 </div>
 <div class="section level2">
 <h2 id="figure-5---value-tree">Figure 5 - Value Tree<a class="anchor" aria-label="anchor" href="#figure-5---value-tree"></a>
 </h2>
+<p><img src="reference/figures/README-value_tree-1.png" width="100%"><img src="../../AppData/Local/Temp/RtmpqmZypi/file3d341b6e2bf0.png" width="100%"></p>
 <details><summary>
-Click to learn more about Figure 5 - Value Tree
+Click to learn more
 </summary><p><strong>Value Tree: how to read</strong></p>
 <ul>
 <li>A value tree is a diagram that includes all key benefits and risks identified by the stakeholder or decision-makers to be important to the decision, particular to the patient population considered.</li>
@@ -208,11 +212,11 @@ Click to learn more about Figure 5 - Value Tree
 <p>While also a rare and serious, liver toxicity was colored gray because it only has a potential association with treatments.</p>
 Both primary and secondary efficacy clinical endpoints were included because they were not correlated. Quality of Life was included to capture what was important to the subjects.
 </details><details><summary>
-Click to view sample code for Figure 5 - Value Tree
+Click to view sample code
 </summary><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span> <span class="fu"><a href="reference/value_tree.html">value_tree</a></span><span class="op">(</span></span>
-<span>   diagram <span class="op">=</span></span>
-<span>     <span class="st">"graph LR;</span></span>
+<code class="sourceCode R"><span><span class="fu"><a href="reference/value_tree.html">value_tree</a></span><span class="op">(</span></span>
+<span>  diagram <span class="op">=</span></span>
+<span>    <span class="st">"graph LR;</span></span>
 <span><span class="st">   A(&lt;B&gt;Benefit-Risk Balance&lt;/B&gt;)--&gt;B(&lt;B&gt;Benefits&lt;/B&gt;)</span></span>
 <span><span class="st">   B--&gt;C(&lt;B&gt;Primary Efficacy&lt;/B&gt;)</span></span>
 <span><span class="st">   B--&gt;D(&lt;B&gt;Secondary Efficacy&lt;/B&gt;)</span></span>
@@ -243,14 +247,33 @@ Click to view sample code for Figure 5 - Value Tree
 <span><span class="st">   style N fill: #FFAA1C</span></span>
 <span><span class="st">   style O fill: #C6C6C6</span></span>
 <span><span class="st">   "</span></span>
-<span>   <span class="op">)</span></span></code></pre></div>
-</details><p><img src="inst/img/value_tree.png" width="100%"></p>
+<span><span class="op">)</span></span></code></pre></div>
+</details>
 </div>
 <div class="section level2">
 <h2 id="figure-6---dot-forest-plot">Figure 6 - Dot-Forest Plot<a class="anchor" aria-label="anchor" href="#figure-6---dot-forest-plot"></a>
 </h2>
+<div class="sourceCode" id="cb6"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="co">#&gt; Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :</span></span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="co">#&gt; conversion failure on '← Favours Placebo Favours Active → ' in 'mbcsToSbcs':</span></span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a><span class="co">#&gt; dot substituted for &lt;e2&gt;</span></span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a><span class="co">#&gt; Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :</span></span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a><span class="co">#&gt; conversion failure on '← Favours Placebo Favours Active → ' in 'mbcsToSbcs':</span></span>
+<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a><span class="co">#&gt; dot substituted for &lt;86&gt;</span></span>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a><span class="co">#&gt; Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :</span></span>
+<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a><span class="co">#&gt; conversion failure on '← Favours Placebo Favours Active → ' in 'mbcsToSbcs':</span></span>
+<span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a><span class="co">#&gt; dot substituted for &lt;90&gt;</span></span>
+<span id="cb6-10"><a href="#cb6-10" tabindex="-1"></a><span class="co">#&gt; Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :</span></span>
+<span id="cb6-11"><a href="#cb6-11" tabindex="-1"></a><span class="co">#&gt; conversion failure on '← Favours Placebo Favours Active → ' in 'mbcsToSbcs':</span></span>
+<span id="cb6-12"><a href="#cb6-12" tabindex="-1"></a><span class="co">#&gt; dot substituted for &lt;e2&gt;</span></span>
+<span id="cb6-13"><a href="#cb6-13" tabindex="-1"></a><span class="co">#&gt; Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :</span></span>
+<span id="cb6-14"><a href="#cb6-14" tabindex="-1"></a><span class="co">#&gt; conversion failure on '← Favours Placebo Favours Active → ' in 'mbcsToSbcs':</span></span>
+<span id="cb6-15"><a href="#cb6-15" tabindex="-1"></a><span class="co">#&gt; dot substituted for &lt;86&gt;</span></span>
+<span id="cb6-16"><a href="#cb6-16" tabindex="-1"></a><span class="co">#&gt; Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :</span></span>
+<span id="cb6-17"><a href="#cb6-17" tabindex="-1"></a><span class="co">#&gt; conversion failure on '← Favours Placebo Favours Active → ' in 'mbcsToSbcs':</span></span>
+<span id="cb6-18"><a href="#cb6-18" tabindex="-1"></a><span class="co">#&gt; dot substituted for &lt;92&gt;</span></span></code></pre></div>
+<p><img src="reference/figures/README-forest_dot_plot-1.png" width="100%"></p>
 <details><summary>
-Click to learn more about Figure 6 - Dot-Forest Plot
+Click to learn more
 </summary><p><strong>Dot-Forest plot: how to read</strong></p>
 <ul>
 <li>The two-panel forest plot displays point estimates for each treatment effect on the left side and point estimates (and 95% confidence intervals) for each treatment difference on the right side.</li>
@@ -268,8 +291,8 @@ Click to learn more about Figure 6 - Dot-Forest Plot
 <p>The forest plot can be repeated for different patient subgroups, to assess the robustness of the overall assessment.</p>
 It is important to not confuse the forest plot with the similar looking meta-analysis plot, which has multiple rows for different studies but for the same endpoint.
 </details><details><summary>
-Click to view sample code for Figure 6 - Dot-Forest Plot
-</summary><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+Click to view sample code
+</summary><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">forest_dot_plot</span><span class="op">(</span><span class="va">effects_table</span>,</span>
 <span>  filters <span class="op">=</span> <span class="st">"None"</span>,</span>
 <span>  category <span class="op">=</span> <span class="st">"All"</span>,</span>
@@ -280,13 +303,14 @@ Click to view sample code for Figure 6 - Dot-Forest Plot
 <span>  ci_method <span class="op">=</span> <span class="st">"Calculated"</span>,</span>
 <span>  exclude_outcome <span class="op">=</span> <span class="st">"Liver"</span></span>
 <span><span class="op">)</span></span></code></pre></div>
-</details><p><img src="reference/figures/README-forest_dot_plot-1.png" width="100%"></p>
+</details>
 </div>
 <div class="section level2">
 <h2 id="figure-7---trade-off-plot">Figure 7 - Trade-off Plot<a class="anchor" aria-label="anchor" href="#figure-7---trade-off-plot"></a>
 </h2>
+<p><img src="reference/figures/README-tradeoff_plot-1.png" width="100%"></p>
 <details><summary>
-Click to learn more about Figure 7 - Trade-off Plot
+Click to learn more
 </summary><p><strong>Trade-Off plot: how to read</strong></p>
 <ul>
 <li>A scatter plot displays the clinical data for one benefit (X-axis) and one risk (Y-axis).</li>
@@ -308,8 +332,8 @@ Click to learn more about Figure 7 - Trade-off Plot
 <p>The plot can display other combinations of one benefit and one risk, as well as for different patient subgroups, dose levels, and studies, in support of the generalizability of the investigational drug.</p>
 Ideally, the investigational drug will appear in an area of unmet need in the acceptance region.
 </details><details><summary>
-Click to view sample code for Figure 7 - Trade-off Plot
-</summary><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+Click to view sample code
+</summary><div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/generate_tradeoff_plot.html">generate_tradeoff_plot</a></span><span class="op">(</span></span>
 <span>  data <span class="op">=</span> <span class="va">effects_table</span>, filter <span class="op">=</span> <span class="st">"None"</span>, category <span class="op">=</span> <span class="st">"All"</span>,</span>
 <span>  benefit <span class="op">=</span> <span class="st">"Primary Efficacy"</span>, risk <span class="op">=</span> <span class="st">"Reoccurring AE"</span>,</span>
@@ -347,13 +371,14 @@ Click to view sample code for Figure 7 - Trade-off Plot
 <span>  upper_y <span class="op">=</span> <span class="fl">0.5</span>,</span>
 <span>  <span class="va">chartcolors</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/colfun.html">colfun</a></span><span class="op">(</span><span class="op">)</span><span class="op">$</span><span class="va">fig7_colors</span></span>
 <span><span class="op">)</span></span></code></pre></div>
-</details><p><img src="reference/figures/README-tradeoff_plot-1.png" width="100%"></p>
+</details>
 </div>
 <div class="section level2">
 <h2 id="figure-10---correlogram">Figure 10 - Correlogram<a class="anchor" aria-label="anchor" href="#figure-10---correlogram"></a>
 </h2>
+<p><img src="reference/figures/README-correlogram-1.png" width="100%"></p>
 <details><summary>
-Click to learn more about Figure 10 - Correlogram
+Click to learn more
 </summary><p><strong>Correlogram: how to read</strong></p>
 <ul>
 <li>Both the benefit and risk outcomes appear on the X-axis and Y-axis.</li>
@@ -368,16 +393,17 @@ Click to learn more about Figure 10 - Correlogram
 <p>As expected, there is a high correlation between the primary and secondary efficacy outcomes. The team might decide to drop the secondary efficacy outcome if there is a concern with double counting.</p>
 There is also an explainable negative correlation between outcomes for quality-of-life and recurring AE. The medium positive correlation between recurring AE and primary efficacy is difficult to explain.
 </details><details><summary>
-Click to view sample code for Figure 10 - Correlogram
-</summary><div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+Click to view sample code
+</summary><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/create_correlogram.html">create_correlogram</a></span><span class="op">(</span><span class="va">corr</span><span class="op">)</span></span></code></pre></div>
-</details><p><img src="reference/figures/README-correlogram-1.png" width="100%"></p>
+</details>
 </div>
 <div class="section level2">
 <h2 id="figure-11---scatterplot">Figure 11 - Scatterplot<a class="anchor" aria-label="anchor" href="#figure-11---scatterplot"></a>
 </h2>
+<p><img src="reference/figures/README-scatterplot-1.png" width="100%"></p>
 <details><summary>
-Click to learn more about Figure 11 - Scatterplot
+Click to learn more
 </summary><p><strong>Scatter plot of Continuous Outcomes: how to read</strong></p>
 <ul>
 <li>Each point indicates the predictive incremental probabilities associated with experiencing a benefit and a risk. The probabilities are estimated using logistic regression models with demographic and baseline covariates, but separately for one benefit and one risk.</li>
@@ -392,16 +418,17 @@ Click to learn more about Figure 11 - Scatterplot
 <p><strong>Key Conclusions:</strong></p>
 The scatter plot of predictive incremental probabilities illustrates that 98.6% of subjects have benefit-risk predictive incremental probabilities that fall within the acceptance region, defined as the region below the diagonal threshold. Besides displaying subject variability, it indicates which subjects are most likely to benefit from the investigational drug.
 </details><details><summary>
-Click to view sample code for Figure 11 - Scatterplot
-</summary><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+Click to view sample code
+</summary><div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/scatter_plot.html">scatter_plot</a></span><span class="op">(</span><span class="va">scatterplot</span>, outcome <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Benefit"</span>, <span class="st">"Risk"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-</details><p><img src="reference/figures/README-scatterplot-1.png" width="100%"></p>
+</details>
 </div>
 <div class="section level2">
 <h2 id="figure-12---composite-outcome-stacked-bar-chart">Figure 12 - Composite Outcome (Stacked Bar Chart)<a class="anchor" aria-label="anchor" href="#figure-12---composite-outcome-stacked-bar-chart"></a>
 </h2>
+<p><img src="reference/figures/README-stacked_barchart-1.png" width="100%"></p>
 <details><summary>
-Click to learn more about Figure 12 - Composite Outcome (Stacked Bar Chart)
+Click to learn more
 </summary><p><strong>Stacked Bar chart of Ordinal Composite Outcomes: how to read</strong></p>
 <ul>
 <li>This visualization is comprised of a separate chart for each dose level placebo, low dose and high dose.</li>
@@ -417,20 +444,21 @@ Click to learn more about Figure 12 - Composite Outcome (Stacked Bar Chart)
 <p>The most favorable outcome of “Benefit-No AE” is not only sustainable but the percentage of subjects is increasing.</p>
 It is expected that the percentage of subjects withdrawing increase over time, due to placebo subjects receiving no benefit and other subjects experiencing adverse events.
 </details><details><summary>
-Click to view sample code for Figure 12 - Composite Outcome (Stacked Bar Chart)
-</summary><div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+Click to view sample code
+</summary><div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/stacked_barchart.html">stacked_barchart</a></span><span class="op">(</span></span>
 <span>  data <span class="op">=</span> <span class="va">comp_outcome</span>,</span>
 <span>  chartcolors <span class="op">=</span> <span class="fu"><a href="reference/colfun.html">colfun</a></span><span class="op">(</span><span class="op">)</span><span class="op">$</span><span class="va">fig12_colors</span>,</span>
 <span>  xlabel <span class="op">=</span> <span class="st">"Study Week"</span></span>
 <span><span class="op">)</span></span></code></pre></div>
-</details><p><img src="reference/figures/README-stacked_barchart-1.png" width="100%"></p>
+</details>
 </div>
 <div class="section level2">
 <h2 id="figure-13---cumulative-excess-plot">Figure 13 - Cumulative Excess Plot<a class="anchor" aria-label="anchor" href="#figure-13---cumulative-excess-plot"></a>
 </h2>
+<p><img src="reference/figures/README-cumulative_excess_plot-1.png" width="100%"></p>
 <details><summary>
-Click to learn more about Figure 13 - Cumulative Excess Plot
+Click to learn more
 </summary><p><strong>Cumulative excess plot: how to read</strong></p>
 <ul>
 <li>The Y-axis displays the cumulative excess incidence per 100 subjects, ranging from 0 to maximum observed value.</li>
@@ -448,8 +476,8 @@ Click to learn more about Figure 13 - Cumulative Excess Plot
 <p><strong>Key Conclusions:</strong></p>
 The Cumulative Excess plot assessed whether the binary events for a benefit and risk occur concurrently and whether the profile is sustainable. The two positive trends indicate that both benefit and risk are higher for the active drug than placebo, but not at the same rate. This is an ideal scenario where the benefit increased with drug exposure while the risk plateaued.
 </details><details><summary>
-Click to view sample code for Figure 13 - Cumulative Excess Plot
-</summary><div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+Click to view sample code
+</summary><div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/gensurv_combined.html">gensurv_combined</a></span><span class="op">(</span></span>
 <span>  df_plot <span class="op">=</span> <span class="va">cumexcess</span>, subjects_pt <span class="op">=</span> <span class="fl">500</span>, visits_pt <span class="op">=</span> <span class="fl">6</span>,</span>
 <span>  df_table <span class="op">=</span> <span class="va">cumexcess</span>, fig_colors_pt <span class="op">=</span> <span class="fu"><a href="reference/colfun.html">colfun</a></span><span class="op">(</span><span class="op">)</span><span class="op">$</span><span class="va">fig13_colors</span>,</span>
@@ -458,7 +486,7 @@ Click to view sample code for Figure 13 - Cumulative Excess Plot
 <span>  titlename <span class="op">=</span></span>
 <span>    <span class="st">"Cumulative Excess # of Subjects w/ Events(per 100 Subjects)"</span></span>
 <span><span class="op">)</span></span></code></pre></div>
-</details><p><img src="reference/figures/README-cumulative_excess_plot-1.png" width="100%"></p>
+</details>
 </div>
 </div>
 
