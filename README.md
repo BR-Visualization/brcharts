@@ -81,9 +81,11 @@ devtools::install_github("BR-Visualization/brcharts")
 
 ## Figure 2 - Demographics (Pyramid Chart)
 
+<img src="man/figures/README-pyramid_plot-1.png" width="100%" />
+
 <details>
 <summary>
-Click to learn more about Figure 2 - Demographics (Pyramid Chart)
+Click to learn more
 </summary>
 
 **Pyramid bar chart: how to read**
@@ -112,7 +114,7 @@ age groups.
 </details>
 <details>
 <summary>
-Click to view sample code for Figure 2 - Demographics (Pyramid Chart)
+Click to view sample code
 </summary>
 
 ``` r
@@ -133,13 +135,13 @@ demography |>
 
 </details>
 
-<img src="man/figures/README-pyramid_plot-1.png" width="100%" />
-
 ## Figure 3 - Disease History (Line Chart)
+
+<img src="man/figures/README-line_chart-1.png" width="100%" />
 
 <details>
 <summary>
-Click to learn more about Figure 3 - Disease History (Line Chart)
+Click to learn more
 </summary>
 
 **Natural History plot: how to read**
@@ -172,7 +174,7 @@ manifestations, such as mental function.
 </details>
 <details>
 <summary>
-Click to view sample code for Figure 3 - Disease History (Line Chart)
+Click to view sample code
 </summary>
 
 ``` r
@@ -195,13 +197,13 @@ line_chart(
 
 </details>
 
-<img src="man/figures/README-line_chart-1.png" width="100%" />
-
 ## Figure 4 - Comorbidities (Grouped Bar Chart)
+
+<img src="man/figures/README-grouped_barchart-1.png" width="100%" />
 
 <details>
 <summary>
-Click to learn more about Figure 4 - Comorbidities (Grouped Bar Chart)
+Click to learn more
 </summary>
 
 **Grouped bar chart: how to read**
@@ -223,8 +225,7 @@ comorbidity is likely due to the drug or the disease.
 </details>
 <details>
 <summary>
-Click to view sample code for Figure 4 - Comorbidities (Grouped Bar
-Chart)
+Click to view sample code
 </summary>
 
 ``` r
@@ -237,13 +238,13 @@ grouped_barchart(
 
 </details>
 
-<img src="man/figures/README-grouped_barchart-1.png" width="100%" />
-
 ## Figure 5 - Value Tree
+
+<img src="man/figures/README-value_tree-1.png" width="100%" /><img src="../../AppData/Local/Temp/RtmpqmZypi/file3d341b6e2bf0.png" width="100%" />
 
 <details>
 <summary>
-Click to learn more about Figure 5 - Value Tree
+Click to learn more
 </summary>
 
 **Value Tree: how to read**
@@ -288,13 +289,13 @@ capture what was important to the subjects.
 </details>
 <details>
 <summary>
-Click to view sample code for Figure 5 - Value Tree
+Click to view sample code
 </summary>
 
 ``` r
- value_tree(
-   diagram =
-     "graph LR;
+value_tree(
+  diagram =
+    "graph LR;
    A(<B>Benefit-Risk Balance</B>)-->B(<B>Benefits</B>)
    B-->C(<B>Primary Efficacy</B>)
    B-->D(<B>Secondary Efficacy</B>)
@@ -325,18 +326,37 @@ Click to view sample code for Figure 5 - Value Tree
    style N fill: #FFAA1C
    style O fill: #C6C6C6
    "
-   )
+)
 ```
 
 </details>
 
-<img src="inst/img/value_tree.png" width="100%" />
-
 ## Figure 6 - Dot-Forest Plot
+
+    #> Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    #> conversion failure on '← Favours Placebo Favours Active → ' in 'mbcsToSbcs':
+    #> dot substituted for <e2>
+    #> Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    #> conversion failure on '← Favours Placebo Favours Active → ' in 'mbcsToSbcs':
+    #> dot substituted for <86>
+    #> Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    #> conversion failure on '← Favours Placebo Favours Active → ' in 'mbcsToSbcs':
+    #> dot substituted for <90>
+    #> Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    #> conversion failure on '← Favours Placebo Favours Active → ' in 'mbcsToSbcs':
+    #> dot substituted for <e2>
+    #> Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    #> conversion failure on '← Favours Placebo Favours Active → ' in 'mbcsToSbcs':
+    #> dot substituted for <86>
+    #> Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    #> conversion failure on '← Favours Placebo Favours Active → ' in 'mbcsToSbcs':
+    #> dot substituted for <92>
+
+<img src="man/figures/README-forest_dot_plot-1.png" width="100%" />
 
 <details>
 <summary>
-Click to learn more about Figure 6 - Dot-Forest Plot
+Click to learn more
 </summary>
 
 **Dot-Forest plot: how to read**
@@ -383,7 +403,7 @@ for the same endpoint.
 </details>
 <details>
 <summary>
-Click to view sample code for Figure 6 - Dot-Forest Plot
+Click to view sample code
 </summary>
 
 ``` r
@@ -401,13 +421,13 @@ forest_dot_plot(effects_table,
 
 </details>
 
-<img src="man/figures/README-forest_dot_plot-1.png" width="100%" />
-
 ## Figure 7 - Trade-off Plot
+
+<img src="man/figures/README-tradeoff_plot-1.png" width="100%" />
 
 <details>
 <summary>
-Click to learn more about Figure 7 - Trade-off Plot
+Click to learn more
 </summary>
 
 **Trade-Off plot: how to read**
@@ -463,7 +483,7 @@ in the acceptance region.
 </details>
 <details>
 <summary>
-Click to view sample code for Figure 7 - Trade-off Plot
+Click to view sample code
 </summary>
 
 ``` r
@@ -508,13 +528,13 @@ generate_tradeoff_plot(
 
 </details>
 
-<img src="man/figures/README-tradeoff_plot-1.png" width="100%" />
-
 ## Figure 10 - Correlogram
+
+<img src="man/figures/README-correlogram-1.png" width="100%" />
 
 <details>
 <summary>
-Click to learn more about Figure 10 - Correlogram
+Click to learn more
 </summary>
 
 **Correlogram: how to read**
@@ -548,7 +568,7 @@ between recurring AE and primary efficacy is difficult to explain.
 </details>
 <details>
 <summary>
-Click to view sample code for Figure 10 - Correlogram
+Click to view sample code
 </summary>
 
 ``` r
@@ -557,13 +577,13 @@ create_correlogram(corr)
 
 </details>
 
-<img src="man/figures/README-correlogram-1.png" width="100%" />
-
 ## Figure 11 - Scatterplot
+
+<img src="man/figures/README-scatterplot-1.png" width="100%" />
 
 <details>
 <summary>
-Click to learn more about Figure 11 - Scatterplot
+Click to learn more
 </summary>
 
 **Scatter plot of Continuous Outcomes: how to read**
@@ -595,7 +615,7 @@ the investigational drug.
 </details>
 <details>
 <summary>
-Click to view sample code for Figure 11 - Scatterplot
+Click to view sample code
 </summary>
 
 ``` r
@@ -604,14 +624,13 @@ scatter_plot(scatterplot, outcome = c("Benefit", "Risk"))
 
 </details>
 
-<img src="man/figures/README-scatterplot-1.png" width="100%" />
-
 ## Figure 12 - Composite Outcome (Stacked Bar Chart)
+
+<img src="man/figures/README-stacked_barchart-1.png" width="100%" />
 
 <details>
 <summary>
-Click to learn more about Figure 12 - Composite Outcome (Stacked Bar
-Chart)
+Click to learn more
 </summary>
 
 **Stacked Bar chart of Ordinal Composite Outcomes: how to read**
@@ -646,8 +665,7 @@ experiencing adverse events.
 </details>
 <details>
 <summary>
-Click to view sample code for Figure 12 - Composite Outcome (Stacked Bar
-Chart)
+Click to view sample code
 </summary>
 
 ``` r
@@ -660,13 +678,13 @@ stacked_barchart(
 
 </details>
 
-<img src="man/figures/README-stacked_barchart-1.png" width="100%" />
-
 ## Figure 13 - Cumulative Excess Plot
+
+<img src="man/figures/README-cumulative_excess_plot-1.png" width="100%" />
 
 <details>
 <summary>
-Click to learn more about Figure 13 - Cumulative Excess Plot
+Click to learn more
 </summary>
 
 **Cumulative excess plot: how to read**
@@ -713,7 +731,7 @@ while the risk plateaued.
 </details>
 <details>
 <summary>
-Click to view sample code for Figure 13 - Cumulative Excess Plot
+Click to view sample code
 </summary>
 
 ``` r
@@ -728,5 +746,3 @@ gensurv_combined(
 ```
 
 </details>
-
-<img src="man/figures/README-cumulative_excess_plot-1.png" width="100%" />
