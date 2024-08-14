@@ -97,63 +97,7 @@
 
 
 <dl><dt id="arg-data">data<a class="anchor" aria-label="anchor" href="#arg-data"></a></dt>
-<dd><p>(<code>data.frame</code>) input dataset
-The following variables are required columns. Note that the variables <code>Grouped_Outcome</code>, <code>Statistics</code>, and <code>Outcome_Status</code> are not required for generating a trade-off plot, but are listed as required columns because they are key for generating a value tree, which is a starting point for all subsequent benefit-risk assessments.</p><ol><li><p>Factor: A character vector containing whether an outcome is a "Benefit" or a "Risk"</p></li>
-<li><p>Grouped_Outcome: A character vector containing the name of grouped outcomes, e.g., Infections</p></li>
-<li><p>Outcome: A character vector containing the name of outcomes, e.g., Herpes viral infections, upper respiratory tract infections</p></li>
-<li><p>Statistics: A character vector containing the summary statistics of outcomes, e.g., %, mean change from baseline</p></li>
-<li><p>Type: A character vector containing whether an outcome is a "Binary" or a "Continuous" variable</p></li>
-<li><p>Outcome_Status: A character vector containing whether an outcome is an "Identified" or a "Potential" outcome</p></li>
-<li><p>Filter: A character vector containing the filter for subgroup data, should be "None" if no filtre is applicable. Example: None; Sex.</p></li>
-<li><p>Category: A character vector containing  the category for filtering subgroup data, should be "All" if no filter is applicable. Example: All; Male, Female.</p></li>
-<li><p>Trt1: A character vector containing the name of active treatments</p></li>
-<li><p>Trt2: A character vector containing controlled term "Placebo"</p></li>
-<li><p>Drug_Status: A character vector containing whether a treatment is an "Approved" or a "Test" drug
-The following variables are situational columns - Filled in only for the specific summary statistic related to the row outcome (ex. proportion):</p></li>
-<li><p>Rate_Type: A numeric vector containing whether an AE rate is "EventRate" or "IncRate". Required for risk outcomes displayed in exposure-adjusted event rate or incidence rate.</p></li>
-<li><p>Prop1: A numeric vector containing the proportion in active treatment. Required for binary outcomes displayed in proportions; can be populated by nSub1/N1 if both nSub1 and N1 are provided.</p></li>
-<li><p>IncRate1: A numeric vector containing the exposure-adjusted incidence rate per 100 PYs in active treatment. Required for risk outcomes displayed in exposure-adjusted incidence rates; can be populated by nSub1/PYAR1*100 if both nSub1 and PYAR1 are provided.</p></li>
-<li><p>EventRate1: A numeric vector containing the exposure-adjusted event rate per 100 PYs in active treatment. Required for risk outcomes displayed in exposure-adjusted event rates; can be populated by nEvent1/PEY1*100 if both nEvent1 and PEY1 are provided.</p></li>
-<li><p>Mean1: A numeric vector containing the mean in active treatment. Required for continuous outcomes.</p></li>
-<li><p>Prop2: A numeric vector containing the proportion in comparator treatment. Required for binary outcomes displayed in proportions; can be populated by nSub2/N2 if both nSub1 and N1 are provided.</p></li>
-<li><p>IncRate2: A numeric vector containing the exposure-adjusted incidence rate per 100 PYs in comparator treatment. Required for risk outcomes displayed in exposure-adjusted incidence rates; can be populated by nSub2/PYAR2*100 if both nSub1 and PYAR1 are provided.</p></li>
-<li><p>EventRate2: A numeric vector containing the exposure-adjusted event rate per 100 PYs in comparator treatment. Required for risk outcomes displayed in exposure-adjusted event rates; can be populated by nEvent2/PEY2*100 if both nEvent1 and PEY1 are provided.</p></li>
-<li><p>Mean2: A numeric vector containing the mean in comparator treatment. Required for continuous outcomes.
-The following variables are optional columns - Can be either hand entered or calculated by the package (ex. confidence intervals):</p></li>
-<li><p>N1: An integer vector containing the total number of subjects in active treatment. Required when needing to calculate confidence intervals within the package for proportions.</p></li>
-<li><p>100PYAR1: A numeric vector containing 100 patient-years at risk in active treatment. Required when needing to calculate confidence intervals within the app for exposure-adjusted incidence rates.</p></li>
-<li><p>100PEY1: A vector containing 100 patient-years of exposure in active treatment. Required when needing to calculate confidence intervals within the app for exposure-adjusted event rates.</p></li>
-<li><p>Sd1: A numeric vector containing the standard deviation in active treatment. Required when needing to calculate confidence intervals within the app for continuous outcomes; can be populated by Se1/SQRT(N1) if Se1 and N1 are provided.</p></li>
-<li><p>N2: An integer vector containing the total number of subjects in comparator treatment. Required when needing to calculate confidence intervals within the package for proportions.</p></li>
-<li><p>100PYAR2: A numeric vector containing 100 patient-years at risk in comparator treatment. Required when needing to calculate confidence intervals within the app for exposure-adjusted incidence rates.</p></li>
-<li><p>100PEY2: A numeric vector containing 100 patient-years of exposure in comparator treatment. Required when needing to calculate confidence intervals within the app for exposure-adjusted event rates.</p></li>
-<li><p>Sd2: A numeric vector containing the standard deviation in comparator treatment. Required when needing to calculate confidence intervals within the app for continuous outcomes; can be populated by Se2/SQRT(N2) if Se2 and N2 are provided.</p></li>
-<li><p>Diff_LowerCI: A numeric vector containing the lower confidence interval for difference in proportions and continuous outcomes. Required when using supplied confidence intervals for difference in proportions and continuous outcomes.</p></li>
-<li><p>Diff_UpperCI: A numeric vector containing the upper confidence interval for difference in proportions and continuous outcomes. Required when using supplied confidence intervals for difference in proportions and continuous outcomes.</p></li>
-<li><p>Diff_IncRate_LowerCI: A numeric vector containing the lower confidence interval for difference in exposure-adjusted incidence rates. Required when using supplied confidence intervals for difference in exposure-adjusted incidence rates.</p></li>
-<li><p>Diff_IncRate_UpperCI: A numeric vector containing the upper confidence interval for difference in exposure-adjusted incidence rates. Required when using supplied confidence intervals for difference in exposure-adjusted incidence rates.</p></li>
-<li><p>Diff_EventRate_LowerCI: A numeric vector containing the lower confidence interval for difference in exposure-adjusted event rates. Required when using supplied confidence intervals for difference in exposure-adjusted event rates.</p></li>
-<li><p>Diff_EventRate_UpperCI: A numeric vector containing the upper confidence interval for difference in exposure-adjusted event rates. Required when using supplied confidence intervals for difference in exposure-adjusted event rates.</p></li>
-<li><p>RelRisk_LowerCI: A numeric vector containing the lower confidence interval for relative risk of binary outcomes. Required when using supplied confidence intervals for relative risk of binary outcomes.</p></li>
-<li><p>RelRisk_UpperCI: A numeric vector containing the upper confidence interval for relative risk of binary outcomes. Required when using supplied confidence intervals for relative risk of binary outcomes.</p></li>
-<li><p>OddsRatio_LowerCI: A numeric vector containing the lower confidence interval for odds ratio of binary outcomes. Required when using supplied confidence intervals for odds ratio of binary outcomes.</p></li>
-<li><p>OddsRatio_UpperCI: A numeric vector containing the upper confidence interval for odds ratio of binary outcomes. Required when using supplied confidence intervals for odds ratio of binary outcomes.
-The following variables are supplementary columns - Used to calculate other columns are not required by the package(ex. number of subjects with events):</p></li>
-<li><p>nSub1: An integer vector containing the number of subjects with events in active treatment. Not required; can be used to calculate Prop1 by nSub1/N1.</p></li>
-<li><p>Dur1: A numeric vector containing the duration of treatment in active treatment. Not required; can be used to estimate 100PYAR1 and 100PEY1.</p></li>
-<li><p>nEvent1: An integer vector containing the number of events in active treatment. Not required; can be used to calculate EventRate1 by nEvent1/100PEY1.</p></li>
-<li><p>Se1: A numeric vector containing the standard error in active treatment. Not required; can be used to calculate Sd1 by Se1*SQRT(N1).</p></li>
-<li><p>nSub2: An integer vector containing the number of subjects with events in comparator treatment. Not required; can be used to calculate Prop2 by nSub2/N2.</p></li>
-<li><p>Dur2: A numeric vector containing the duration of treatment in comparator treatment. Not required; can be used to estimate 100PYAR2 and 100PEY2.</p></li>
-<li><p>nEvent2: An integer vector containing the number of events in comparator treatment. Not required; can be used to calculate EventRate2 by nEvent2/100PEY2.</p></li>
-<li><p>Se2: A numeric vector containing the standard error in comparator treatment. Not required; can be used to calculate Sd2 by Se2*SQRT(N2).
-The following variables are documentation columns - Record the data source (ex. Study xyz, Table 1.2.3, date):</p></li>
-<li><p>MCDA_Weight: A numeric vector containing the MCDA weight</p></li>
-<li><p>Population: A character vector containing the population for the analysis (e.g., ITT, Safety Set)</p></li>
-<li><p>Data_Source: A character vector containing the source of data (e.g., Reference CSR Table xxx)</p></li>
-<li><p>Quality: A character vector containing the quality of data</p></li>
-<li><p>Notes: A character vector containing notes</p></li>
-</ol></dd>
+<dd><p>(<code>data.frame</code>) input dataset</p></dd>
 
 
 <dt id="arg-filter">filter<a class="anchor" aria-label="anchor" href="#arg-filter"></a></dt>
@@ -285,13 +229,13 @@ as the number of treatments</p></dd>
 <span class="r-in"><span>  upper_y <span class="op">=</span> <span class="fl">0.5</span>,</span></span>
 <span class="r-in"><span>  chartcolors <span class="op">=</span> <span class="fu"><a href="colfun.html">colfun</a></span><span class="op">(</span><span class="op">)</span><span class="op">$</span><span class="va">fig7_colors</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> [2024-08-14 03:42:49] &gt;</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> [2024-08-14 14:53:57] &gt;</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> absolute risk CI for binary outcomes is calculated and saved</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> [2024-08-14 03:42:49] &gt;</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> [2024-08-14 14:53:57] &gt;</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> absolute risk CI for binary outcomes is calculated and saved</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> [2024-08-14 03:42:49] &gt; prepare tradeoff data</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> [2024-08-14 03:42:49] &gt; prepare trade-off plot</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> [2024-08-14 03:42:49] &gt; update final trade-off plot</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> [2024-08-14 14:53:57] &gt; prepare tradeoff data</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> [2024-08-14 14:53:57] &gt; prepare trade-off plot</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> [2024-08-14 14:53:57] &gt; update final trade-off plot</span>
 <span class="r-plt img"><img src="generate_tradeoff_plot-1.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
