@@ -1,6 +1,10 @@
 #' Stacked Bar Chart
 #'
-#' @param data `dataframe` input data
+#' @param data `dataframe` a data frame with a minimum of 4 variables named the following:
+#' 1) usubjid: unique subject ID
+#' 2) visit: visit ID
+#' 3) trt: treatment group
+#' 4) brcat: composite benefit-risk category
 #' @param chartcolors `vector` a vector of colors, the same number of levels as
 #' the brcat variable
 #' @param xlabel `character` x label name, default is "Visit"

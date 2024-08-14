@@ -7,7 +7,13 @@
 stacked_barchart(data, chartcolors, xlabel = "Visit")
 }
 \arguments{
-\item{data}{\code{dataframe} input data}
+\item{data}{\code{dataframe} a data frame with a minimum of 4 variables named the following:
+\enumerate{
+\item usubjid: unique subject ID
+\item visit: visit ID
+\item trt: treatment group
+\item brcat: composite benefit-risk category
+}}
 
 \item{chartcolors}{\code{vector} a vector of colors, the same number of levels as
 the brcat variable}
