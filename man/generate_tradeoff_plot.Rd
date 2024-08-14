@@ -50,7 +50,7 @@ generate_tradeoff_plot(
 }
 \arguments{
 \item{data}{(\code{data.frame}) input dataset
-The following variables are required columns. Note that the columns \code{Grouped_Outcome}, \code{Statistics}, and \code{Outcome_Status} are not required for generating a trade-off plot, but are listed as required below because they are key for generating a value tree, which is a starting point for all subsequent benefit-risk assessments.
+The following variables are required columns. Note that the variables \code{Grouped_Outcome}, \code{Statistics}, and \code{Outcome_Status} are not required for generating a trade-off plot, but are listed as required columns because they are key for generating a value tree, which is a starting point for all subsequent benefit-risk assessments.
 \enumerate{
 \item Factor: A character vector containing whether an outcome is a "Benefit" or a "Risk"
 \item Grouped_Outcome: A character vector containing the name of grouped outcomes, e.g., Infections
