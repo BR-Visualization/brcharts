@@ -610,10 +610,6 @@ gensurv_combined(
 - If the line for benefit is greater than 0, this indicates the active treatment is favored over the placebo.
 - If the line risk is greater than 0, this indicates the placebo arm is favored over the active treatment.
 
-{{% notice note %}}
-Unlike a similar looking Kaplan-Meier plot, the trend line for excess incidence can either increase or decrease from one time point to the next.
-{{% /notice %}}
-
 **Key Conclusions:**
   
 The Cumulative Excess plot assessed whether the binary events for a benefit and risk occur concurrently and whether the profile is sustainable. The two positive trends indicate that both benefit and risk are higher for the active drug than placebo, but not at the same rate. This is an ideal scenario where the benefit increased with drug exposure while the risk plateaued.

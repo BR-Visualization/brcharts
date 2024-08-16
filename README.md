@@ -697,10 +697,6 @@ Click to learn more
 - If the line risk is greater than 0, this indicates the placebo arm is
   favored over the active treatment.
 
-{{% notice note %}} Unlike a similar looking Kaplan-Meier plot, the
-trend line for excess incidence can either increase or decrease from one
-time point to the next. {{% /notice %}}
-
 **Key Conclusions:**
 
 The Cumulative Excess plot assessed whether the binary events for a
