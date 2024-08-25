@@ -2219,3 +2219,12 @@ create_dot_forest_plot <- function(data,
     )
   )
 }
+
+# Function to extract legend from ggplot object
+#' @noRd
+extract_legend <- function(plot) {
+  g <- ggplotGrob(plot)
+  legends <- g$grobs[which(sapply(g$grobs, function(x) x$name) == "guide-box")]
+  legend <- legends[[1]]
+  return(legend)
+}
