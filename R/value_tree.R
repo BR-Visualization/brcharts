@@ -82,10 +82,13 @@ value_tree <- function(diagram, ...) {
   }
 
   # Attempt to create the DiagrammeR object
-  tryCatch({
-    result <- DiagrammeR::mermaid(diagram, ...)
-    return(result)
-  }, error = function(e) {
-    stop(paste("Invalid graph specification:", e$message))
-  })
+  tryCatch(
+    {
+      result <- DiagrammeR::mermaid(diagram, ...)
+      return(result)
+    },
+    error = function(e) {
+      stop(paste("Invalid graph specification:", e$message))
+    }
+  )
 }
