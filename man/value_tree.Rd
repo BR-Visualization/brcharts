@@ -7,20 +7,51 @@
 value_tree(diagram, ...)
 }
 \arguments{
-\item{diagram}{Diagram in mermaid markdown-like language or file (as a
-connection or file name) containing a diagram specification. If no diagram
-is provided \code{diagram = ""} then the function will assume that a diagram
-will be provided by \code{\link[htmltools:builder]{htmltools::tags()}} and \code{DiagrammeR} is just being used
-for dependency injection.}
+\item{diagram}{A character string containing the mermaid graph syntax for the value tree.}
 
 \item{...}{Other arguments and parameters you would like to send to
 JavaScript.}
 }
 \value{
-value tree image
+A DiagrammeR mermaid object representing the value tree
 }
 \description{
-Generate example value tree
+Generate example value tree using provided mermaid graph syntax.
+}
+\details{
+The function takes a mermaid graph syntax as input to create the value tree.
+This allows for flexibility in defining the tree structure and node relationships.
+
+The example provided demonstrates a typical structure based on information from the \code{effects_table}:
+\itemize{
+\item Top-level node represents the overall Benefit-Risk Balance
+\item Second-level nodes represent \code{Factor} for either Benefits or Risks (e.g., Benefit, Risk)
+\item Third-level nodes represent \code{Outcomes} for the specific categories of Benefits and Risks
+\item Fourth-level nodes include \code{Statistics} for specific endpoints or measures for each Outcome
+}
+
+Colors are used to differentiate between different levels or types of effects:
+\itemize{
+\item Green (#7ABD7E) for top-level and major category nodes
+\item Yellow (#FFE733) for secondary category nodes
+\item Orange (#FFAA1C) for specific endpoint nodes
+\item Grey (#C6C6C6) for nodes which have been pruned from the tree
+}
+
+The mermaid syntax used in this function follows these conventions:
+\itemize{
+\item The graph is defined as left-to-right (LR) using \verb{graph LR;}
+\item Nodes are defined with letters (A, B, C, etc.) and their content is enclosed in parentheses
+\item Node content is wrapped in \if{html}{\out{<B>}} tags for bold text
+\item Relationships between nodes are defined using arrows (-->)
+\item Node styles, including fill colors, are defined using the \code{style} keyword
+}
+
+For example:
+A(\if{html}{\out{<B>}}Node A\if{html}{\out{</B>}})-->B(\if{html}{\out{<B>}}Node B\if{html}{\out{</B>}})
+style A fill:#7ABD7E
+
+This creates two nodes, A and B, with A linking to B, and sets the fill color of A to green.
 }
 \examples{
 value_tree(
