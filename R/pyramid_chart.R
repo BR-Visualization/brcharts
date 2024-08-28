@@ -3,24 +3,22 @@
 #' Creates a population pyramid chart to visualize the distribution of a demographic
 #' variable (e.g., prevalence) across age groups and genders (or other binary groups).
 #'
-#' @param data `dataframe` Demography data containing at least the following columns:
-#'   * `Age`: Age groups (factor or character).
-#'   * `Gender`: Gender categories (factor or character with two levels).
-#'   * `Prevalence`: Numeric values representing the prevalence or count for each age group and gender.
-#'   * `Type`: An additional grouping variable (factor or character) to create separate pyramids for different types.
-#' @param levelvar `Factor` The column name in `data` representing the grouping variable
-#'   to create separate pyramids (e.g., "Type").
-#'   Must be a factor, character, or numeric vector.
-#' @param groupvar `Factor` The column name in `data` representing the binary groups
-#'   to be displayed on each side of the pyramid (e.g., "Gender").
-#'   Must be a factor or character with two levels.
-#' @param alpha_set `Value` Specify the transparency of the bars in the chart (between 0 and 1).
-#' @param xvar `value` The column name in `data` representing the numeric values to be plotted
-#'    on the x-axis (e.g., "Prevalence" or a transformed version of it).
-#' @param yvar `value` The column name in `data` representing the age groups to be plotted
-#'    on the y-axis (e.g., "Age").
-#' @param chartcolors `vector` A vector of two colors to be used for the two sides of the pyramid.
-#' @param xlab `text` Label for the x-axis.
+#' @param data dataframe A data frame containing at least four columns: x-axis variable, y-axis variable, and two grouping variables.
+#' @param xvar string The column name in data representing the numeric values to be plotted
+#' on the x-axis, i.e., the lengths of the bars (e.g., "Prevalence" or a transformed version of it).
+#' This variable must be a numeric vector.
+#' @param yvar string The column name in data representing the categories to be plotted
+#' on the y-axis, i.e., the names of the bars (e.g., "Age").
+#' This variable must be a factor, character, or numeric vector.
+#' @param groupvar string The column name in data representing the binary groups
+#' to be displayed on each side of the pyramid (e.g., "Gender").
+#' This grouping variable must be a factor, character, or numeric vector with two levels.
+#' @param levelvar string The column name in data representing the grouping variable
+#' to create separate pyramids (e.g., "Type").
+#' This grouping variable must be a factor, character, or numeric vector.
+#' @param alpha_set numeric Specify the transparency of the bars in the chart (between 0 and 1).
+#' @param chartcolors vector A vector of two colors to be used for the two sides of the pyramid.
+#' @param xlab string Label for the x-axis.
 #'
 #' @importFrom patchwork plot_layout
 #' @importFrom dplyr mutate filter

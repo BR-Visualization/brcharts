@@ -16,33 +16,29 @@ pyramid_chart(
 )
 }
 \arguments{
-\item{data}{\code{dataframe} Demography data containing at least the following columns:
-\itemize{
-\item \code{Age}: Age groups (factor or character).
-\item \code{Gender}: Gender categories (factor or character with two levels).
-\item \code{Prevalence}: Numeric values representing the prevalence or count for each age group and gender.
-\item \code{Type}: An additional grouping variable (factor or character) to create separate pyramids for different types.
-}}
+\item{data}{dataframe A data frame containing at least four columns: x-axis variable, y-axis variable, and two grouping variables.}
 
-\item{xvar}{\code{value} The column name in \code{data} representing the numeric values to be plotted
-on the x-axis (e.g., "Prevalence" or a transformed version of it).}
+\item{xvar}{string The column name in data representing the numeric values to be plotted
+on the x-axis, i.e., the lengths of the bars (e.g., "Prevalence" or a transformed version of it).
+This variable must be a numeric vector.}
 
-\item{yvar}{\code{value} The column name in \code{data} representing the age groups to be plotted
-on the y-axis (e.g., "Age").}
+\item{yvar}{string The column name in data representing the categories to be plotted
+on the y-axis, i.e., the names of the bars (e.g., "Age").
+This variable must be a factor, character, or numeric vector.}
 
-\item{levelvar}{\code{Factor} The column name in \code{data} representing the grouping variable
+\item{levelvar}{string The column name in data representing the grouping variable
 to create separate pyramids (e.g., "Type").
-Must be a factor, character, or numeric vector.}
+This grouping variable must be a factor, character, or numeric vector.}
 
-\item{groupvar}{\code{Factor} The column name in \code{data} representing the binary groups
+\item{groupvar}{string The column name in data representing the binary groups
 to be displayed on each side of the pyramid (e.g., "Gender").
-Must be a factor or character with two levels.}
+This grouping variable must be a factor, character, or numeric vector with two levels.}
 
-\item{xlab}{\code{text} Label for the x-axis.}
+\item{xlab}{string Label for the x-axis.}
 
-\item{alpha_set}{\code{Value} Specify the transparency of the bars in the chart (between 0 and 1).}
+\item{alpha_set}{numeric Specify the transparency of the bars in the chart (between 0 and 1).}
 
-\item{chartcolors}{\code{vector} A vector of two colors to be used for the two sides of the pyramid.}
+\item{chartcolors}{vector A vector of two colors to be used for the two sides of the pyramid.}
 }
 \value{
 A ggplot object representing the population pyramid chart.
