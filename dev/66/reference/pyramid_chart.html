@@ -66,45 +66,43 @@ variable (e.g., prevalence) across age groups and genders (or other binary group
 
 
 <dl><dt id="arg-data">data<a class="anchor" aria-label="anchor" href="#arg-data"></a></dt>
-<dd><p><code>dataframe</code> Demography data containing at least the following columns:</p><ul><li><p><code>Age</code>: Age groups (factor or character).</p></li>
-<li><p><code>Gender</code>: Gender categories (factor or character with two levels).</p></li>
-<li><p><code>Prevalence</code>: Numeric values representing the prevalence or count for each age group and gender.</p></li>
-<li><p><code>Type</code>: An additional grouping variable (factor or character) to create separate pyramids for different types.</p></li>
-</ul></dd>
+<dd><p>dataframe A data frame containing at least four columns: x-axis variable, y-axis variable, and two grouping variables.</p></dd>
 
 
 <dt id="arg-xvar">xvar<a class="anchor" aria-label="anchor" href="#arg-xvar"></a></dt>
-<dd><p><code>value</code> The column name in <code>data</code> representing the numeric values to be plotted
-on the x-axis (e.g., "Prevalence" or a transformed version of it).</p></dd>
+<dd><p>string The column name in data representing the numeric values to be plotted
+on the x-axis, i.e., the lengths of the bars (e.g., "Prevalence" or a transformed version of it).
+This variable must be a numeric vector.</p></dd>
 
 
 <dt id="arg-yvar">yvar<a class="anchor" aria-label="anchor" href="#arg-yvar"></a></dt>
-<dd><p><code>value</code> The column name in <code>data</code> representing the age groups to be plotted
-on the y-axis (e.g., "Age").</p></dd>
+<dd><p>string The column name in data representing the categories to be plotted
+on the y-axis, i.e., the names of the bars (e.g., "Age").
+This variable must be a factor, character, or numeric vector.</p></dd>
 
 
 <dt id="arg-levelvar">levelvar<a class="anchor" aria-label="anchor" href="#arg-levelvar"></a></dt>
-<dd><p><code>Factor</code> The column name in <code>data</code> representing the grouping variable
+<dd><p>string The column name in data representing the grouping variable
 to create separate pyramids (e.g., "Type").
-Must be a factor, character, or numeric vector.</p></dd>
+This grouping variable must be a factor, character, or numeric vector.</p></dd>
 
 
 <dt id="arg-groupvar">groupvar<a class="anchor" aria-label="anchor" href="#arg-groupvar"></a></dt>
-<dd><p><code>Factor</code> The column name in <code>data</code> representing the binary groups
+<dd><p>string The column name in data representing the binary groups
 to be displayed on each side of the pyramid (e.g., "Gender").
-Must be a factor or character with two levels.</p></dd>
+This grouping variable must be a factor, character, or numeric vector with two levels.</p></dd>
 
 
 <dt id="arg-xlab">xlab<a class="anchor" aria-label="anchor" href="#arg-xlab"></a></dt>
-<dd><p><code>text</code> Label for the x-axis.</p></dd>
+<dd><p>string Label for the x-axis.</p></dd>
 
 
 <dt id="arg-alpha-set">alpha_set<a class="anchor" aria-label="anchor" href="#arg-alpha-set"></a></dt>
-<dd><p><code>Value</code> Specify the transparency of the bars in the chart (between 0 and 1).</p></dd>
+<dd><p>numeric Specify the transparency of the bars in the chart (between 0 and 1).</p></dd>
 
 
 <dt id="arg-chartcolors">chartcolors<a class="anchor" aria-label="anchor" href="#arg-chartcolors"></a></dt>
-<dd><p><code>vector</code> A vector of two colors to be used for the two sides of the pyramid.</p></dd>
+<dd><p>vector A vector of two colors to be used for the two sides of the pyramid.</p></dd>
 
 </dl></div>
     <div id="value">
