@@ -1,8 +1,8 @@
 ---
-title: "Efects Table"
+title: "Effects Table"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{efects-table}
+  %\VignetteIndexEntry{Effects Table}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

@@ -59,6 +59,7 @@ lbl
 nEvent
 nSub
 obsv
+requiredness
 sarcopenia
 tble
 trt
@@ -67,7 +68,6 @@ usubjid
 xend
 xpos
 xstart
-xyz
 yend
 ypos
 ystart
