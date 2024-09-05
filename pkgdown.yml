@@ -1,5 +1,6 @@
 pandoc: 3.1.11
 pkgdown: 2.1.0
 pkgdown_sha: ~
-articles: {}
-last_built: 2024-09-04T08:49Z
+articles:
+  efects-table: efects-table.html
+last_built: 2024-09-05T08:55Z
