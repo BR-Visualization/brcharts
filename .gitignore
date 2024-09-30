@@ -51,3 +51,5 @@ rsconnect/
 brcharts.Rcheck/
 brcharts*.tar.gz
 brcharts*.tgz
+
+/.quarto/
