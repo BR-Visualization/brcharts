@@ -19,7 +19,7 @@ library(brcharts)
 ```
 
 ```{r create_table, echo = FALSE}
-DT::datatable(decision_table, filter = 'top', options = list(
+DT::datatable(decision_table, filter = "top", options = list(
   pageLength = 12, autoWidth = TRUE
 ))
 ```
