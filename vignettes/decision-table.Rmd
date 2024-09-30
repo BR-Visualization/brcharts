@@ -1,0 +1,25 @@
+---
+title: "Decision Table"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Decision Table}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE, echo = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup, warning = FALSE, message = FALSE, echo = FALSE}
+library(brcharts)
+```
+
+```{r create_table, echo = FALSE}
+DT::datatable(decision_table, filter = 'top', options = list(
+  pageLength = 12, autoWidth = TRUE
+))
+```

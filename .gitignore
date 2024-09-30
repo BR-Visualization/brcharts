@@ -53,3 +53,4 @@ brcharts*.tar.gz
 brcharts*.tgz
 
 /.quarto/
+inst/doc
