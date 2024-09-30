@@ -139,3 +139,17 @@
 #'
 #'   }
 "cumexcess"
+
+#' Example decision_table used for decision table
+#'
+#' @format ## `decision_table`
+#' A data frame with 48 rows and 5 columns:
+#' \describe{
+#'   \item{Type of Outcome}{Type of Outcome}
+#'   \item{Summary Statistics for Primary Outcome}{Summary Statistics for Primary Outcome}
+#'   \item{Summary Statistics for Treatment Outcome}{Summary Statistics for Treatment Outcome}
+#'   \item{Method for Populating CI}{Method for Populating CI}
+#'   \item{Required Columns}{Required Columns}
+#'
+#' }
+"decision_table"
