@@ -25,19 +25,6 @@
       <ul class="nav navbar-nav"><li>
   <a href="../reference/index.html">Reference</a>
 </li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    Articles
-
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu"><li>
-      <a href="../articles/decision-table.html">Decision Table</a>
-    </li>
-    <li>
-      <a href="../articles/effects-table.html">Effects Table</a>
-    </li>
-  </ul></li>
 <li>
   <a href="../news/index.html">Changelog</a>
 </li>
@@ -57,7 +44,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Dot plot data for binary outcomes</h1>
-    <small class="dont-index">Source: <a href="https://github.com/BR-Visualization/brcharts/blob/67-refine-requirements-for-input-data-for-trade-off-plot/R/forest_dot_plot_utils.R" class="external-link"><code>R/forest_dot_plot_utils.R</code></a></small>
+    <small class="dont-index">Source: <a href="https://github.com/BR-Visualization/brcharts/blob/70-docs-create-alternative-representation-of-decision-tree/R/forest_dot_plot_utils.R" class="external-link"><code>R/forest_dot_plot_utils.R</code></a></small>
     <div class="hidden name"><code>prepare_dot_data_b.Rd</code></div>
     </div>
 
@@ -86,7 +73,7 @@
     <h2>Examples</h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">dot_plot_src</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/subset.html" class="external-link">subset</a></span><span class="op">(</span><span class="va">effects_table</span>, <span class="va">Type</span> <span class="op">==</span> <span class="st">"Binary"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">dot_plot_data</span> <span class="op">&lt;-</span> <span class="fu">prepare_dot_data_b</span><span class="op">(</span><span class="va">dot_plot_src</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> [2024-09-30 23:40:47] &gt; Prepare Dot plot data for binary outcomes</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> [2024-10-08 13:55:20] &gt; Prepare Dot plot data for binary outcomes</span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">dot_plot_data</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    rate treatment   type  factor          outcome group</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1 0.460    Drug A Binary Benefit Primary Efficacy     1</span>
