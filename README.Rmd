@@ -627,4 +627,5 @@ gensurv_combined(
     "Cumulative Excess # of Subjects w/ Events(per 100 Subjects)"
 )
 ```
+
 </details>
