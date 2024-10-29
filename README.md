@@ -84,7 +84,9 @@ devtools::install_github("BR-Visualization/brcharts")
 <img src="man/figures/README-pyramid_plot-1.png" width="100%" />
 
 <details>
+
 <summary>
+
 Click to learn more
 </summary>
 
@@ -112,8 +114,11 @@ Stratifying the randomization on disease type might be necessary if
 clinical evidence is needed for disease type B, particularly for younger
 age groups.
 </details>
+
 <details>
+
 <summary>
+
 Click to view sample code
 </summary>
 
@@ -140,7 +145,9 @@ demography |>
 <img src="man/figures/README-line_chart-1.png" width="100%" />
 
 <details>
+
 <summary>
+
 Click to learn more
 </summary>
 
@@ -172,8 +179,11 @@ History of disease progression also impacts patient engagement, since
 newly diagnosed patients might have no experience with more serious
 manifestations, such as mental function.
 </details>
+
 <details>
+
 <summary>
+
 Click to view sample code
 </summary>
 
@@ -202,7 +212,9 @@ line_chart(
 <img src="man/figures/README-grouped_barchart-1.png" width="100%" />
 
 <details>
+
 <summary>
+
 Click to learn more
 </summary>
 
@@ -223,8 +235,11 @@ might place high importance in a drug that reduces severe hypertension.
 A display of background rates is also useful in determining whether a
 comorbidity is likely due to the drug or the disease.
 </details>
+
 <details>
+
 <summary>
+
 Click to view sample code
 </summary>
 
@@ -240,10 +255,12 @@ grouped_barchart(
 
 ## Figure 5 - Value Tree
 
-<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-332decc55b748362f794" style="width:100%;height:508.8px;"></div>
-<script type="application/json" data-for="htmlwidget-332decc55b748362f794">{"x":{"diagram":"graph LR;\n  A(<B>Benefit-Risk Balance<\/B>)-->B(<B>Benefits<\/B>)\n  B-->C(<B>Primary Efficacy<\/B>)\n  B-->D(<B>Secondary Efficacy<\/B>)\n  B-->E(<B>Quality of life<\/B>)\n  C-->F(<B>% Success<\/B>)\n  D-->G(<B>Mean change<\/B>)\n  E-->H(<B>Mean change<\/B>)\n  A-->I(<B>Risks<\/B>)\n  I-->J(<B>Recurring AE<\/B>)\n  I-->K(<B>Rare SAE<\/B>)\n  I-->L(<B>Liver Toxicity<\/B>)\n  J-->M(<B>Event rate<\/B>)\n  K-->N(<B>% Event<\/B>)\n  L-->O(<B>% Event<\/B>)\n  style A fill:#7ABD7E\n\n  style B fill:#7ABD7E\n  style I fill:#7ABD7E\n  style C fill:#FFE733\n  style D fill:#FFE733\n  style E fill:#FFE733\n  style J fill:#FFE733\n  style K fill:#FFE733\n  style L fill:#C6C6C6\n  style F fill: #FFAA1C\n  style G fill: #FFAA1C\n  style H fill: #FFAA1C\n  style M fill: #FFAA1C\n  style N fill: #FFAA1C\n  style O fill: #C6C6C6\n  "},"evals":[],"jsHooks":[]}</script>
+<img src="man/figures/README-value_tree-1.png" width="100%" />
+
 <details>
+
 <summary>
+
 Click to learn more
 </summary>
 
@@ -287,8 +304,11 @@ Both primary and secondary efficacy clinical endpoints were included
 because they were not correlated. Quality of Life was included to
 capture what was important to the subjects.
 </details>
+
 <details>
+
 <summary>
+
 Click to view sample code
 </summary>
 
@@ -336,7 +356,9 @@ value_tree(
 <img src="man/figures/README-forest_dot_plot-1.png" width="100%" />
 
 <details>
+
 <summary>
+
 Click to learn more
 </summary>
 
@@ -382,8 +404,11 @@ It is important to not confuse the forest plot with the similar looking
 meta-analysis plot, which has multiple rows for different studies but
 for the same endpoint.
 </details>
+
 <details>
+
 <summary>
+
 Click to view sample code
 </summary>
 
@@ -407,7 +432,9 @@ forest_dot_plot(effects_table,
 <img src="man/figures/README-tradeoff_plot-1.png" width="100%" />
 
 <details>
+
 <summary>
+
 Click to learn more
 </summary>
 
@@ -462,8 +489,11 @@ support of the generalizability of the investigational drug.
 Ideally, the investigational drug will appear in an area of unmet need
 in the acceptance region.
 </details>
+
 <details>
+
 <summary>
+
 Click to view sample code
 </summary>
 
@@ -514,7 +544,9 @@ generate_tradeoff_plot(
 <img src="man/figures/README-correlogram-1.png" width="100%" />
 
 <details>
+
 <summary>
+
 Click to learn more
 </summary>
 
@@ -547,8 +579,11 @@ There is also an explainable negative correlation between outcomes for
 quality-of-life and recurring AE. The medium positive correlation
 between recurring AE and primary efficacy is difficult to explain.
 </details>
+
 <details>
+
 <summary>
+
 Click to view sample code
 </summary>
 
@@ -563,7 +598,9 @@ create_correlogram(corr)
 <img src="man/figures/README-scatterplot-1.png" width="100%" />
 
 <details>
+
 <summary>
+
 Click to learn more
 </summary>
 
@@ -594,8 +631,11 @@ region below the diagonal threshold. Besides displaying subject
 variability, it indicates which subjects are most likely to benefit from
 the investigational drug.
 </details>
+
 <details>
+
 <summary>
+
 Click to view sample code
 </summary>
 
@@ -610,7 +650,9 @@ scatter_plot(scatterplot, outcome = c("Benefit", "Risk"))
 <img src="man/figures/README-stacked_barchart-1.png" width="100%" />
 
 <details>
+
 <summary>
+
 Click to learn more
 </summary>
 
@@ -644,8 +686,11 @@ It is expected that the percentage of subjects withdrawing increase over
 time, due to placebo subjects receiving no benefit and other subjects
 experiencing adverse events.
 </details>
+
 <details>
+
 <summary>
+
 Click to view sample code
 </summary>
 
@@ -664,7 +709,9 @@ stacked_barchart(
 <img src="man/figures/README-cumulative_excess_plot-1.png" width="100%" />
 
 <details>
+
 <summary>
+
 Click to learn more
 </summary>
 
@@ -706,8 +753,11 @@ are higher for the active drug than placebo, but not at the same rate.
 This is an ideal scenario where the benefit increased with drug exposure
 while the risk plateaued.
 </details>
+
 <details>
+
 <summary>
+
 Click to view sample code
 </summary>
 
