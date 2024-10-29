@@ -240,8 +240,8 @@ grouped_barchart(
 
 ## Figure 5 - Value Tree
 
-<img src="man/figures/README-value_tree-1.png" width="100%" />
-
+<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-332decc55b748362f794" style="width:100%;height:508.8px;"></div>
+<script type="application/json" data-for="htmlwidget-332decc55b748362f794">{"x":{"diagram":"graph LR;\n  A(<B>Benefit-Risk Balance<\/B>)-->B(<B>Benefits<\/B>)\n  B-->C(<B>Primary Efficacy<\/B>)\n  B-->D(<B>Secondary Efficacy<\/B>)\n  B-->E(<B>Quality of life<\/B>)\n  C-->F(<B>% Success<\/B>)\n  D-->G(<B>Mean change<\/B>)\n  E-->H(<B>Mean change<\/B>)\n  A-->I(<B>Risks<\/B>)\n  I-->J(<B>Recurring AE<\/B>)\n  I-->K(<B>Rare SAE<\/B>)\n  I-->L(<B>Liver Toxicity<\/B>)\n  J-->M(<B>Event rate<\/B>)\n  K-->N(<B>% Event<\/B>)\n  L-->O(<B>% Event<\/B>)\n  style A fill:#7ABD7E\n\n  style B fill:#7ABD7E\n  style I fill:#7ABD7E\n  style C fill:#FFE733\n  style D fill:#FFE733\n  style E fill:#FFE733\n  style J fill:#FFE733\n  style K fill:#FFE733\n  style L fill:#C6C6C6\n  style F fill: #FFAA1C\n  style G fill: #FFAA1C\n  style H fill: #FFAA1C\n  style M fill: #FFAA1C\n  style N fill: #FFAA1C\n  style O fill: #C6C6C6\n  "},"evals":[],"jsHooks":[]}</script>
 <details>
 <summary>
 Click to learn more
@@ -668,7 +668,7 @@ stacked_barchart(
 Click to learn more
 </summary>
 
-**Cumulative excess plot: how to read**
+**Cumulative Excess Plot: how to read**
 
 - The Y-axis displays the cumulative excess incidence per 100 subjects,
   ranging from 0 to maximum observed value.
