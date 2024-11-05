@@ -597,7 +597,7 @@ gensurv_combined(
 
 <details>
 <summary>Click to learn more</summary>
-**Cumulative excess plot: how to read**
+**Cumulative Excess Plot: how to read**
   
 - The Y-axis displays the cumulative excess incidence per 100 subjects, ranging from 0 to maximum observed value.
 - The X-axis displays the study week, ranging from 0 to end of follow-up.
