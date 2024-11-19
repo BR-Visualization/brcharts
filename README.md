@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# brcharts <a href="https://br-visualization.github.io/brcharts/"><img src="man/figures/logo1.png" style="float: right; margin-top: -20px; width: 135px; height: 150px;" alt="brcharts website" /></a>
+# brcharts <a href="https://br-visualization.github.io/brcharts/"><img src="man/figures/logo1.png" style="float: right; margin-top: -20px; margin-right: 20px; width: 135px; height: 150px;" alt="brcharts website" /></a>
 
 <!-- badges: start -->
 
