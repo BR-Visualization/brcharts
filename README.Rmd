@@ -14,7 +14,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-# brcharts
+# brcharts <a href="https://br-visualization.github.io/brcharts/"><img src="man/figures/logo1.png" style="float: right; margin-top: -20px; width: 135px; height: 150px;" alt="brcharts website" /></a>
 
 <!-- badges: start -->
 
@@ -236,7 +236,7 @@ diagram <-
   style N fill: #FFAA1C
   style O fill: #C6C6C6
   "
-value_tree(diagram)
+#value_tree(diagram)
 ```
 
 <details>
