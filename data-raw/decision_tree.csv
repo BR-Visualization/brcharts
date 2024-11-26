@@ -1,0 +1,13 @@
+,Type of Outcome,Summary Statistics for Primary Outcome,Summary Statistics for Treatment Outcome,Method for Populating CI,Required Columns
+1,Binary,Proportion,Risk Difference,Supplied CI,"Prop1 (or nSub1 and N1), Prop2 (or nSub2 and N2), Diff_LowerCI, Diff_UpperCI"
+2,Binary,Proportion,Risk Difference,Calculated CI,"Prop1 (or nSub1), Prop2 (or nSub2), N1, N2"
+3,Binary,Proportion,Relative Risk,Supplied CI,"Prop1 (or nSub1 and N1), Prop2 (or nSub2 and N2), RelRisk_LowerCI, RelRisk_UpperCI"
+4,Binary,Proportion,Relative Risk,Calculated CI,"Prop1 (or nSub1), Prop2 (or nSub2), N1, N2"
+5,Binary,Proportion,Odds Ratio,Supplied CI,"Prop1 (or nSub1 and N1), Prop2 (or nSub2 and N2), OddsRatio_LowerCI, OddsRatio_UpperCI"
+6,Binary,Proportion,Odds Ratio,Calculated CI,"Prop1 (or nSub1), Prop2 (or nSub2), N1, N2"
+7,Binary,Incidence Rate,Supplied CI,"IncRate1 (or nSub1 and 100PYAR1), IncRate2 (or nSub2 and 100PYAR2), Diff_IncRate_LowerCI, Diff_IncRate_UpperCI",
+8,Binary,Incidence Rate,Calculated CI,"IncRate1 (or nSub1), IncRate2 (or nSub2), 100PYAR1, 100PYAR2",
+9,Binary,Event Rate,Supplied CI,"EventRate1 (or nEvent1 and 100PEY1), EventRate2 (or nEvent2 and 100PEY2), Diff_EventRate_LowerCI, Diff_EventRate_UpperCI",
+10,Binary,Event Rate,Calculated CI,"EventRate1 (or nEvent1), EventRate2 (or nEvent2), 100PEY1, 100PEY2",
+11,Continuous,Supplied CI,"Mean1, Mean2, Diff_LowerCI, Diff_UpperCI",,
+12,Continuous,Calculated CI,"Mean1, Mean2, Sd1 (or Se1), Sd2 (or Se2), N1, N2",,
