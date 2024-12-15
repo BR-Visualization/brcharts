@@ -21,7 +21,6 @@
 #' @import cowplot
 #' @import ggcorrplot
 #' @import stringr
-#' @import faux
 #'
 #' @details
 #' Different correlation coefficients are calculated based on the nature of the
