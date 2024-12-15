@@ -1,13 +1,9 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-<<<<<<< Updated upstream
-# brcharts <a href="https://br-visualization.github.io/brcharts/"><img src="man/figures/logo1.png" style="float: right; margin-top: -20px; margin-left: 20px; width: 135px; height: 150px;" alt="brcharts website" /></a>
-=======
 # brcharts
 
-<a href="https://br-visualization.github.io/brcharts/"><img src="man/figures/logo1.png" align = "right" height = "145" width = "128" /></a>
->>>>>>> Stashed changes
+<a href="https://br-visualization.github.io/brcharts/"><img src="man/figures/logo1.png" align = "right" height = "145" width = "132" /></a>
 
 <!-- badges: start -->
 
