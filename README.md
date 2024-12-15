@@ -3,7 +3,7 @@
 
 # brcharts
 
-<a href="https://br-visualization.github.io/brcharts/"><img src="man/figures/logo1.png" align = "right" height = "145" width = "132" /></a>
+<a href="https://br-visualization.github.io/brcharts/"><img src="man/figures/logo1.png" align = "right" height = "145px"  /></a>
 
 <!-- badges: start -->
 
