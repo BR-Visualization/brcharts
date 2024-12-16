@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# brcharts
+# brcharts <a href="https://br-visualization.github.io/brcharts/"><img src="man/figures/logo1.png" align="right" height="145" width="auto" style="max-width: 100% !important; height: 145px !important; width: auto !important;" /></a>
 
 <!-- badges: start -->
 
@@ -84,9 +84,7 @@ devtools::install_github("BR-Visualization/brcharts")
 <img src="man/figures/README-pyramid_plot-1.png" width="100%" />
 
 <details>
-
 <summary>
-
 Click to learn more
 </summary>
 
@@ -114,11 +112,8 @@ Stratifying the randomization on disease type might be necessary if
 clinical evidence is needed for disease type B, particularly for younger
 age groups.
 </details>
-
 <details>
-
 <summary>
-
 Click to view sample code
 </summary>
 
@@ -145,9 +140,7 @@ demography |>
 <img src="man/figures/README-line_chart-1.png" width="100%" />
 
 <details>
-
 <summary>
-
 Click to learn more
 </summary>
 
@@ -179,11 +172,8 @@ History of disease progression also impacts patient engagement, since
 newly diagnosed patients might have no experience with more serious
 manifestations, such as mental function.
 </details>
-
 <details>
-
 <summary>
-
 Click to view sample code
 </summary>
 
@@ -212,9 +202,7 @@ line_chart(
 <img src="man/figures/README-grouped_barchart-1.png" width="100%" />
 
 <details>
-
 <summary>
-
 Click to learn more
 </summary>
 
@@ -235,11 +223,8 @@ might place high importance in a drug that reduces severe hypertension.
 A display of background rates is also useful in determining whether a
 comorbidity is likely due to the drug or the disease.
 </details>
-
 <details>
-
 <summary>
-
 Click to view sample code
 </summary>
 
@@ -258,9 +243,7 @@ grouped_barchart(
 <img src="man/figures/README-value_tree-1.png" width="100%" />
 
 <details>
-
 <summary>
-
 Click to learn more
 </summary>
 
@@ -304,11 +287,8 @@ Both primary and secondary efficacy clinical endpoints were included
 because they were not correlated. Quality of Life was included to
 capture what was important to the subjects.
 </details>
-
 <details>
-
 <summary>
-
 Click to view sample code
 </summary>
 
@@ -356,9 +336,7 @@ value_tree(
 <img src="man/figures/README-forest_dot_plot-1.png" width="100%" />
 
 <details>
-
 <summary>
-
 Click to learn more
 </summary>
 
@@ -404,11 +382,8 @@ It is important to not confuse the forest plot with the similar looking
 meta-analysis plot, which has multiple rows for different studies but
 for the same endpoint.
 </details>
-
 <details>
-
 <summary>
-
 Click to view sample code
 </summary>
 
@@ -432,9 +407,7 @@ forest_dot_plot(effects_table,
 <img src="man/figures/README-tradeoff_plot-1.png" width="100%" />
 
 <details>
-
 <summary>
-
 Click to learn more
 </summary>
 
@@ -489,11 +462,8 @@ support of the generalizability of the investigational drug.
 Ideally, the investigational drug will appear in an area of unmet need
 in the acceptance region.
 </details>
-
 <details>
-
 <summary>
-
 Click to view sample code
 </summary>
 
@@ -544,9 +514,7 @@ generate_tradeoff_plot(
 <img src="man/figures/README-correlogram-1.png" width="100%" />
 
 <details>
-
 <summary>
-
 Click to learn more
 </summary>
 
@@ -579,11 +547,8 @@ There is also an explainable negative correlation between outcomes for
 quality-of-life and recurring AE. The medium positive correlation
 between recurring AE and primary efficacy is difficult to explain.
 </details>
-
 <details>
-
 <summary>
-
 Click to view sample code
 </summary>
 
@@ -598,9 +563,7 @@ create_correlogram(corr)
 <img src="man/figures/README-scatterplot-1.png" width="100%" />
 
 <details>
-
 <summary>
-
 Click to learn more
 </summary>
 
@@ -631,11 +594,8 @@ region below the diagonal threshold. Besides displaying subject
 variability, it indicates which subjects are most likely to benefit from
 the investigational drug.
 </details>
-
 <details>
-
 <summary>
-
 Click to view sample code
 </summary>
 
@@ -650,9 +610,7 @@ scatter_plot(scatterplot, outcome = c("Benefit", "Risk"))
 <img src="man/figures/README-stacked_barchart-1.png" width="100%" />
 
 <details>
-
 <summary>
-
 Click to learn more
 </summary>
 
@@ -686,11 +644,8 @@ It is expected that the percentage of subjects withdrawing increase over
 time, due to placebo subjects receiving no benefit and other subjects
 experiencing adverse events.
 </details>
-
 <details>
-
 <summary>
-
 Click to view sample code
 </summary>
 
@@ -709,9 +664,7 @@ stacked_barchart(
 <img src="man/figures/README-cumulative_excess_plot-1.png" width="100%" />
 
 <details>
-
 <summary>
-
 Click to learn more
 </summary>
 
@@ -753,11 +706,8 @@ are higher for the active drug than placebo, but not at the same rate.
 This is an ideal scenario where the benefit increased with drug exposure
 while the risk plateaued.
 </details>
-
 <details>
-
 <summary>
-
 Click to view sample code
 </summary>
 
