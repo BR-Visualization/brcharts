@@ -5,7 +5,7 @@ about: Template for opening GitHub issues to request new graphs
 
 **Figure shell**
 
-Give a figure shell which could be a draft version
+Give a figure shell for the requested new graph (could be a draft version)
 
 **A brief introduction to the graph**
 
