@@ -3,7 +3,7 @@ name: New Graph Request
 about: Template for opening GitHub issues to request new graphs
 ---
 
-*Please use this template for opening GitHub issues to request new graphs.*
+# Template for opening GitHub issues to request new graphs
 
 **Figure shell**
 
